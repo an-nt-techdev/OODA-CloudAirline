@@ -1,0 +1,3 @@
+Trang chu (Booking/Checking) *1*
+-> Booking page *2* -> Choose seat *3* -> checkout *4* -> bill page *5*
+-> bill page *5*
