@@ -35,15 +35,15 @@
 					</div>
 					<div class="col-md-7 col-md-offset-1">
 						<div class="booking-form">
-							<form action="?choose_seat=on" method="post">
+							<form action="?checked=true" method="post">
 								<div class="form-group">
 									<div class="form-checkbox">
 										<label for="one-way">
-											<input type="radio" id="one-way" name="flight-type" value="one-way" checked onclick="TwoWay()">
+											<input type="radio" id="one-way" name="flight-type" checked onclick="TwoWay()">
 											<span></span>One-way
 										</label>
 										<label for="two-way">
-											<input type="radio" id="two-way" name="flight-type" value="two-way" onclick="TwoWay()">
+											<input type="radio" id="two-way" name="flight-type" onclick="TwoWay()">
 											<span></span>Two-way
 										</label>
 									</div>
@@ -52,35 +52,13 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Flying from</span>
-											<select class="form-control" name="from" required>
-												<?php 
-													// for ($i=1; $i<=100; $i++)
-													// {
-													// 		echo "<option id='".$i."' value='".$i."'>".$i."</option>";
-													// }
-													echo "<option id='HCM' value='HoChiMinh'>Hồ Chí Minh</option>";
-													echo "<option id='HN' value='HaNoi'>Hà Nội</option>";
-													echo "<option id='DN' value='DaNang'>Đà Nẵng</option>";
-												?>
-											</select>
-											<span class="select-arrow"></span>
+											<input class="form-control" type="text" placeholder="City or airport" required>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Flyning to</span>
-											<select class="form-control" name="to" required>
-												<?php 
-													// for ($i=1; $i<=100; $i++)
-													// {
-													// 		echo "<option id='".$i."' value='".$i."'>".$i."</option>";
-													// }
-													echo "<option id='HCM' value='HoChiMinh'>Hồ Chí Minh</option>";
-													echo "<option id='HN' value='HaNoi'>Hà Nội</option>";
-													echo "<option id='DN' value='DaNang'>Đà Nẵng</option>";
-												?>
-											</select>
-											<span class="select-arrow"></span>
+											<input class="form-control" type="text" placeholder="City or airport" required>
 										</div>
 									</div>
 								</div>
@@ -88,13 +66,13 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Departing</span>
-											<input class="form-control" name="start" type="date" required>
+											<input class="form-control" type="date" required>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Returning</span>
-											<input class="form-control" name="end" type="date" id="returning" required disabled>
+											<input class="form-control" type="date" id="returning" required disabled>
 										</div>
 									</div>
 								</div>
@@ -102,7 +80,7 @@
 									<div class="col-md-4">
 										<div class="form-group">
 											<span class="form-label">Adults (18+)</span>
-											<select class="form-control" name="adult">
+											<select class="form-control">
 												<?php 
 													for ($i=1; $i<=100; $i++)
 													{
@@ -116,7 +94,7 @@
 									<div class="col-md-4">
 										<div class="form-group">
 											<span class="form-label">Children (0-17)</span>
-											<select class="form-control" name="children">
+											<select class="form-control">
 												<?php 
 													for ($i=0; $i<=100; $i++)
 													{
@@ -130,7 +108,7 @@
 									<div class="col-md-4">
 										<div class="form-group">
 											<span class="form-label">Ticket type</span>
-											<select class="form-control" name="type">
+											<select class="form-control">
 												<option>Basic ticket</option>
 												<option>Business ticket</option>
 												<option>First class ticket</option>
@@ -143,13 +121,13 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Your Name</span>
-											<input class="form-control" name="nameKH" type="text" placeholder="Your full name" required>
+											<input class="form-control" type="text" placeholder="Your full name" required>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Your Identity card</span>
-											<input class="form-control" name="cmndKH" type="number" placeholder="Your Identity card" required>
+											<input class="form-control" type="number" placeholder="Your Identity card" required>
 										</div>
 									</div>
 								</div>
@@ -157,13 +135,13 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Your Phone Number</span>
-											<input class="form-control" name="phoneKH" type="number" placeholder="Your phone number" required>
+											<input class="form-control" type="number" placeholder="Your phone number" required>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Your Address</span>
-											<input class="form-control" name="addressKH" type="text" placeholder="Your address" required>
+											<input class="form-control" type="text" placeholder="Your address" required>
 										</div>
 									</div>
 								</div>
