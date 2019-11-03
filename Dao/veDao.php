@@ -21,6 +21,7 @@ class VeDao extends DBConnection
 			$row['sdtKhachHang'],
             $row['diaChiKhachHang'],
             $row['kieuVe'],
+            $row['loaiVe'],
             $row['diemDi'],
             $row['diemDen'],
             $row['ngayGioDi1'],
@@ -35,7 +36,7 @@ class VeDao extends DBConnection
     public function insertVe($Ve)
 	{
 		return $this->runQuery(
-			"INSERT INTO ve(id, cmndKhachHang, tenKhachHang, sdtKhachHang, diaChiKhachHang, kieuVe, 
+			"INSERT INTO ve(id, cmndKhachHang, tenKhachHang, sdtKhachHang, diaChiKhachHang, kieuVe, loaiVe,
                             diemDi, diemDen, ngayGioDi1, ngayGioDi2, mayBay1, mayBay2, nguoiLon, treEm) 
 			VALUE (
 				'{$Ve->getId()}',
@@ -44,6 +45,7 @@ class VeDao extends DBConnection
                 '{$Ve->getSdtKhachHang()}',
                 '{$Ve->getDiaChiKhachHang()}',
                 '{$Ve->getKieuVe()}',
+                '{$Ve->getLoaiVe()}',
                 '{$Ve->getDiemDi()}',
                 '{$Ve->getDiemDen()}',
                 '{$Ve->getNgayGioDi1()}',
@@ -65,6 +67,7 @@ class VeDao extends DBConnection
                 sdtKhachHang = '{$Ve->getSdtKhachHang()}',
                 diaChiKhachHang = '{$Ve->getDiaChiKhachHang()}',
                 kieuVe = '{$Ve->getKieuVe()}',
+                loaiVe = '{$Ve->getLoaiVe()}',
                 diemDi = '{$Ve->getDiemDi()}',
                 diemDen = '{$Ve->getDiemDen()}',
                 ngayGioDi1 = '{$Ve->getNgayGioDi1()}',

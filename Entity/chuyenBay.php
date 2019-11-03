@@ -7,14 +7,16 @@ class ChuyenBay()
     private $diemDi;
     private $diemDen;
     private $gioBay;
+    private $khoangCach;
 
-    public function __construct($Id, $IdMayBay, $DiemDi, $DiemDen, $GioBay)
+    public function __construct($Id, $IdMayBay, $DiemDi, $DiemDen, $GioBay, $KhoangCach)
     {
         $this->id = $Id;
         $this->idMayBay = $IdMayBay;
         $this->diemDi = $DiemDi;
         $this->diemDen = $DiemDen;
         $this->gioBay = $GioBay;
+        $this->khoangCach = $KhoangCach;
     }
 
     public function getId()
@@ -65,6 +67,16 @@ class ChuyenBay()
     public function setGioBay($GioBay)
     {
         $this->gioBay = $GioBay;
+    }
+
+    public function getKhoangCach()
+    {
+        return $this->khoangCach;
+    }
+
+    public function setKhoangCach($KhoangCach)
+    {
+        $this->khoangCach = $KhoangCach;
     }
     
 }

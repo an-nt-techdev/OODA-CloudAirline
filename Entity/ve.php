@@ -8,6 +8,7 @@ class Ve()
     private $sdtKhachHang;
     private $diaChiKhachHang;
     private $kieuVe;
+    private $loaiVe;
     private $diemDi;
     private $diemDen;
     private $ngayDi1;
@@ -15,7 +16,7 @@ class Ve()
     private $nguoiLon;
     private $treEm;
 
-    public function __construct( $Id, $CmndKhachHang, $TenKhachHang, $SdtKhachHang, $DiaChiKhachHang, $KieuVe, $DiemDi, $DiemDen, $NgayDi1, $NgayDi2, $NguoiLon, $TreEm)
+    public function __construct( $Id, $CmndKhachHang, $TenKhachHang, $SdtKhachHang, $DiaChiKhachHang, $KieuVe, $LoaiVe, $DiemDi, $DiemDen, $NgayDi1, $NgayDi2, $NguoiLon, $TreEm)
     {
         $this->id = $Id;
         $this->cmndKhachHang = $CmndKhachHang;
@@ -23,6 +24,7 @@ class Ve()
         $this->sdtKhachHang = $SdtKhachHang;
         $this->diaChiKhachHang = $DiaChiKhachHang;
         $this->kieuVe = $KieuVe;
+        $this->loaiVe = $LoaiVe;
         $this->diemDi = $DiemDi;
         $this->diemDen = $DiemDen;
         $this->ngayDi1 = $NgayDi1;
@@ -89,6 +91,16 @@ class Ve()
     public function setKieuVe($KieuVe)
     {
         $this->kieuVe = $KieuVe;
+    }
+
+    public function getLoaiVe()
+    {
+        return $this->loaiVe;
+    }
+
+    public function setLoaiVe($LoaiVe)
+    {
+        $this->loaiVe = $LoaiVe;
     }
 
     public function getDiemDi()

@@ -5,12 +5,14 @@ class GheBay()
     private $idChuyenBay;
     private $idVe;
     private $ghe;
+    private $ngayBay;
 
-	public function __construct( $IdMayBay, $IdVe, $Ghe)
+	public function __construct( $IdMayBay, $IdVe, $Ghe, $NgayBay)
     {
         $this->idMayBay = $IdMayBay;
         $this->idVe = $IdVe;
         $this->ghe = $Ghe;
+        $this->ngayBay = $NgayBay;
     }
 
     public function getIdMayBay()
@@ -41,6 +43,16 @@ class GheBay()
     public function setGhe($Ghe)
     {
         $this->ghe = $Ghe;
+    }
+
+    public function getNgayBay()
+    {
+        return $this->ngayBay;
+    }
+
+    public function setNgayBay($NgayBay)
+    {
+        $this->ngayBay = $NgayBay;
     }
     
 }
