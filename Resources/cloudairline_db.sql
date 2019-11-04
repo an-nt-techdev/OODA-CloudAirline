@@ -17,7 +17,7 @@ CREATE TABLE maybay(
 CREATE TABLE sanbay(
     id VARCHAR(10) NOT NULL,
     tenThanhPho VARCHAR(50) NOT NULL,
-    PRIMARY KEY (id),
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE chuyenbay(
@@ -37,7 +37,7 @@ CREATE TABLE loaive(
     id VARCHAR(10) NOT NULL,
     ten VARCHAR(50) NOT NULL,
     phanTram INT NOT NULL,
-    PRIMARY KEY (id),
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE ve(
@@ -64,7 +64,7 @@ CREATE TABLE trangthaive(
     idVe VARCHAR(15) NOT NULL,
     trangThai VARCHAR(50) NOT NULL,
     PRIMARY KEY (idVe),
-    FOREIGN KEY (idVe) REFERENCES ve(id),
+    FOREIGN KEY (idVe) REFERENCES ve(id)
 );
 
 CREATE TABLE ghebay(
@@ -74,5 +74,5 @@ CREATE TABLE ghebay(
     ngayBay DATE NOT NULL,
     PRIMARY KEY (idChuyenBay, idVe, ghe, ngayBay),
     FOREIGN KEY (idChuyenBay) REFERENCES chuyenbay(id),
-    FOREIGN KEY (idVe) REFERENCES ve(id),
+    FOREIGN KEY (idVe) REFERENCES ve(id)
 );

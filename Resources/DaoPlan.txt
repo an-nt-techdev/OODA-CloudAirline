@@ -1,0 +1,49 @@
+Chỉ làm:
+    - trangThaiVeDao
+    - veDao
+    - gheBayDao
+
+Nạp sẵn:
+
+    - loaiMayBay: có 3 loại
+        + Airbus A320.
+        + Airbus A380.
+        + Boeing 777.
+
+    - mayBay: có 11 cái
+        + 5 chiếc Airbus A320.
+        + 3 chiếc Airbus A380.
+        + 3 chiếc Boeing 777.
+
+    - sanBay: có 15 sân bay
+        + Hà Nội: sân bay Nội Bài.
+        + Hải Phòng: sân bay Cát Bi.
+        + Thanh Hóa: sân bay Thọ Xuân.
+        + Vinh: sân bay Vinh.
+        + Thừa Thiên - Huế: sân bay Phú Bài.
+        + Đà Nẵng: sân bay Đà Nẵng.
+        + Bình Định: sân bay Phù Cát.
+        + Gia Lai: sân bay Pleiku.
+        + Đắk Lắk: sân bay Buôn Ma Thuột.
+        + Nha Trang - Khánh Hòa: sân bay Cam Ranh.
+        + Đà Lạt: sân bay Liên Khương.
+        + TPHCM: sân bay Tân Sơn Nhất.
+        + Cần Thơ: sân bay Cần Thơ.
+        + Cà Mau: sân bay Cà Mau.
+        + Phú Quốc: sân bay Phú Quốc.
+
+    - chuyenBay
+
+    - loaiVe: có 3 loại
+        + Vé phổ thông (Basic).
+        + Vé thương gia (Bussiness).
+        + Vé tiết kiệm (Saving).
+
+    - Khoảng cách giữa các địa điểm:
+        + Hà Nội -> Hải Phòng: 100-103km.
+        + Hà Nội -> Thanh Hóa: 137km.
+        + Hà Nội -> Đà Nẵng: 607km.
+        + Hà Nội -> TPHCM: 1145km.
+        + Thanh Hóa -> Vinh: 127km.
+        + Vinh -> Huế: 200km.
+        + TPHCM -> Đà Nẵng: 607km.
