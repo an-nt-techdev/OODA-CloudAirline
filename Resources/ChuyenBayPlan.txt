@@ -1,4 +1,4 @@
-- The first Airbus A320 Plane:
+- The First Airbus A320 Plane:
     + 2h: Phú Quốc -> TPHCM (300km) (30 phút bay).
     + 4h: TPHCM -> Đà Lạt (235km) (25 phút bay).
     + 6h: Đà Lạt -> Đà Nẵng (460km) (45 phút bay).
@@ -11,7 +11,7 @@
     + 22h: Cà Mau -> Phú Quốc (185km) (20 phút bay).
     + Nghỉ ngơi nạp nhiên liệu.
 
-- The second Airbus A320 Plane:
+- The Second Airbus A320 Plane:
     + 1h: TPHCM -> Hà Nội (1140km) (2 giờ bay).
     + 5h: Hà Nội -> Đà Nẵng (600km) (1 giờ bay).
     + 8h: Đà Nẵng -> Nha Trang (440km) (45 phút bay).
@@ -66,3 +66,52 @@
     + 19h30: Huế -> Thanh Hóa (415km) (40 phút bay).
     + 21h: Thanh Hóa -> Hải Phòng (150km) (15 phút bay).
     + Nghỉ ngơi nạp nhiên liệu.
+
+- The First Airbus A380 Plane: máy bay thành phố chính từ TPHCM
+    + 4h: TPHCM -> Đà Nẵng (600km) (1 giờ bay).
+    + 6h: Đà Nẵng -> TPHCM (600km) (1 giờ bay).
+    + 8h: TPHCM -> Hà Nội (1140km) (2 giờ bay).
+    + 11h: Hà Nội -> TPHCM (1140km) (2 giờ bay).
+    + 14h: TPHCM -> Hải Phòng (1120km) (2 giờ bay).
+    + 17h: Hải Phòng -> TPHCM (1120km) (2 giờ bay).
+    + 20h: TPHCM -> Nha Trang (320km) (30 phút bay).
+    + 21h30: Nha Trang -> TPHCM (320km) (30 phút bay).
+    + 23h: TPHCM -> Huế (635km) (1 giờ bay).
+    + 1h: Huế -> TPHCM (635km) (1 giờ bay).
+    + Nghỉ ngơi nạp nhiên liệu.
+
+- The Second Airbus A380 Plane: máy bay thành phố chính từ Hà Nội
+    + 4h: Hà Nội -> Huế (540km) (55 phút bay).
+    + 6h: Huế -> Hà Nội (540km) (55 phút bay).
+    + 8h: Hà Nội -> Đà Nẵng (600km) (1 giờ bay).
+    + 10h: Đà Nẵng -> Hà Nội (600km) (1 giờ bay).
+    + 12h: Hà Nội -> Nha Trang (1040km) (1 giờ 45 phút bay).
+    + 14h30: Nha Trang -> Hà Nội (1040km) (1 giờ 45 phút bay).
+    + 17h: Hà Nội -> TPHCM (1140km) (2 giờ bay).
+    + 19h30: TPHCM -> Hà Nội (1140km) (2 giờ bay).
+    + 22h: Hà Nội -> Vinh (260km) (25 phút bay).
+    + 23h: Vinh -> Hà Nội (260km) (25 phút bay).
+    + 0h: Hà Nội -> Hải Phòng (90km) (10 phút bay).
+    + 0h30: Hải Phòng -> Hà Nội (90km) (10 phút bay).
+    + Nghỉ ngơi nạp nhiên liệu.
+
+- The Third Airbus A380 Plane: máy bay du lịch cao cấp
+    + 2h: TPHCM -> Hà Nội (1140km) (2 giờ bay).
+    + 4h30: Hà Nội -> TPHCM (1140km) (2 giờ bay).
+    + 7h: TPHCM -> Đà Lạt (235km) (25 phút bay).
+    + 8h: Đà Lạt -> TPHCM (235km) (25 phút bay).
+    + 9h: TPHCM -> Nha Trang (320km) (35 phút bay).
+    + 10h: Nha Trang -> TPHCM (320km) (35 phút bay).
+    + 11h: TPHCM -> Đà Nẵng (600km) (1 giờ bay).
+    + 12h30: Đà Nẵng -> TPHCM (600km) (1 giờ bay).
+    + 14h: TPHCM -> Huế (635km) (1 giờ bay).
+    + 15h30: Huế -> TPHCM (635km) (1 giờ bay).
+    + 17h: TPHCM -> Hải Phòng (1120km) (2 giờ bay).
+    + 19h30: Hải Phòng -> TPHCM (1120km) (2 giờ bay).
+    + 22h: TPHCM -> Phú Quốc (300km) (30 phút bay).
+    + 23h: Phú Quốc -> TPHCM (300km) (30 phút bay).
+    + Nghỉ ngơi nạp nhiên liệu.
+
+- The First Boeing 777 Plane: máy bay giữa 2 tp lớn
+    + 1h: TPHCM -> Hà Nội (1140km) (2 giờ bay).
+    + 3h30: Hà Nội -> TPHCM (1140km) (2 giờ bay).

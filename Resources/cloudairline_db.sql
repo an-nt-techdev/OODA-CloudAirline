@@ -25,7 +25,7 @@ CREATE TABLE chuyenbay(
     idMayBay VARCHAR(10) NOT NULL,
     diemDi VARCHAR(10) NOT NULL,
     diemDen VARCHAR(10) NOT NULL,
-    gioBay INT NOT NULL,
+    gioBay TIME NOT NULL,
     khoangCach INT NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (idMayBay) REFERENCES maybay(id),
