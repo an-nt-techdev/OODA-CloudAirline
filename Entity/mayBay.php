@@ -1,6 +1,6 @@
 <?php
 
-class MayBay()
+class MayBay
 {
     private $id;
     private $idLoaiMayBay;

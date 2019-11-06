@@ -1,7 +1,7 @@
 <?php 
 
 require_once SITE_ROOT."/Config/DBCon.php";
-require_once SITE_ROOT."/Entities/loaiVe.php";
+require_once SITE_ROOT."/Entity/loaiVe.php";
 
 class LoaiVeDao extends DBConnection
 {

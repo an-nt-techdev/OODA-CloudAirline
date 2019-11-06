@@ -54,13 +54,10 @@
 											<span class="form-label">Flying from</span>
 											<select class="form-control" name="from" required>
 												<?php 
-													// for ($i=1; $i<=100; $i++)
-													// {
-													// 		echo "<option id='".$i."' value='".$i."'>".$i."</option>";
-													// }
-													echo "<option id='HCM' value='HoChiMinh'>Hồ Chí Minh</option>";
-													echo "<option id='HN' value='HaNoi'>Hà Nội</option>";
-													echo "<option id='DN' value='DaNang'>Đà Nẵng</option>";
+													for ($i=0; $i<15; $i++)
+													{
+													 	echo "<option id='".$sanBayList[$i]->getTenThanhPho()."' value='".$sanBayList[$i]->getTenThanhPho()."'>".$sanBayList[$i]->getTenThanhPho()."</option>";
+													}
 												?>
 											</select>
 											<span class="select-arrow"></span>
@@ -71,13 +68,10 @@
 											<span class="form-label">Flyning to</span>
 											<select class="form-control" name="to" required>
 												<?php 
-													// for ($i=1; $i<=100; $i++)
-													// {
-													// 		echo "<option id='".$i."' value='".$i."'>".$i."</option>";
-													// }
-													echo "<option id='HCM' value='HoChiMinh'>Hồ Chí Minh</option>";
-													echo "<option id='HN' value='HaNoi'>Hà Nội</option>";
-													echo "<option id='DN' value='DaNang'>Đà Nẵng</option>";
+													for ($i=0; $i<15; $i++)
+													{
+													 	echo "<option id='".$sanBayList[$i]->getTenThanhPho()."' value='".$sanBayList[$i]->getTenThanhPho()."'>".$sanBayList[$i]->getTenThanhPho()."</option>";
+													}
 												?>
 											</select>
 											<span class="select-arrow"></span>

@@ -1,6 +1,6 @@
 <?php
 
-class LoaiVe()
+class LoaiVe
 {
     private $id;
     private $ten;

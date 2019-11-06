@@ -1,6 +1,6 @@
 <?php
 
-class GheBay()
+class GheBay
 {
     private $idChuyenBay;
     private $idVe;

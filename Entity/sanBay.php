@@ -1,6 +1,6 @@
 <?php
 
-class SanBay()
+class SanBay
 {
     private $id;
     private $tenThanhPho;

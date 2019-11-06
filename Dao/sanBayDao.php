@@ -1,7 +1,7 @@
 <?php 
 
 require_once SITE_ROOT."/Config/DBCon.php";
-require_once SITE_ROOT."/Entities/sanBay.php";
+require_once SITE_ROOT."/Entity/sanBay.php";
 
 class SanBayDao extends DBConnection
 {

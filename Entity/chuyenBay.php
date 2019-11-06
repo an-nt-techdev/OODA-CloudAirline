@@ -1,6 +1,6 @@
 <?php
 
-class ChuyenBay()
+class ChuyenBay
 {
     private $id;
     private $idMayBay;

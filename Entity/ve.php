@@ -1,6 +1,6 @@
 <?php
 
-class Ve()
+class Ve
 {
     private $id;
     private $cmndKhachHang;

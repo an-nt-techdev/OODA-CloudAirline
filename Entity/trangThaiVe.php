@@ -1,6 +1,6 @@
 <?php
 
-class TrangThaiVe()
+class TrangThaiVe
 {
     private $idVe;
     private $trangThai;
