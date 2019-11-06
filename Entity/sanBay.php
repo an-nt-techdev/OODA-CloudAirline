@@ -8,7 +8,7 @@ class SanBay
 	public function __construct( $Id, $TenThanhPho)
 	{
 		$this->id = $Id;
-		$this->idtenThanhPho = $TenThanhPho;
+		$this->tenThanhPho = $TenThanhPho;
 	}
 
 	public function getId()

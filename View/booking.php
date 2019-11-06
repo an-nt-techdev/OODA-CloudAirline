@@ -125,9 +125,12 @@
 										<div class="form-group">
 											<span class="form-label">Ticket type</span>
 											<select class="form-control" name="type">
-												<option>Basic ticket</option>
-												<option>Business ticket</option>
-												<option>First class ticket</option>
+												<?php
+													for ($i=0; $i<3; $i++)
+													{
+														echo "<option value='".$loaiVeList[$i]->getTen()."'>".$loaiVeList[$i]->getTen()."</option>";
+													}
+												?>
 											</select>
 											<span class="select-arrow"></span>
 										</div>
