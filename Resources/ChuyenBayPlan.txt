@@ -112,6 +112,49 @@
     + 23h: Phú Quốc -> TPHCM (300km) (30 phút bay).
     + Nghỉ ngơi nạp nhiên liệu.
 
-- The First Boeing 777 Plane: máy bay giữa 2 tp lớn
+- The First Boeing 777 Plane: máy bay giữa 3 thành phố lớn
     + 1h: TPHCM -> Hà Nội (1140km) (2 giờ bay).
-    + 3h30: Hà Nội -> TPHCM (1140km) (2 giờ bay).
+    + 3h30: Hà Nội -> Đà Nẵng (600km) (1 giờ bay).
+    + 5h: Đà Nẵng -> TPHCM (600km) (1 giờ bay).
+    + 7h: TPHCM -> Đà Nẵng (600km) (1 giờ bay).
+    + 8h30: Đà Nẵng -> Hà Nội (600km) (1 giờ bay).
+    + 10h: Hà Nội -> TPHCM (1140km) (2 giờ bay).
+    + 13h: TPHCM -> Hà Nội (1140km) (2 giờ bay).
+    + 15h30: Hà Nội -> Đà Nẵng (600km) (1 giờ bay).
+    + 17h: Đà Nẵng -> TPHCM (600km) (1 giờ bay).
+    + 19h: TPHCM -> Đà Nẵng (600km) (1 giờ bay).
+    + 20h30: Đà Nẵng -> Hà Nội (600km) (1 giờ bay).
+    + 22h: Hà Nội -> TPHCM (1140km) (2 giờ bay).
+
+- The Second Boeing 777 Plane: máy bay qua các thành phố nhỏ từ Hà Nội
+    + 1h: Hà Nội -> Thanh Hóa (135km) (15 phút bay).
+    + 1h30: Thanh Hóa -> Vinh (130km) (15 phút bay).
+    + 2h: Vinh -> Hà Nội (260km) (25 phút bay).
+    + 3h: Hà Nội -> Bình Định (880km) (1 giờ 30 phút bay).
+    + 5h: Bình Định -> Cần Thơ (560km) (55 phút bay).
+    + 6h30: Cần Thơ -> Hà Nội (1200km) (2 giờ bay).
+    + 9h: Hà Nội -> Đắk Lắk (960km) (1 giờ 40 phút bay).
+    + 11h15: Đắk Lắk -> Gia Lai (150km) (15 phút bay).
+    + 12h: Gia Lai -> Hà Nội (820km) (1 giờ 20 phút bay).
+    + 14h: Hà Nội -> Phú Quốc (1220km) (2 giờ bay).
+    + 16h30: Phú Quốc -> Cà Mau (180km) (20 phút bay).
+    + 17h30: Cà Mau -> Hà Nội (1320km) (2 giờ 10 phút bay).
+    + 20h30: Hà Nội -> Huế (540km) (55 phút bay).
+    + 22h: Huế -> Hà Nội (540km) (55 phút bay).
+
+- The Third Boeing 777 Plane: máy bay qua các thành phố nhỏ từ TPHCM
+    + 1h: TPHCM -> Phú Quốc (300km) (30 phút bay).
+    + 2h: Phú Quốc -> Cần Thơ (200km) (20 phút bay).
+    + 3h: Cần Thơ -> TPHCM (130km) (15 phút).
+    + 4h: TPHCM -> Gia Lai (385km) (40 phút bay).
+    + 5h15: Gia Lai -> Đắk Lắk (145km) (15 phút bay).
+    + 6h: Đắk Lắk -> TPHCM (250km) (25 phút bay).
+    + 7h: TPHCM -> Bình Định (435km) (45 phút bay).
+    + 8h30: Bình Định -> Huế (350km) (35 phút bay).
+    + 9h30: Huế -> TPHCM (635km) (1 giờ bay).
+    + 11h30: TPHCM -> Vinh (875km) (1 giờ 30 phút bay).
+    + 14h: Vinh -> TPHCM (875km) (1 giờ 30 phút bay).
+    + 16h30: TPHCM -> Thanh Hóa (1000km) (1 giờ 40 phút bay).
+    + 19h: Thanh Hóa -> TPHCM (1000km) (1 giờ 40 phút bay).
+    + 21h30: TPHCM -> Đà Lạt (235km) (25 phút bay).
+    + 22h30: Đà Lạt -> TPHCM (235km) (25 phút bay).

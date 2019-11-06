@@ -6,15 +6,15 @@ class LoaiMayBay()
     private $ten;
     private $gheThuong;
     private $gheThuongGia;
-    private $gheLoaiNhat;
+    private $gheTietKiem;
 
-    public function __construct($Id, $Ten, $GheThuong, $GheThuongGia, $GheLoaiNhat)
+    public function __construct($Id, $Ten, $GheThuong, $GheThuongGia, $GheTietKiem)
 	{
         $this->id = $Id;
         $this->ten = $Ten;
         $this->gheThuong = $GheThuong;
         $this->gheThuongGia = $GheThuongGia;
-        $this->gheLoaiNhat = $GheLoaiNhat;
+        $this->gheTietKiem = $GheTietKiem;
     }
         
     public function getId()
@@ -57,14 +57,14 @@ class LoaiMayBay()
 		$this->gheThuongGia = $GheThuongGia;
     }
 
-    public function getGheLoaiNhat()
+    public function getGheTietKiem()
 	{
-		return $this->gheLoaiNhat;
+		return $this->gheTietKiem;
     }
     
-	public function setGheLoaiNhat($GheLoaiNhat)
+	public function setGheTietKiem($GheTietKiem)
 	{
-		$this->gheLoaiNhat = $GheLoaiNhat;
+		$this->gheTietKiem = $GheTietKiem;
     }
 }
 

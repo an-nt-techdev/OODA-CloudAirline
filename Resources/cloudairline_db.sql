@@ -3,7 +3,7 @@ CREATE TABLE loaimaybay (
     ten VARCHAR(50) NOT NULL,
     gheThuong INT NOT NULL,
     gheThuongGia INT NOT NULL,
-    gheLoaiNhat INT NOT NULL,
+    gheTietKiem INT NOT NULL,
     PRIMARY KEY (id)
 );
 
