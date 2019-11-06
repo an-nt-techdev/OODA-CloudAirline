@@ -55,9 +55,7 @@ CREATE TABLE ve(
     nguoiLon INT NOT NULL,
     treEm INT NOT NULL,
     PRIMARY KEY (id),
-    FOREIGN KEY (loaiVe) REFERENCES loaive(id),
-    FOREIGN KEY (diemDi) REFERENCES sanbay(id),
-    FOREIGN KEY (diemDen) REFERENCES sanbay(id)
+    FOREIGN KEY (loaiVe) REFERENCES loaive(id)
 );
 
 CREATE TABLE trangthaive(

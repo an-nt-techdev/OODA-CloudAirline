@@ -32,12 +32,14 @@ Nạp sẵn:
         + Cà Mau: sân bay Cà Mau.
         + Phú Quốc: sân bay Phú Quốc.
 
-    - chuyenBay
+    - chuyenBay: file ChuyenBayPlan.txt
+        + Lưu ý: quy định mỗi 100km là 10 phút bay :))
+        + Lưu ý: Trừ cả thời gian trước và sau khi bay :))
 
     - loaiVe: có 3 loại
-        + Vé phổ thông (Basic).
-        + Vé thương gia (Bussiness).
-        + Vé tiết kiệm (Saving).
+        + Vé phổ thông (Basic) - 130%.
+        + Vé thương gia (Bussiness) - 200%.
+        + Vé tiết kiệm (Saving) - 100%.
 
     - Khoảng cách giữa các địa điểm:
         + Hà Nội -> Hải Phòng: 100-103km.

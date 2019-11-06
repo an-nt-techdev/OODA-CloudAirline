@@ -1,0 +1,59 @@
+- The first Airbus A320 Plane:
+    + 2h: Phú Quốc -> TPHCM (300km) (30 phút bay).
+    + 4h: TPHCM -> Đà Lạt (235km) (25 phút bay).
+    + 6h: Đà Lạt -> Đà Nẵng (460km) (45 phút bay).
+    + 8h30: Đà Nẵng -> Vinh (400km) (40 phút bay).
+    + 11h: Vinh -> Hà Nội (260km) (25 phút bay).
+    + 13h: Hà Nội -> Huế (540km) (55 phút bay).
+    + 16h: Huế -> Bình Định (350km) (35 phút bay).
+    + 18h: Bình Định -> TPHCM (435km) (45 phút bay).
+    + 20h30: TPHCM -> Cà Mau (240km) (25 phút bay).
+    + 22h: Cà Mau -> Phú Quốc (185km) (20 phút bay).
+    + Nghỉ ngơi nạp nhiên liệu.
+
+- The second Airbus A320 Plane:
+    + 1h: TPHCM -> Hà Nội (1140km) (2 giờ bay).
+    + 5h: Hà Nội -> Đà Nẵng (600km) (1 giờ bay).
+    + 8h: Đà Nẵng -> Nha Trang (440km) (45 phút bay).
+    + 10h30: Nha Trang -> TPHCM (320km) (35 phút bay).
+    + 12h: TPHCM -> Phú Quốc (300km) (30 phút bay).
+    + 15h: Phú Quốc -> Cần Thơ (200km) (20 phút bay).
+    + 17h: Cần Thơ -> Đắk Lắk (385km) (40 phút bay).
+    + 19h: Đắk Lắk -> Huế (415km) (40 phút bay).
+    + 21h: Huế -> TPHCM (640km) (1 giờ bay).
+    + Nghỉ ngơi nạp nhiên liệu.
+
+- The Third Airbus A320 Plane:
+    + 1h: Hà Nội -> TPHCM (1140km) (2 giờ bay).
+    + 5h: TPHCM -> Nha Trang (320km) (35 phút bay).
+    + 7h: Nha Trang -> Đà Nẵng (435km) (45 phút bay).
+    + 9h: Đà Nẵng -> Hải Phòng (560km) (1 giờ bay).
+    + 10h30: Hải Phòng -> Hà Nội (90km) (10 phút bay).
+    + 13h: Hà Nội -> Vinh (260km) (25 phút bay).
+    + 14h30: Vinh -> Huế (310km) (30 phút bay).
+    + 16h: Huế -> Gia Lai (280km) (30 phút bay).
+    + 17h30: Gia Lai -> TPHCM (380km) (40 phút bay).
+    + 20h: TPHCM -> Hà Nội (1140km) (2 giờ bay).
+    + Nghỉ ngơi nạp nhiên liệu.
+
+- The Fouth Airbus A320 Plane:
+    + 2h: Đà Nẵng -> Hà Nội (600km) (1 giờ bay).
+    + 4h: Hà Nội -> Vinh (260km) (25 phút bay).
+    + 5h30: Vinh -> Huế (310km) (30 phút bay).
+    + 7h: Huế -> Bình Định (345km) (35 phút bay).
+    + 9h: Bình Định -> TPHCM (435km) (45 phút bay).
+    + 11h: TPHCM -> Cà Mau (240km) (25 phút bay).
+    + 12h30: Cà Mau -> TPHCM (240km) (25 phút bay).
+    + 14h: TPHCM -> Đắk Lắk (250km) (25 phút bay).
+    + 15h30: Đắk Lắk -> TPHCM (250km) (25 phút bay).
+    + 17h: TPHCM -> Gia Lai (385km) (40 phút bay).
+    + 19h: Gia Lai -> TPHCM (385km) (40 phút bay).
+    + 21h: TPHCM -> Bình Định (430km) (45 phút bay).
+    + 23h: Bình Định -> Đà Nẵng (275km) (30 phút bay).
+    + Nghỉ ngơi nạp nhiên liệu.
+     
+- The Fifth Airbus A320 Plane:
+    + 2h: Hải Phòng -> Thanh Hóa (150km) (15 phút bay).
+    + 3h: Thanh Hóa -> Vinh (125km) (15 phút bay).
+    + 4h: Vinh -> Đà Nẵng (400km) (40 phút bay).
+    + 6h: Đà Nẵng -> Bình Định
