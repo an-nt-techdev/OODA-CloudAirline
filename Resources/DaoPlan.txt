@@ -40,12 +40,3 @@ Nạp sẵn:
         + Vé phổ thông (Basic) - 130%.
         + Vé thương gia (Bussiness) - 200%.
         + Vé tiết kiệm (Saving) - 100%.
-
-    - Khoảng cách giữa các địa điểm:
-        + Hà Nội -> Hải Phòng: 100-103km.
-        + Hà Nội -> Thanh Hóa: 137km.
-        + Hà Nội -> Đà Nẵng: 607km.
-        + Hà Nội -> TPHCM: 1145km.
-        + Thanh Hóa -> Vinh: 127km.
-        + Vinh -> Huế: 200km.
-        + TPHCM -> Đà Nẵng: 607km.

@@ -56,4 +56,13 @@
     + 2h: Hải Phòng -> Thanh Hóa (150km) (15 phút bay).
     + 3h: Thanh Hóa -> Vinh (125km) (15 phút bay).
     + 4h: Vinh -> Đà Nẵng (400km) (40 phút bay).
-    + 6h: Đà Nẵng -> Bình Định
+    + 6h: Đà Nẵng -> Bình Định (270km) (30 phút bay).
+    + 8h: Bình Định -> Nha Trang (175km) (20 phút bay).
+    + 9h30: Nha Trang -> Cần Thơ (450km) (45 phút bay).
+    + 11h30: Cần Thơ -> Phú Quốc (200km) (20 phút bay).
+    + 14h: Phú Quốc -> Cà Mau (185km) (20 phút bay).
+    + 15h30: Cà Mau -> TPHCM (240km) (25 phút bay).
+    + 17h: TPHCM -> Huế (635km) (1 giờ bay).
+    + 19h30: Huế -> Thanh Hóa (415km) (40 phút bay).
+    + 21h: Thanh Hóa -> Hải Phòng (150km) (15 phút bay).
+    + Nghỉ ngơi nạp nhiên liệu.
