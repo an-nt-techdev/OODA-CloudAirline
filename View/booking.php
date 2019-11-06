@@ -136,6 +136,8 @@
 										</div>
 									</div>
 								</div>
+								<hr>
+								<br>
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
