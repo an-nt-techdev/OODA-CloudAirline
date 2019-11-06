@@ -173,3 +173,7 @@ insert into chuyenbay values
 ("130","B7773","TH","HCM","19:00:00",100),
 ("131","B7773","HCM","DL","21:30:00",235),
 ("132","B7773","DL","HCM","22:30:00",235);
+insert into loaive values
+("hard","Bussiness Ticket",200),
+("medium","Basic Ticket",130),
+("normal","Saving Ticket",100);
