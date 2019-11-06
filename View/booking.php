@@ -35,7 +35,7 @@
 					</div>
 					<div class="col-md-7 col-md-offset-1">
 						<div class="booking-form">
-							<form action="?choose_seat=on" method="post">
+							<form action="?booking=on&choose_seat=on" method="post">
 								<div class="form-group">
 									<div class="form-checkbox">
 										<label for="one-way">
