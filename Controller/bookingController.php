@@ -34,8 +34,8 @@
             else if ($type == "two-way") $kieuVe = 1;
             $diemDi = $_POST['from'];
             $diemDen = $_POST['to'];
-            $ngayDi1 = $_POST['date1'];
-            $ngayDi2 = $_POST['date2'];
+            $ngayDi1 = $_POST['start'];
+            $ngayDi2 = $_POST['end'];
             $nguoiLon = $_POST['adult'];
             $treEm = $_POST['children'];
             $loaiVe = $_POST['type'];
