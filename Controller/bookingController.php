@@ -30,19 +30,37 @@
         {
             // Lưu tạm dữ liệu
             $type = $_POST['flight-type'];
-            if ($type == "one-way") $kieuVe = 0;
-            else if ($type == "two-way") $kieuVe = 1;
-            $diemDi = $_POST['from'];
-            $diemDen = $_POST['to'];
-            $ngayDi1 = $_POST['start'];
-            $ngayDi2 = $_POST['end'];
-            $nguoiLon = $_POST['adult'];
-            $treEm = $_POST['children'];
-            $loaiVe = $_POST['type'];
-            $tenKhachHang = $_POST['nameKH'];
-            $cmndKhachHang = $_POST['cmndKH'];
-            $sdtKhachHang = $_POST['phoneKH'];
-            $diaChiKhachHang = $_POST['addressKH'];
+            if ($type == "one-way") 
+            {
+                $kieuVe = 0;
+                $diemDi = $_POST['from'];
+                $diemDen = $_POST['to'];
+                $ngayDi1 = $_POST['start'];
+                $ngayDi2 = "01:01:1999";
+                $nguoiLon = $_POST['adult'];
+                $treEm = $_POST['children'];
+                $loaiVe = $_POST['type'];
+                $tenKhachHang = $_POST['nameKH'];
+                $cmndKhachHang = $_POST['cmndKH'];
+                $sdtKhachHang = $_POST['phoneKH'];
+                $diaChiKhachHang = $_POST['addressKH'];
+            }
+            else if ($type == "two-way")
+            {
+                $kieuVe = 1;
+                $diemDi = $_POST['from'];
+                $diemDen = $_POST['to'];
+                $ngayDi1 = $_POST['start'];
+                $ngayDi2 = $_POST['end'];
+                $nguoiLon = $_POST['adult'];
+                $treEm = $_POST['children'];
+                $loaiVe = $_POST['type'];
+                $tenKhachHang = $_POST['nameKH'];
+                $cmndKhachHang = $_POST['cmndKH'];
+                $sdtKhachHang = $_POST['phoneKH'];
+                $diaChiKhachHang = $_POST['addressKH'];
+            } 
+            
             $bkModel->SaveVe($cmndKhachHang, $tenKhachHang, $sdtKhachHang, $diaChiKhachHang, $kieuVe, $loaiVe, $diemDi, $diemDen, $ngayDi1, $ngayDi2, $nguoiLon, $treEm);
 
             // load trang chọn ghế
