@@ -28,6 +28,17 @@ class LoaiVeDao extends DBConnection
 		
 		return $LoaiVeList;
     }
+
+    public function getIdByTenLoaiVe($ten)
+	{
+        $result = $this->runQuery("SELECT * FROM loaive where ten={$ten}");
+		$row= $result->fetch_assoc();
+		 return new LoaiVe(
+			 $row['id'],
+             $row['ten'],
+             $row['phanTram']
+	 	);
+    }
   
 }
 

@@ -33,7 +33,7 @@ class SanBayDao extends DBConnection
 	{
 		$result = $this->runQuery("SELECT * FROM sanbay where tenThanhPho={$ten}");
 		$row= $result->fetch_assoc();
-		 return new sanBay(
+		return new SanBay(
 			 $row['id'],
 			 $row['tenThanhPho']
 	 	);
