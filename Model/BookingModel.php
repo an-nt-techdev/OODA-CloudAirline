@@ -3,17 +3,19 @@
 require_once SITE_ROOT."/Dao/sanBayDao.php";
 require_once SITE_ROOT."/Dao/loaiVeDao.php";
 require_once SITE_ROOT."/Entity/ve.php";
-
+require_once SITE_ROOT."/Dao/chuyenBayDao.php";
 class BookingModel
 {
     private $ve;
     private $sanBayDao;
     private $loaiVeDao;
+    private $chuyenBayDao;
 
     public function __construct() 
 	{
         $this->sanBayDao = new SanBayDao();
         $this->loaiVeDao = new LoaiVeDao();
+        $this->chuyenBayDao = new ChuyenBayDao();
     }
 
     public function randomId()
@@ -54,7 +56,13 @@ class BookingModel
     {
         return $this->ve;
     }
+    
+    public function getChuyenBayList($DiemDi,$DiemDen){
+        $sanBay1 = $this->sanBayDao->getIdByTenSanBay($DiemDi)->getId();
+        $sanBay2 = $this->sanBayDao->getIdByTenSanBay($DiemDen)->getId();
 
+        return $this->chuyenBayDao->getChuyenBayByDiaDiem($sanBay1, $sanBay2);
+    }
     
 
 }

@@ -40,7 +40,7 @@
                                     <?php 
                                         for ($i=0; $i<15; $i++)
                                         {
-                                            echo "<option id='".$sanBayList[$i]->getTenThanhPho()."' value='".$sanBayList[$i]->getTenThanhPho()."'>".$sanBayList[$i]->getTenThanhPho()."</option>";
+                                            echo "<option id='".$sanBayList[$i]->getTenThanhPho()."' value='".$sanBayList[$i]->getTenThanhPho()."'".($sanBayList[$i]->getTenThanhPho()==$_POST['from']?"selected":"").">".$sanBayList[$i]->getTenThanhPho()."</option>";
                                         }
                                     ?>
                                     </select>
@@ -52,26 +52,17 @@
                                     <?php 
                                         for ($i=0; $i<15; $i++)
                                         {
-                                            echo "<option id='".$sanBayList[$i]->getTenThanhPho()."' value='".$sanBayList[$i]->getTenThanhPho()."'>".$sanBayList[$i]->getTenThanhPho()."</option>";
+                                            echo "<option id='".$sanBayList[$i]->getTenThanhPho()."' value='".$sanBayList[$i]->getTenThanhPho()."'".($sanBayList[$i]->getTenThanhPho()==$_POST['to']?"selected":"").">".$sanBayList[$i]->getTenThanhPho()."</option>";
                                         }
                                     ?>
                                     </select>
                                     <span class="select-arrow"></span>
                                 </div>
 
-                                <?php
-                                    $_POST['from'] = $VE->getDiemDi();
-                                    $_POST['to'] = $VE->getDiemDen();
-                                ?>
-
                                 <div class="form-group">
                                     <span class="form-label">Departing</span>
-                                    <input class="form-control" name="start" type="date" required>
+                                    <input class="form-control" name="start" type="date" value = "<?php echo $ngayDi1 ?>" required>
 								</div>
-
-                                <?php
-                                    $_POST['start'] = $VE->getNgayDi1();
-                                ?>
 
                                 <button type="submit" class="btn btn-success">Search</button>
                             </form>
@@ -81,22 +72,31 @@
 								<table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Tên Máy Bay</th>
-                                            <th>Chuyến Bay</th>
-                                            <th>Giờ Bay</th>
-                                            <th>Giá</th>
-                                            <th>Select</th>
+                                            <th>Plane's Name</th>
+                                            <th>FLIGHT ID</th>
+                                            <th>TIME</th>
+                                            <th>PRICE</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
-                                        <tr>
+                                        <!-- <tr>
                                             <td>a</td>
                                             <td>b</td>
                                             <td>c</td>
                                             <td>d</td>
                                             <td><input type="checkbox"></td>
-                                        </tr>
+                                        </tr> -->
                                         <?php
-                                            
+                                          for ($i=0; $i<sizeof($chuyenBayList); $i++)
+                                        {
+                                            echo "<tr>";
+                                            echo "<td>".$chuyenBayList[$i]->getIdMayBay()."</td>";
+                                            echo "<td>".$chuyenBayList[$i]->getId()."</td>";
+                                            echo "<td>".$chuyenBayList[$i]->getGioBay()."</td>";
+                                            echo "<td>".$chuyenBayList[$i]->getKhoangCach()."x".$kieuVe."x".$loaiVe."</td>";
+                                            echo "<td><button type='submit'>Choose This</td>";
+                                            echo "</tr>";
+                                        }
                                         ?>
                                 </table>
 							</form>

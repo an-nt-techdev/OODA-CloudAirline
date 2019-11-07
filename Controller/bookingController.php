@@ -7,7 +7,7 @@
 
     $bkModel = new BookingModel();
     $p='home';
-
+    
     // vào trang thanh toán
     if (isset($_GET['checkout'])) require_once SITE_ROOT.'/View/checkout.php';
 
@@ -62,7 +62,7 @@
             } 
             
             $bkModel->SaveVe($cmndKhachHang, $tenKhachHang, $sdtKhachHang, $diaChiKhachHang, $kieuVe, $loaiVe, $diemDi, $diemDen, $ngayDi1, $ngayDi2, $nguoiLon, $treEm);
-
+            $chuyenBayList=$bkModel->getChuyenBayList($diemDi,$diemDen);
             // load trang chọn ghế
             require_once SITE_ROOT.'/View/choose_seat.php';
         }
