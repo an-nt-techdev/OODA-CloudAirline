@@ -1,7 +1,7 @@
 <?php 
 
 require_once SITE_ROOT."/Config/DBCon.php";
-require_once SITE_ROOT."/Entities/ve.php";
+require_once SITE_ROOT."/Entity/ve.php";
 
 class VeDao extends DBConnection
 {

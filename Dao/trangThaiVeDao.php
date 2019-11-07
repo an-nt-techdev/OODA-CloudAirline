@@ -1,7 +1,7 @@
 <?php 
 
 require_once SITE_ROOT."/Config/DBCon.php";
-require_once SITE_ROOT."/Entities/trangThaiVe.php";
+require_once SITE_ROOT."/Entity/trangThaiVe.php";
 
 class TrangThaiVeDao extends DBConnection
 {

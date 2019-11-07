@@ -1,7 +1,7 @@
 <?php 
 
 require_once SITE_ROOT."/Config/DBCon.php";
-require_once SITE_ROOT."/Entities/gheBay.php";
+require_once SITE_ROOT."/Entity/gheBay.php";
 
 class GheBayDao extends DBConnection
 {
