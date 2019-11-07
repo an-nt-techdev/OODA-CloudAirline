@@ -45,17 +45,6 @@
             $diaChiKhachHang = $_POST['addressKH'];
             $bkModel->SaveVe($cmndKhachHang, $tenKhachHang, $sdtKhachHang, $diaChiKhachHang, $kieuVe, $loaiVe, $diemDi, $diemDen, $ngayDi1, $ngayDi2, $nguoiLon, $treEm);
 
-            // xét gì đó :))
-            if(isset($_POST['from']) && isset($_POST['to'])) 
-            {
-                $from=$_POST['from'];
-                $to=$_POST['to'];
-
-                // $chuyenBayDao = new ChuyenBayDao();
-                // $chuyenBayList=$chuyenBayDao->getChuyenBayByDiaDiem($from,$to);
-
-            }
-
             // load trang chọn ghế
             require_once SITE_ROOT.'/View/choose_seat.php';
         }

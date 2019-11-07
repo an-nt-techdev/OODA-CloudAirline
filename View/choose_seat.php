@@ -29,6 +29,10 @@
 				<div class="row">
 					<div class="col-md-8 col-md-offset-1">
         
+                        <?php
+                            $VE = $bkModel->getVe();
+                        ?> 
+
                             <form class="form-inline" action="" method="post">   
                                 <div class="form-group">
                                     <span class="form-label">From</span>
@@ -54,10 +58,21 @@
                                     </select>
                                     <span class="select-arrow"></span>
                                 </div>
+
+                                <?php
+                                    $_POST['from'] = $VE->getDiemDi();
+                                    $_POST['to'] = $VE->getDiemDen();
+                                ?>
+
                                 <div class="form-group">
                                     <span class="form-label">Departing</span>
                                     <input class="form-control" name="start" type="date" required>
 								</div>
+
+                                <?php
+                                    $_POST['start'] = $VE->getNgayDi1();
+                                ?>
+
                                 <button type="submit" class="btn btn-success">Search</button>
                             </form>
                             <br>
