@@ -12,7 +12,7 @@ class ChuyenBayDao extends DBConnection
     
     public function getChuyenBayByDiaDiem($DiemDi, $DiemDen)
 	{
-        $result = $this->runQuery("SELECT *	FROM chuyenbay WHERE diemDi = {$DiemDi} AND diemDen = {$DiemDen}");
+        $result = $this->runQuery("SELECT *	FROM chuyenbay WHERE diemDi = '{$DiemDi}' AND diemDen = '{$DiemDen}'");
         
         $ChuyenBayList = array();
 		while ($row = $result->fetch_assoc())

@@ -12,7 +12,7 @@ class GheBayDao extends DBConnection
     
     public function getGheBayByIdVe($IdVe)
 	{
-		$result = $this->runQuery("SELECT *	FROM gheBay WHERE idVe = {$IdVe}");
+		$result = $this->runQuery("SELECT *	FROM gheBay WHERE idVe = '{$IdVe}'");
 		$row = $result->fetch_assoc();
 		return new GheBay(
 			$row['idChuyenBay'],
@@ -39,7 +39,7 @@ class GheBayDao extends DBConnection
     
 	public function deleteGheBay($ID)
 	{
-        $this->runQuery("DELETE FROM gheBay WHERE idVe = {$ID}");
+        $this->runQuery("DELETE FROM gheBay WHERE idVe = '{$ID}'");
 	}
 }
 

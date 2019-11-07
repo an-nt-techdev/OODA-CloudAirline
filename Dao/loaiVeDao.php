@@ -31,7 +31,7 @@ class LoaiVeDao extends DBConnection
 
     public function getIdByTenLoaiVe($ten)
 	{
-        $result = $this->runQuery("SELECT * FROM loaive where ten={$ten}");
+        $result = $this->runQuery("SELECT * FROM loaive where ten='{$ten}'");
 		$row= $result->fetch_assoc();
 		 return new LoaiVe(
 			 $row['id'],

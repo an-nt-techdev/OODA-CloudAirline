@@ -12,7 +12,7 @@ class TrangThaiVeDao extends DBConnection
     
     public function getTrangThaiVeById($IdVe)
 	{
-		$result = $this->runQuery("SELECT *	FROM trangthaive WHERE idVe = {$IdVe}");
+		$result = $this->runQuery("SELECT *	FROM trangthaive WHERE idVe = '{$IdVe}'");
 		$row = $result->fetch_assoc();
 		return new TrangThaiVe(
 			$row['idVe'],
@@ -42,7 +42,7 @@ class TrangThaiVeDao extends DBConnection
     
 	public function deleteTrangThaiVe($ID)
 	{
-        $this->runQuery("DELETE FROM trangthaive WHERE idVe = {$ID}");
+        $this->runQuery("DELETE FROM trangthaive WHERE idVe = '{$ID}'");
 	}
 }
 

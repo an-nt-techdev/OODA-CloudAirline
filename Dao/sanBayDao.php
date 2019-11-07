@@ -31,7 +31,7 @@ class SanBayDao extends DBConnection
 
 	public function getIdByTenSanBay($ten)
 	{
-		$result = $this->runQuery("SELECT * FROM sanbay where tenThanhPho={$ten}");
+		$result = $this->runQuery("SELECT * FROM sanbay where tenThanhPho='{$ten}'");		
 		$row= $result->fetch_assoc();
 		return new SanBay(
 			 $row['id'],

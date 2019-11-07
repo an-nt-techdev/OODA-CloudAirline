@@ -47,7 +47,7 @@ class BookingModel
         $loaiVe = $this->loaiVeDao->getIdByTenLoaiVe($loaive);
         $id = $this->randomId();
 
-        $this->ve = new Ve($id, $cmnd, $ten, $diachi, $kieuve, $loaiVe->getId(), $sanBay1->getId(), $sanBay2->getId(), $ngayDi1, ngayDi2, $nguoiLon, $treEm);
+        $this->ve = new Ve($id, $cmnd, $ten, $sdt, $diachi, $kieuve, $loaiVe->getId(), $sanBay1->getId(), $sanBay2->getId(), $ngayDi1, $ngayDi2, $nguoiLon, $treEm);
     }
 
     public function getVe()
