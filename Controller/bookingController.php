@@ -29,8 +29,21 @@
         if (isset($_GET['choose_seat'])) 
         {
             // Lưu tạm dữ liệu
-            
-            $bkModel->SaveVe();
+            $type = $_POST['flight-type'];
+            if ($type == "one-way") $kieuVe = 0;
+            else if ($type == "two-way") $kieuVe = 1;
+            $diemDi = $_POST['from'];
+            $diemDen = $_POST['to'];
+            $ngayDi1 = $_POST['date1'];
+            $ngayDi2 = $_POST['date2'];
+            $nguoiLon = $_POST['adult'];
+            $treEm = $_POST['children'];
+            $loaiVe = $_POST['type'];
+            $tenKhachHang = $_POST['nameKH'];
+            $cmndKhachHang = $_POST['cmndKH'];
+            $sdtKhachHang = $_POST['phoneKH'];
+            $diaChiKhachHang = $_POST['addressKH'];
+            $bkModel->SaveVe($cmndKhachHang, $tenKhachHang, $sdtKhachHang, $diaChiKhachHang, $kieuVe, $loaiVe, $diemDi, $diemDen, $ngayDi1, $ngayDi2, $nguoiLon, $treEm);
 
             // xét gì đó :))
             if(isset($_POST['from']) && isset($_POST['to'])) 
