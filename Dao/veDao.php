@@ -12,7 +12,7 @@ class VeDao extends DBConnection
     
     public function getVeById($Id)
 	{
-		$result = $this->runQuery("SELECT *	FROM ve WHERE id = {$Id}");
+		$result = $this->runQuery("SELECT *	FROM ve WHERE id = '{$Id}'");
 		$row = $result->fetch_assoc();
 		return new Ve(
 			$row['id'],
@@ -24,10 +24,8 @@ class VeDao extends DBConnection
             $row['loaiVe'],
             $row['diemDi'],
             $row['diemDen'],
-            $row['ngayGioDi1'],
-            $row['ngayGioDi2'],
-            $row['mayBay1'],
-            $row['mayBay2'],
+            $row['ngayDi1'],
+            $row['ngayDi2'],
             $row['nguoiLon'],
             $row['treEm']
         );
@@ -37,7 +35,7 @@ class VeDao extends DBConnection
 	{
 		return $this->runQuery(
 			"INSERT INTO ve(id, cmndKhachHang, tenKhachHang, sdtKhachHang, diaChiKhachHang, kieuVe, loaiVe,
-                            diemDi, diemDen, ngayGioDi1, ngayGioDi2, mayBay1, mayBay2, nguoiLon, treEm) 
+                            diemDi, diemDen, ngayDi1, ngayDi2, nguoiLon, treEm) 
 			VALUE (
 				'{$Ve->getId()}',
 				'{$Ve->getCmndKhachHang()}',
@@ -48,10 +46,8 @@ class VeDao extends DBConnection
                 '{$Ve->getLoaiVe()}',
                 '{$Ve->getDiemDi()}',
                 '{$Ve->getDiemDen()}',
-                '{$Ve->getNgayGioDi1()}',
-                '{$Ve->getNgayGioDi2()}',
-                '{$Ve->getMayBay1()}',
-                '{$Ve->getMayBay2()}',
+                '{$Ve->getNgayDi1()}',
+                '{$Ve->getNgayDi2()}',
                 '{$Ve->getNguoiLon()}',
                 '{$Ve->getTreEm()}',
 			)"
@@ -70,10 +66,8 @@ class VeDao extends DBConnection
                 loaiVe = '{$Ve->getLoaiVe()}',
                 diemDi = '{$Ve->getDiemDi()}',
                 diemDen = '{$Ve->getDiemDen()}',
-                ngayGioDi1 = '{$Ve->getNgayGioDi1()}',
-                ngayGioDi2 = '{$Ve->getNgayGioDi2()}',
-                mayBay1 = '{$Ve->getMayBay1()}',
-                mayBay2 = '{$Ve->getMayBay2()}',
+                ngayDi1 = '{$Ve->getNgayDi1()}',
+                ngayDi2 = '{$Ve->getNgayDi2()}',
                 nguoiLon = '{$Ve->getNguoiLon()}',
                 treEm = '{$Ve->getTreEm()}',
 			WHERE id = {$Ve->getId()}"
@@ -82,9 +76,9 @@ class VeDao extends DBConnection
     
 	public function deleteVe($ID)
 	{
-        $this->runQuery("DELETE FROM trangthaive WHERE idVe = {$ID}");
-        $this->runQuery("DELETE FROM ghebay WHERE idVe = {$ID}");
-        $this->runQuery("DELETE FROM ve WHERE id = {$ID}");
+        $this->runQuery("DELETE FROM trangthaive WHERE idVe = '{$ID}'");
+        $this->runQuery("DELETE FROM ghebay WHERE idVe = '{$ID}'");
+        $this->runQuery("DELETE FROM ve WHERE id = '{$ID}'");
 	}
 }
 

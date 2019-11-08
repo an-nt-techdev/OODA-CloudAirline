@@ -1,5 +1,6 @@
 <?php 
     $p='home';
+    session_start();
 
     if (isset($_GET['booking'])) require_once SITE_ROOT.'/Controller/bookingController.php';
     else if (isset($_GET['checking']))

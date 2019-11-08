@@ -2,11 +2,13 @@
 
 require_once SITE_ROOT."/Dao/sanBayDao.php";
 require_once SITE_ROOT."/Dao/loaiVeDao.php";
+require_once SITE_ROOT."/Dao/veDao.php";
 require_once SITE_ROOT."/Entity/ve.php";
 require_once SITE_ROOT."/Dao/chuyenBayDao.php";
 class BookingModel
 {
     private $ve;
+    private $veDao;
     private $sanBayDao;
     private $loaiVeDao;
     private $chuyenBayDao;
@@ -16,8 +18,12 @@ class BookingModel
         $this->sanBayDao = new SanBayDao();
         $this->loaiVeDao = new LoaiVeDao();
         $this->chuyenBayDao = new ChuyenBayDao();
+        $this->veDao = new VeDao();
     }
 
+
+
+    // Tạo ID ngẫu nhiên
     public function randomId()
     {
         $result = "";
@@ -42,14 +48,29 @@ class BookingModel
         }
     }
 
+
+
+    // MODEL vé
     public function SaveVe($cmnd, $ten, $sdt, $diachi, $kieuve, $loaive, $diemDi, $diemDen, $ngayDi1, $ngayDi2, $nguoiLon, $treEm)
     {
         $sanBay1 = $this->sanBayDao->getIdByTenSanBay($diemDi);
         $sanBay2 = $this->sanBayDao->getIdByTenSanBay($diemDen);
         $loaiVe = $this->loaiVeDao->getIdByTenLoaiVe($loaive);
         $id = $this->randomId();
+        $_SESSION['id'] = $id;
 
         $this->ve = new Ve($id, $cmnd, $ten, $sdt, $diachi, $kieuve, $loaiVe->getId(), $sanBay1->getId(), $sanBay2->getId(), $ngayDi1, $ngayDi2, $nguoiLon, $treEm);
+        $this->veDao->insertVe($this->ve);
+    }
+
+    public function updateVe($Ve)
+    {
+        $this->veDao->updateVe($Ve);
+    }
+
+    public function getVeById($id)
+    {        
+        return $this->veDao->getVeById($id);
     }
 
     public function getVe()
@@ -57,10 +78,34 @@ class BookingModel
         return $this->ve;
     }
     
+
+
+    // MODEL loại vé
+    public function getAllLoaiVe()
+    {
+        return $this->loaiVeDao->getAllLoaiVe();
+    }
+
+    public function getIdByTenLoaiVe($ten)
+    {
+        return $this->loaiVeDao->getIdByTenLoaiVe($ten);
+    }
+
+
+
+    // MODEL sân bay
+    public function getAllSanBay()
+    {
+        return $this->sanBayDao->getAllSanBay();
+    }
+
+
+
+    // MODEL chuyến bay
     public function getChuyenBayList($DiemDi,$DiemDen){
         $sanBay1 = $this->sanBayDao->getIdByTenSanBay($DiemDi)->getId();
         $sanBay2 = $this->sanBayDao->getIdByTenSanBay($DiemDen)->getId();
-
+ 
         return $this->chuyenBayDao->getChuyenBayByDiaDiem($sanBay1, $sanBay2);
     }
     
