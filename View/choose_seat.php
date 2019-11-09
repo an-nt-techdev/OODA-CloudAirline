@@ -73,7 +73,7 @@
                             </form>
                             <br>
                             <div class="booking-form" style="margin-left: 0px; padding-top: 25px;">
-							<form action="" method="post" style="overflow:auto; height:160px;">
+							<form class="formChuyenBay" action="" method="post" style="overflow:auto; height:160px;">
                             
 								<table class="table">
                                     <thead style="position: relative;">
@@ -104,7 +104,7 @@
                                             echo "<td>".$chuyenBayList[$i]->getId()."</td>";
                                             echo "<td>".$chuyenBayList[$i]->getGioBay()."</td>";
                                             echo "<td>".$price."</td>";
-                                            echo "<td><button type='submit'>Choose This</td>";
+                                            echo "<td><input type='button' onclick=AirBus302('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."') value='Choose This'></td>";
                                             echo "</tr>";
                                         }
                                         ?>
@@ -163,7 +163,7 @@
                             </form>
                             <br>
                             <div class="booking-form" style="margin-left: 0px; padding-top: 25px;">
-							<form action="" method="post" style="overflow:auto; height:160px;">
+							<form class="formChuyenBay" id='formVe' action="" method="post" style="overflow:auto; height:160px;">
                             
 								<table class="table">
                                     <thead style="position: relative;">
@@ -193,13 +193,17 @@
                                             echo "<td>".$chuyenBayList[$i]->getId()."</td>";
                                             echo "<td>".$chuyenBayList[$i]->getGioBay()."</td>";
                                             echo "<td>".$price."</td>";
-                                            echo "<td><button type='submit'>Choose This</td>";
+                                            echo "<td><input type='button' onclick=AirBus302('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."') value='Choose This'></td>";
+                                            //echo "<td><input type='button' onclick='AirBus302('a','b')' value='Choose This'></td>";
                                             echo "</tr>";
                                         }
                                         ?>
                                     </tbody>
                                 </table>
 							</form>
+                            <form action="" method="post">
+                                        
+                            </form>
 						</div>
 					</div>
 				</div>
@@ -213,7 +217,14 @@
 		</div>
 	</div>
 </body>
-
+<?php $cec ='wtf'?>
+<script>
+    function AirBus302(a,b){
+        var c= <?php echo json_encode($cec)?>;
+        alert("test php-js: "+a+" "+b+" "+c);
+        document.getElementsByClassName("formChuyenBay").submit();
+    }
+</script>
 <script type="text/javascript" src="View/Resources/js/script.js"></script>
 <!-- This templates was made by Colorlib (https://colorlib.com) -->
 
