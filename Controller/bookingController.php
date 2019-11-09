@@ -1,7 +1,6 @@
 <?php 
 
     require_once SITE_ROOT.'/Model/BookingModel.php';
-
     $p='home';
     $bkModel = new BookingModel();
     
@@ -29,17 +28,18 @@
                     if ($type == "one-way") 
                     {
                         $kieuVe = 0;
-                        $ngayDi2 = "01:01:1999";
+                        $ngayDi2 = "1999-01-01";
                     }
                     else if ($type == "two-way")
                     {
                         $kieuVe = 1;
+                        $ngayDi2 = $_POST['end'];
                     }
 
                     $diemDi = $_POST['from'];
                     $diemDen = $_POST['to'];
                     $ngayDi1 = $_POST['start'];
-                    $ngayDi2 = $_POST['end'];
+                
                     $nguoiLon = $_POST['adult'];
                     $treEm = $_POST['children'];
                     $loaiVe = $_POST['type'];
@@ -87,6 +87,10 @@
         else 
         {
             // load trang booking
+            session_start();
+            if(isset($_SESSION['id'])){
+                echo "<p".$_SESSION['id']."</p>";
+            }
             require_once SITE_ROOT.'/View/booking.php';
         }
     }

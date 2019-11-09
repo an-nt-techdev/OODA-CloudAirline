@@ -49,7 +49,7 @@ class VeDao extends DBConnection
                 '{$Ve->getNgayDi1()}',
                 '{$Ve->getNgayDi2()}',
                 '{$Ve->getNguoiLon()}',
-                '{$Ve->getTreEm()}',
+                '{$Ve->getTreEm()}'
 			)"
 		);
     }

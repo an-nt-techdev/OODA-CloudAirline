@@ -46,6 +46,7 @@ class BookingModel
                 $result = $result . chr($rd2);
             }
         }
+        return $result;
     }
 
 
@@ -56,9 +57,12 @@ class BookingModel
         $sanBay1 = $this->sanBayDao->getIdByTenSanBay($diemDi);
         $sanBay2 = $this->sanBayDao->getIdByTenSanBay($diemDen);
         $loaiVe = $this->loaiVeDao->getIdByTenLoaiVe($loaive);
-        $id = $this->randomId();
-        $_SESSION['id'] = $id;
-
+        if(!isset($_SESSION['id'])){
+            $id = $this->randomId();
+            $_SESSION['id'] = $id;
+        }
+        echo "<p>". $_SESSION['id']."</p>";
+        echo "<p>".$id."</p>";
         $this->ve = new Ve($id, $cmnd, $ten, $sdt, $diachi, $kieuve, $loaiVe->getId(), $sanBay1->getId(), $sanBay2->getId(), $ngayDi1, $ngayDi2, $nguoiLon, $treEm);
         $this->veDao->insertVe($this->ve);
     }
