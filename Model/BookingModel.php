@@ -74,12 +74,7 @@ class BookingModel
     {        
         $this->ve = $this->veDao->getVeById($id);
         return $this->veDao->getVeById($id);
-    }
-
-    public function getVe()
-    {
-        return $this->ve;
-    }
+    }   
     
 
 

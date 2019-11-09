@@ -69,8 +69,8 @@ class VeDao extends DBConnection
                 ngayDi1 = '{$Ve->getNgayDi1()}',
                 ngayDi2 = '{$Ve->getNgayDi2()}',
                 nguoiLon = '{$Ve->getNguoiLon()}',
-                treEm = '{$Ve->getTreEm()}',
-			WHERE id = {$Ve->getId()}"
+                treEm = '{$Ve->getTreEm()}'
+			WHERE id = '{$Ve->getId()}'"
 		);
     }
     

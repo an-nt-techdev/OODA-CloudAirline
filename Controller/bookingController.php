@@ -73,7 +73,7 @@
             else 
             {
                 $v = $bkModel->getVeById($_SESSION['id']);
-                $v->setNgayDi1($_POST['end']);
+                $v->setNgayDi2($_POST['end']);
                 $v->setDiemDi($_POST['from']);
                 $v->setDiemDen($_POST['to']);
 
