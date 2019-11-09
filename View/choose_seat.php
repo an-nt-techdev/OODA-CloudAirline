@@ -25,7 +25,6 @@
 <body>
             <?php
                 $VE = $bkModel->getVe();
-                echo $loaiVe;
             ?> 
 	<div id="booking" class="section">
 		<div class="section-center">
@@ -67,7 +66,7 @@
 
                                 <div class="form-group">
                                     <span class="form-label">Departing</span>
-                                    <input class="form-control" name="start" type="date" value = "<?php echo $ngayDi1 ?>" required style="width:130px; padding:6px;">
+                                    <input class="form-control" name="start" type="date" value = "<?php echo $VE->getNgayDi1(); ?>" required style="width:130px; padding:6px;">
 								</div>
 
                                 <button type="submit" class="btn btn-success">Search</button>
@@ -98,7 +97,7 @@
                                         
                                           for ($i=0; $i<sizeof($chuyenBayList); $i++)
                                         {
-                                            $lv = $bkModel->getIdByTenLoaiVe($loaiVe);
+                                            $lv = $bkModel->getLoaiVeById($VE->getLoaiVe());
                                             $price = ($VE->getNguoiLon()+($VE->getTreEm()/2))*1000*$lv->getPhanTram()*$chuyenBayList[$i]->getKhoangCach()/100;
                                             echo "<tr>";
                                             echo "<td>".$chuyenBayList[$i]->getIdMayBay()."</td>";
@@ -157,7 +156,7 @@
 
                                 <div class="form-group">
                                     <span class="form-label">Departing</span>
-                                    <input class="form-control" name="end" type="date" value = "<?php echo $ngayDi2 ?>" required style="width:130px; padding:6px;">
+                                    <input class="form-control" name="end" type="date" value = "<?php echo $VE->getNgayDi2(); ?>" required style="width:130px; padding:6px;">
 								</div>
 
                                 <button type="submit" class="btn btn-success">Search</button>
@@ -187,7 +186,7 @@
                                         <?php
                                           for ($i=0; $i<sizeof($chuyenBayList); $i++)
                                         {
-                                            $lv = $bkModel->getIdByTenLoaiVe($loaiVe);
+                                            $lv = $bkModel->getLoaiVeById($VE->getLoaiVe());
                                             $price = ($VE->getNguoiLon()+($VE->getTreEm()/2))*1000*$lv->getPhanTram()*$chuyenBayList[$i]->getKhoangCach()/100;
                                             echo "<tr>";
                                             echo "<td>".$chuyenBayList[$i]->getIdMayBay()."</td>";

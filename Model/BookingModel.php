@@ -72,6 +72,7 @@ class BookingModel
 
     public function getVeById($id)
     {        
+        $this->ve = $this->veDao->getVeById($id);
         return $this->veDao->getVeById($id);
     }
 
@@ -91,6 +92,11 @@ class BookingModel
     public function getIdByTenLoaiVe($ten)
     {
         return $this->loaiVeDao->getIdByTenLoaiVe($ten);
+    }
+
+    public function getLoaiVeById($id)
+    {
+        return $this->loaiVeDao->getLoaiVeById($id);
     }
 
 
