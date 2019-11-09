@@ -25,6 +25,7 @@
 <body>
             <?php
                 $VE = $bkModel->getVe();
+                echo $loaiVe;
             ?> 
 	<div id="booking" class="section">
 		<div class="section-center">
@@ -94,6 +95,7 @@
                                         </tr> -->
                                     <tbody>
                                         <?php
+                                        
                                           for ($i=0; $i<sizeof($chuyenBayList); $i++)
                                         {
                                             $lv = $bkModel->getIdByTenLoaiVe($loaiVe);

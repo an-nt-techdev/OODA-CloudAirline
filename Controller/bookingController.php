@@ -87,9 +87,9 @@
         else 
         {
             // load trang booking
-            session_start();
-            if(isset($_SESSION['id'])){
-                echo "<p".$_SESSION['id']."</p>";
+            if(!isset($_SESSION['id'])){
+                    $id = $bkModel->randomId();
+                    $_SESSION['id']=$id;
             }
             require_once SITE_ROOT.'/View/booking.php';
         }
