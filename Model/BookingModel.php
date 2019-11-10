@@ -5,9 +5,12 @@ require_once SITE_ROOT."/Dao/loaiVeDao.php";
 require_once SITE_ROOT."/Dao/veDao.php";
 require_once SITE_ROOT."/Dao/chuyenBayDao.php";
 require_once SITE_ROOT."/Dao/gheBayDao.php";
+require_once SITE_ROOT."/Dao/loaiMayBayDao.php";
 
 require_once SITE_ROOT."/Entity/ve.php";
 require_once SITE_ROOT."/Entity/gheBay.php";
+require_once SITE_ROOT."/Entity/loaiMayBay.php";
+
 
 class BookingModel
 {
@@ -251,7 +254,11 @@ class BookingModel
     {
         return $this->chuyenBayDao->getChuyenBayById($Id);
     }
-    
+    //MODEL loại máy bay
+    public function getLoaiMayBay($id)
+    {
+        return $this->loaiMayBayDao->getLoaiMayBayById($id);
+    }
 }
 
 ?>

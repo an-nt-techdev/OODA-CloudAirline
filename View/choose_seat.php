@@ -31,13 +31,14 @@
 			<!-- <div class="container"> -->
 
             <!-- ============================== -->
-
+        <div class="w3-row">
+            <div class="w3-col m6">    
             <div class="row"> 
                 <script>
                     document.getElementById("result").innerHTML = localStorage.getItem("type");
                 </script>
                 <p id="result"><p>
-					<div class="col-md-8 col-md-offset-1" style="margin-left: 80px;">
+					<div class="con-md-8" style="margin-left: 80px;">
                             <form class="form-inline" action="?booking=on&choose_seat=on&change=start" method="post">   
                                 <div class="form-group" style="margin-left: -35px;">
                                     <span class="form-label">From</span>
@@ -130,7 +131,7 @@
                 ?>
 
                 <div class="row">
-					<div class="col-md-8 col-md-offset-1" style="margin-left: 80px;">
+					<div class="con-md-8" style="margin-left: 80px;">
                             <form class="form-inline" action="?booking=on&choose_seat=on&change=end" method="post">   
                                 <div class="form-group" style="margin-left: -35px;">
                                     <span class="form-label">From</span>
@@ -206,9 +207,6 @@
                                     </tbody>
                                 </table>
 							</form>
-                            <form action="" method="post">
-                                        
-                            </form>
 						</div>
 					</div>
 				</div>
@@ -219,14 +217,40 @@
 
 
 			</div>
+            <div class="w3-col m6">
+                <div class="booking-form">
+                    <form id="formShowGhe">
+                        <h4 id="tit"></h4>
+                    </form>
+                </div>
+            </div>  
+            </div>
+            </div>
 		</div>
 	</div>
 </body>
 <?php $cec ='wtf'?>
 <script>
-    function AirBus302(a,b){
-        var c= <?php echo json_encode($cec)?>;
-        alert("test php-js: "+a+" "+b+" "+c);
+    function AirBus302(idChuyenBay,idMayBay){
+        //var c= <?php echo json_encode($cec)?>;
+        var loaiMayBay="";
+        if(idMayBay.search("A320")!=-1){
+            loaiMayBay="AirBus320";
+        }
+        else if(idMayBay.search("A380")!=-1){
+            loaiMayBay = "AirBus380";
+        }
+        else {
+            loaiMayBay = "Boeing777";
+        }
+        document.getElementById("tit").innerHTML="Type: "+loaiMayBay+" - Planes' Name: "+idMayBay+" - Chuyến Bay: "+idChuyenBay;
+        // 1. Create the button
+        var button = document.createElement("button");
+        button.innerHTML = idChuyenBay;
+
+        // 2. Append somewhere
+        var body = document.getElementById("formShowGhe");
+        body.appendChild(button);
         document.getElementsByClassName("formChuyenBay").submit();
     }
 </script>

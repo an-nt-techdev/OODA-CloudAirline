@@ -11,7 +11,7 @@
 
 	<!-- Bootstrap -->
 	<link type="text/css" rel="stylesheet" href="View/Resources/css/bootstrap.min.css" />
-
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="View/Resources/css/style.css" />
 
