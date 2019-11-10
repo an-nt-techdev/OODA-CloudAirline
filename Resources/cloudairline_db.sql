@@ -68,7 +68,7 @@ CREATE TABLE trangthaive(
 CREATE TABLE ghebay(
     idChuyenBay VARCHAR(10) NOT NULL,
     idVe VARCHAR(15) NOT NULL,
-    ghe VARCHAR(10) NOT NULL,
+    ghe INT NOT NULL,
     ngayBay DATE NOT NULL,
     PRIMARY KEY (idChuyenBay, idVe, ghe, ngayBay),
     FOREIGN KEY (idChuyenBay) REFERENCES chuyenbay(id),

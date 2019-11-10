@@ -9,6 +9,21 @@ class ChuyenBayDao extends DBConnection
 	{
 		parent::__construct();
     }
+
+    public function getChuyenBayById($Id)
+    {
+        $result = $this->runQuery("SELECT * FROM chuyenbay WHERE id = '{$Id}'");
+
+        $row = $result->fetch_assoc();
+        return new ChuyenBay(
+                $row['id'],
+                $row['idMayBay'],
+                $row['diemDi'],
+                $row['diemDen'],
+                $row['gioBay'],
+                $row['khoangCach']
+            );
+    }
     
     public function getChuyenBayByDiaDiem($DiemDi, $DiemDen)
 	{

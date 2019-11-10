@@ -21,6 +21,26 @@ class GheBayDao extends DBConnection
 			$row['ngaybay']
         );
     }
+
+    public function getGheBayByIdChuyenBayAndNgayBay($IdChuyenBay, $NgayBay)
+	{
+		$result = $this->runQuery("SELECT *	FROM gheBay WHERE idChuyenBay = '{$IdChuyenBay}' AND ngayBay = '{$NgayBay}'");
+		
+		$GheBayList = array();
+		while ($row = $result->fetch_assoc())
+		{
+			$GheBay = new GheBay(
+                $row['idChuyenBay'],
+				$row['idVe'],
+				$row['ghe'],
+				$row['ngaybay']
+            );
+			array_push($GheBayList, $GheBay);
+		}
+		$result->free();
+		
+		return $GheBayList;
+    }
     
     public function insertGheBay($GheBay)
 	{
