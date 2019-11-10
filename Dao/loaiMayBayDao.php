@@ -10,10 +10,21 @@ class LoaiMayBayDao extends DBConnection
 		parent::__construct();
     }
     public function getLoaiMayBayById($id){
-        $result = $this->runQuery("SELECT *	FROM loaive where id='{$id}'");
+        $result = $this->runQuery("SELECT *	FROM loaimaybay where id='{$id}'");
         $row= $result->fetch_assoc();
         return new LoaiMayBay(
             $row['$id'],
+            $row['ten'],
+            $row['gheThuong'],
+            $row['gheThuongGia'],
+            $row['gheTietKiem']
+        );
+    }
+    public function getLoaiMayBayByTen($ten){
+        $result = $this->runQuery("SELECT *	FROM loaimaybay where ten='{$ten}'");
+        $row= $result->fetch_assoc();
+        return new LoaiMayBay(
+            $row['id'],
             $row['ten'],
             $row['gheThuong'],
             $row['gheThuongGia'],

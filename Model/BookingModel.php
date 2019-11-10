@@ -22,6 +22,7 @@ class BookingModel
     private $loaiVeDao;
     private $chuyenBayDao;
     private $gheBayDao;
+    private $loaiMayBayDao;
 
     public function __construct() 
 	{
@@ -30,6 +31,7 @@ class BookingModel
         $this->chuyenBayDao = new ChuyenBayDao();
         $this->veDao = new VeDao();
         $this->gheBayDao = new GheBayDao();
+        $this->loaiMayBayDao = new LoaiMayBayDao();
     }
 
 
@@ -255,9 +257,9 @@ class BookingModel
         return $this->chuyenBayDao->getChuyenBayById($Id);
     }
     //MODEL loại máy bay
-    public function getLoaiMayBay($id)
+    public function getLoaiMayBayByTen($ten)
     {
-        return $this->loaiMayBayDao->getLoaiMayBayById($id);
+        return $this->loaiMayBayDao->getLoaiMayBayByTen($ten);
     }
 }
 

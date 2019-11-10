@@ -41,7 +41,7 @@
 					<div class="con-md-8" style="margin-left: 80px;">
                             <form class="form-inline" action="?booking=on&choose_seat=on&change=start" method="post">   
                                 <div class="form-group" style="margin-left: -35px;">
-                                    <span class="form-label">From</span>
+                                    <span class="form-label"><b><i>From</b></i></span>
                                     <select class="form-control" name="from" required>
                                     <?php 
                                         for ($i=0; $i<15; $i++)
@@ -53,7 +53,7 @@
                                     <span class="select-arrow"></span>
                                 </div>
                                 <div class="form-group">
-                                    <span class="form-label">To</span>
+                                    <span class="form-label"><b><i>To</b></i></span>
                                     <select class="form-control" name="to" required>
                                     <?php 
                                         for ($i=0; $i<15; $i++)
@@ -66,7 +66,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <span class="form-label">Departing</span>
+                                    <span class="form-label"><b><i>Departing</b></i></span>
                                     <input class="form-control" name="start" type="date" value = "<?php echo $VE->getNgayDi1(); ?>" required style="width:130px; padding:6px;">
 								</div>
 
@@ -107,7 +107,7 @@
                                                 echo "<td>".$chuyenBayList[$i]->getId()."</td>";
                                                 echo "<td>".$chuyenBayList[$i]->getGioBay()."</td>";
                                                 echo "<td>".$price."</td>";
-                                                echo "<td><input type='button' onclick=AirBus302('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."') value='Choose This'></td>";
+                                                echo "<td><input type='button' onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."') value='Choose This'></td>";
                                                 echo "</tr>";
                                             }
                                         }
@@ -134,7 +134,7 @@
 					<div class="con-md-8" style="margin-left: 80px;">
                             <form class="form-inline" action="?booking=on&choose_seat=on&change=end" method="post">   
                                 <div class="form-group" style="margin-left: -35px;">
-                                    <span class="form-label">From</span>
+                                    <span class="form-label"><b><i>From</b></i></span>
                                     <select class="form-control" name="to" required>
                                     <?php 
                                         for ($i=0; $i<15; $i++)
@@ -146,7 +146,7 @@
                                     <span class="select-arrow"></span>
                                 </div>
                                 <div class="form-group">
-                                    <span class="form-label">To</span>
+                                    <span class="form-label"><b><i>To</b></i></span>
                                     <select class="form-control" name="from" required>
                                     <?php 
                                         for ($i=0; $i<15; $i++)
@@ -159,7 +159,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <span class="form-label">Departing</span>
+                                    <span class="form-label"><b><i>Departing</b></i></span>
                                     <input class="form-control" name="end" type="date" value = "<?php echo $VE->getNgayDi2(); ?>" required style="width:130px; padding:6px;">
 								</div>
 
@@ -199,7 +199,7 @@
                                                 echo "<td>".$chuyenBayList[$i]->getId()."</td>";
                                                 echo "<td>".$chuyenBayList[$i]->getGioBay()."</td>";
                                                 echo "<td>".$price."</td>";
-                                                echo "<td><input type='button' onclick=AirBus302('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."') value='Choose This'></td>";
+                                                echo "<td><input type='button' onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."') value='Choose This'></td>";
                                                 echo "</tr>";
                                             }
                                         }
@@ -217,10 +217,16 @@
 
 
 			</div>
-            <div class="w3-col m6">
+            <div class="w3-col m6" style="display:none" id ="col-show-list">
                 <div class="booking-form">
-                    <form id="formShowGhe">
+                    <form id="formShowGhe" >
                         <h4 id="tit"></h4>
+                        <div id ="thuong">
+                        </div>
+                        <div id ="thuongGia">
+                        </div>
+                        <div id ="tietKiem">
+                        </div>
                     </form>
                 </div>
             </div>  
@@ -229,29 +235,62 @@
 		</div>
 	</div>
 </body>
-<?php $cec ='wtf'?>
+<?php $cec ='wtf';
+
+$a = $bkModel->getLoaiMayBayByTen("Airbus A320");
+$b= $bkModel->getLoaiMayBayByTen("Airbus A380");
+$c=$bkModel->getLoaiMayBayByTen("Boeing 777");
+?>
 <script>
-    function AirBus302(idChuyenBay,idMayBay){
-        //var c= <?php echo json_encode($cec)?>;
-        var loaiMayBay="";
+    function showGheBay(idChuyenBay,idMayBay){
+        document.getElementById("col-show-list").style.display = "initial";
+        var thuong="",thuongGia="",tietKiem="",loaiMayBay="";
         if(idMayBay.search("A320")!=-1){
-            loaiMayBay="AirBus320";
+            loaiMayBay=<?php echo json_encode($a->getTen())?>;
+            thuong=<?php echo json_encode($a->getGheThuong())?>;
+            thuongGia=<?php echo json_encode($a->getGheThuongGia())?>;
+            tietKiem=<?php echo json_encode($a->getGheTietKiem())?>;
         }
         else if(idMayBay.search("A380")!=-1){
-            loaiMayBay = "AirBus380";
+            loaiMayBay=<?php echo json_encode($b->getTen())?>;
+            thuong=<?php echo json_encode($b->getGheThuong())?>;
+            thuongGia=<?php echo json_encode($b->getGheThuongGia())?>;
+            tietKiem=<?php echo json_encode($b->getGheTietKiem())?>;
         }
         else {
-            loaiMayBay = "Boeing777";
+            loaiMayBay=<?php echo json_encode($c->getTen())?>;
+            thuong=<?php echo json_encode($c->getGheThuong())?>;
+            thuongGia=<?php echo json_encode($c->getGheThuongGia())?>;
+            tietKiem=<?php echo json_encode($c->getGheTietKiem())?>;
         }
-        document.getElementById("tit").innerHTML="Type: "+loaiMayBay+" - Planes' Name: "+idMayBay+" - Chuyến Bay: "+idChuyenBay;
-        // 1. Create the button
-        var button = document.createElement("button");
-        button.innerHTML = idChuyenBay;
-
-        // 2. Append somewhere
-        var body = document.getElementById("formShowGhe");
-        body.appendChild(button);
+        document.getElementById("tit").innerHTML="Type: "+loaiMayBay+" - Planes'Name: "+idMayBay+" - FlightID: "+idChuyenBay+" "+thuong+thuongGia+tietKiem;
+        createGhe(thuong,thuongGia,tietKiem);
         document.getElementsByClassName("formChuyenBay").submit();
+    }
+    function createGhe(thuong,thuongGia,tietKiem){
+        for(var i = 0 ; i<thuong;i++){
+            var button = document.createElement("button");
+            button.innerHTML = "T";
+
+            // 2. Append somewhere
+            var body = document.getElementById("thuong");
+            body.appendChild(button);
+        }
+        for(var i =0;i<thuongGia;i++){
+            var button = document.createElement("button");
+            button.innerHTML = "TG";
+
+            // 2. Append somewhere
+            var body = document.getElementById("thuongGia");
+            body.appendChild(button);
+        }
+        for(var i =0;i<tietKiem;i++){
+            var button = document.createElement("button");
+            button.innerHTML = "TK";
+            // 2. Append somewhere
+            var body = document.getElementById("tietKiem");
+            body.appendChild(button);
+        }
     }
 </script>
 <script type="text/javascript" src="View/Resources/js/script.js"></script>
