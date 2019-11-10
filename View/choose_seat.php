@@ -280,6 +280,7 @@ $c=$bkModel->getLoaiMayBayByTen("Boeing 777");
             button.style.background='#f44336';
             button.style.margin = "3px";
             button.style.borderRadius = "10px";
+            button.style.border="2px solid #555555";
             // 2. Append somewhere
             var body = document.getElementById("thuong");
             body.appendChild(button);
@@ -293,6 +294,7 @@ $c=$bkModel->getLoaiMayBayByTen("Boeing 777");
             button.style.width = '70px';
             button.style.height = '30px';
             button.style.borderRadius = "15px";
+            button.style.border="2px solid #555555";
             // 2. Append somewhere
             var body = document.getElementById("thuongGia");
             body.appendChild(button);
@@ -304,6 +306,7 @@ $c=$bkModel->getLoaiMayBayByTen("Boeing 777");
             button.style.background='#4CAF50';
             button.style.margin = "3px";
             button.style.width = '50px';
+            button.style.border="2px solid #555555";
             // 2. Append somewhere
             var body = document.getElementById("tietKiem");
             body.appendChild(button);
