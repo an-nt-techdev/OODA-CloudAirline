@@ -107,7 +107,7 @@
                                                 echo "<td>".$chuyenBayList[$i]->getId()."</td>";
                                                 echo "<td>".$chuyenBayList[$i]->getGioBay()."</td>";
                                                 echo "<td>".$price."</td>";
-                                                echo "<td><input type='button' onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."') value='Choose This'></td>";
+                                                echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."') value='Choose This'></td>";
                                                 echo "</tr>";
                                             }
                                         }
@@ -199,7 +199,7 @@
                                                 echo "<td>".$chuyenBayList[$i]->getId()."</td>";
                                                 echo "<td>".$chuyenBayList[$i]->getGioBay()."</td>";
                                                 echo "<td>".$price."</td>";
-                                                echo "<td><input type='button' onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."') value='Choose This'></td>";
+                                                echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."') value='Choose This'></td>";
                                                 echo "</tr>";
                                             }
                                         }
@@ -242,6 +242,9 @@ $b= $bkModel->getLoaiMayBayByTen("Airbus A380");
 $c=$bkModel->getLoaiMayBayByTen("Boeing 777");
 ?>
 <script>
+    function myFunction() {
+        document.getElementById("focus").style.backgroundColor = "red";
+        }
     // hàm gọi vẽ ghế theo chuyen
     function showGheBay(idChuyenBay,idMayBay){
         document.getElementById("col-show-list").style.display = "initial";
