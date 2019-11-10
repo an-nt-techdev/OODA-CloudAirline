@@ -242,8 +242,10 @@ $b= $bkModel->getLoaiMayBayByTen("Airbus A380");
 $c=$bkModel->getLoaiMayBayByTen("Boeing 777");
 ?>
 <script>
+    // hàm gọi vẽ ghế theo chuyen
     function showGheBay(idChuyenBay,idMayBay){
         document.getElementById("col-show-list").style.display = "initial";
+        removeChild();
         var thuong="",thuongGia="",tietKiem="",loaiMayBay="";
         if(idMayBay.search("A320")!=-1){
             loaiMayBay=<?php echo json_encode($a->getTen())?>;
@@ -267,6 +269,8 @@ $c=$bkModel->getLoaiMayBayByTen("Boeing 777");
         createGhe(thuong,thuongGia,tietKiem);
         document.getElementsByClassName("formChuyenBay").submit();
     }
+    
+    // hàm vẽ ghế
     function createGhe(thuong,thuongGia,tietKiem){
         for(var i = 0 ; i<thuong;i++){
             var button = document.createElement("button");
@@ -290,6 +294,21 @@ $c=$bkModel->getLoaiMayBayByTen("Boeing 777");
             // 2. Append somewhere
             var body = document.getElementById("tietKiem");
             body.appendChild(button);
+        }
+    }
+    // hàm reset Show Ghế - nếu ko sẽ bị chồng
+    function removeChild(){
+        const parent1 = document.getElementById("thuong");
+        while (parent1.firstChild) {
+            parent1.firstChild.remove();
+        }
+        const parent2 = document.getElementById("thuongGia");
+        while (parent2.firstChild) {
+            parent2.firstChild.remove();
+        }
+        const parent3 = document.getElementById("tietKiem");
+        while (parent3.firstChild) {
+            parent3.firstChild.remove();
         }
     }
 </script>
