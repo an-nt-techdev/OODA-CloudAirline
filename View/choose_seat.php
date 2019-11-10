@@ -189,16 +189,18 @@
                                         <?php
                                           for ($i=0; $i<sizeof($chuyenBayList); $i++)
                                         {
-                                            $lv = $bkModel->getLoaiVeById($VE->getLoaiVe());
-                                            $price = ($VE->getNguoiLon()+($VE->getTreEm()/2))*1000*$lv->getPhanTram()*$chuyenBayList[$i]->getKhoangCach()/100;
-                                            echo "<tr>";
-                                            echo "<td>".$chuyenBayList[$i]->getIdMayBay()."</td>";
-                                            echo "<td>".$chuyenBayList[$i]->getId()."</td>";
-                                            echo "<td>".$chuyenBayList[$i]->getGioBay()."</td>";
-                                            echo "<td>".$price."</td>";
-                                            echo "<td><input type='button' onclick=AirBus302('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."') value='Choose This'></td>";
-                                            //echo "<td><input type='button' onclick='AirBus302('a','b')' value='Choose This'></td>";
-                                            echo "</tr>";
+                                            if ($bkModel->CheckGheBay($chuyenBayList[$i]->getId(), $VE->getNgayDi1(), $VE->getNguoiLon(), $VE->getTreEm(), $VE->getLoaiVe()) == "true")
+                                            {
+                                                $lv = $bkModel->getLoaiVeById($VE->getLoaiVe());
+                                                $price = ($VE->getNguoiLon()+($VE->getTreEm()/2))*1000*$lv->getPhanTram()*$chuyenBayList[$i]->getKhoangCach()/100;
+                                                echo "<tr>";
+                                                echo "<td>".$chuyenBayList[$i]->getIdMayBay()."</td>";
+                                                echo "<td>".$chuyenBayList[$i]->getId()."</td>";
+                                                echo "<td>".$chuyenBayList[$i]->getGioBay()."</td>";
+                                                echo "<td>".$price."</td>";
+                                                echo "<td><input type='button' onclick=AirBus302('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."') value='Choose This'></td>";
+                                                echo "</tr>";
+                                            }
                                         }
                                         ?>
                                     </tbody>
