@@ -221,11 +221,11 @@
                 <div class="booking-form">
                     <form id="formShowGhe" >
                         <h4 id="tit"></h4>
-                        <div id ="thuong">
+                        <div id ="thuong" style="text-align:center;padding:15px;margin-left:100px;margin-right:100px">
                         </div>
-                        <div id ="thuongGia">
+                        <div id ="thuongGia" style="text-align:center;padding:15px;margin-left:100px;margin-right:100px">
                         </div>
-                        <div id ="tietKiem">
+                        <div id ="tietKiem"style="text-align:center;padding:15px;margin-left:100px;margin-right:100px">
                         </div>
                     </form>
                 </div>
@@ -272,25 +272,38 @@ $c=$bkModel->getLoaiMayBayByTen("Boeing 777");
     
     // hàm vẽ ghế
     function createGhe(thuong,thuongGia,tietKiem){
-        for(var i = 0 ; i<thuong;i++){
+        var j=0;
+        for(var i = 1 ; i<=thuong;i++){
+            j++;
             var button = document.createElement("button");
-            button.innerHTML = "T";
-
+            button.innerHTML = j;
+            button.style.background='#f44336';
+            button.style.margin = "3px";
+            button.style.borderRadius = "10px";
             // 2. Append somewhere
             var body = document.getElementById("thuong");
             body.appendChild(button);
         }
         for(var i =0;i<thuongGia;i++){
+            j++;
             var button = document.createElement("button");
-            button.innerHTML = "TG";
-
+            button.style.background='#008CBA';
+            button.innerHTML = j;
+            button.style.margin = "3px";
+            button.style.width = '70px';
+            button.style.height = '30px';
+            button.style.borderRadius = "15px";
             // 2. Append somewhere
             var body = document.getElementById("thuongGia");
             body.appendChild(button);
         }
         for(var i =0;i<tietKiem;i++){
             var button = document.createElement("button");
-            button.innerHTML = "TK";
+            j++;
+            button.innerHTML = j;
+            button.style.background='#4CAF50';
+            button.style.margin = "3px";
+            button.style.width = '50px';
             // 2. Append somewhere
             var body = document.getElementById("tietKiem");
             body.appendChild(button);
