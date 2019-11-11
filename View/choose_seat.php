@@ -108,7 +108,7 @@
                                                 echo "<td>".$chuyenBayList[$i]->getId()."</td>";
                                                 echo "<td>".$chuyenBayList[$i]->getGioBay()."</td>";
                                                 echo "<td>".$price."</td>";
-                                                echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."','".$VE->getNgayDi1()."',".json_encode($gheBayList).") value='Choose This'></td>";
+                                                echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."',".json_encode($gheBayList).") value='Choose This'></td>";
                                                 echo "</tr>";
                                             }
                                         }
@@ -201,7 +201,7 @@
                                                 echo "<td>".$chuyenBayList[$i]->getId()."</td>";
                                                 echo "<td>".$chuyenBayList[$i]->getGioBay()."</td>";
                                                 echo "<td>".$price."</td>";
-                                                echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."','".$VE->getNgayDi2()."',".json_encode($gheBayList).") value='Choose This'></td>";
+                                                echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."',".json_encode($gheBayList).") value='Choose This'></td>";
                                                 echo "</tr>";
                                             }
                                             echo json_last_error();
@@ -224,8 +224,7 @@
                 <div class="booking-form">
                     <form id="formShowGhe" >
                         <h4 id="tit"></h4>
-                        <h4 id="idChuyenBay" name="idChuyenBay"></h4>
-                        <h4 id="ngayBay" name="ngayBay"></h4>
+                        <h4 id="idChuyenBay"></h4>
                         <div id ="thuong" style="text-align:center;padding:15px;margin-left:100px;margin-right:100px">
                         </div>
                         <div id ="thuongGia" style="text-align:center;padding:15px;margin-left:100px;margin-right:100px">
@@ -253,7 +252,7 @@ $c = $bkModel->getLoaiMayBayByTen("Boeing 777");
         document.getElementById("focus").style.backgroundColor = "red";
         }
     // hàm gọi vẽ ghế theo chuyen
-    function showGheBay(idChuyenBay, idMayBay, ngayBay, gheBayList){
+    function showGheBay(idChuyenBay, idMayBay, gheBayList){
         document.getElementById("col-show-list").style.display = "initial";
         removeChild();
         var thuong="",thuongGia="",tietKiem="",loaiMayBay="";
@@ -275,27 +274,36 @@ $c = $bkModel->getLoaiMayBayByTen("Boeing 777");
             thuongGia=<?php echo json_encode($c->getGheThuongGia())?>;
             tietKiem=<?php echo json_encode($c->getGheTietKiem())?>;
         }
-        document.getElementById("tit").innerHTML="Type: "+loaiMayBay+" - Planes'Name: "+gheBayList[0];
+        document.getElementById("tit").innerHTML="Type: "+loaiMayBay+" - Planes'Name: "+idMayBay+" "+gheBayList.length;
         document.getElementById("idChuyenBay").innerHTML="FlightID: "+idChuyenBay;
-        document.getElementById("ngayBay").innerHTML="Date: "+ngayBay;
-
-        createGhe(thuong, thuongGia, tietKiem, idChuyenBay, ngayBay);
+        createGhe(thuong, thuongGia, tietKiem, idChuyenBay,gheBayList);
 
         document.getElementsByClassName("formChuyenBay").submit();
     }
     
+    //hàm check
+    function check(i,gheBayList){
+        for(var c=0;c<gheBayList.length;c++)
+        {
+            if(i==gheBayList[c] ) return 0;
+        }
+        return 1;
+    }
     // hàm vẽ ghế
-    function createGhe(thuong, thuongGia, tietKiem, idChuyenBay, ngayBay){
+    function createGhe(thuong, thuongGia, tietKiem, idChuyenBay,gheBayList){
         var j=0;
         for(var i = 1 ; i<=thuong;i++){
             j++;
             var button = document.createElement("button");
             button.innerHTML = j;
-            
-
-            button.style.background = "<?php  echo 'red'; ?>";
-            
-
+            // check ghế
+            if(check(j,gheBayList)==1){
+                button.style.backgroundColor='#2adecf';
+            }
+            else{
+                button.style.backgroundColor='#d9d0d0';
+                button.disabled='true';
+            }
             button.style.margin = "3px";
             button.style.borderRadius = "10px";
             button.style.border ="2px solid #555555";
@@ -306,7 +314,14 @@ $c = $bkModel->getLoaiMayBayByTen("Boeing 777");
         for(var i =0;i<thuongGia;i++){
             j++;
             var button = document.createElement("button");
-            button.style.background='#27db0b';
+            //check ghe
+            if(check(j,gheBayList)==1){
+                button.style.background='#27db0b';
+            }
+            else{
+                button.style.backgroundColor='#d9d0d0';
+                button.disabled='true';
+            }
             button.innerHTML = j;
             button.style.margin = "3px";
             button.style.width = '70px';
@@ -321,7 +336,14 @@ $c = $bkModel->getLoaiMayBayByTen("Boeing 777");
             var button = document.createElement("button");
             j++;
             button.innerHTML = j;
-            button.style.background='#0c83fa';
+            //check ghe
+            if(check(j,gheBayList)==1){
+                button.style.background='#0c83fa';
+            }
+            else{
+                button.style.backgroundColor='#d9d0d0';
+                button.disabled='true';
+            }
             button.style.margin = "3px";
             button.style.width = '50px';
             button.style.border="2px solid #555555";
