@@ -220,7 +220,7 @@ class BookingModel
 
     public function loadGheBay($chuyenBay, $ngayBay)
     {
-        return $this->gheBayDao->getGheBayByIdChuyenBayAndNgayBay($chuyenBay, $ngayBay);
+        return $this->gheBayDao->getGheByIdChuyenBayAndNgayBay($chuyenBay, $ngayBay);
     }
 
 

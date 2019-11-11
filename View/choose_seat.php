@@ -100,7 +100,7 @@
                                         {
                                             if ($bkModel->CheckGheBay($chuyenBayList[$i]->getId(), $VE->getNgayDi1(), $VE->getNguoiLon(), $VE->getTreEm(), $VE->getLoaiVe()) == "true")
                                             {
-                                                //$gheBayList = $bkModel->loadGheBay($chuyenBayList[$i]->getId(), $VE->getNgayDi1());
+                                                $gheBayList = $bkModel->loadGheBay($chuyenBayList[$i]->getId(), $VE->getNgayDi1());
                                                 $lv = $bkModel->getLoaiVeById($VE->getLoaiVe());
                                                 $price = ($VE->getNguoiLon()+($VE->getTreEm()/2))*1000*$lv->getPhanTram()*$chuyenBayList[$i]->getKhoangCach()/100;
                                                 echo "<tr>";
@@ -108,7 +108,7 @@
                                                 echo "<td>".$chuyenBayList[$i]->getId()."</td>";
                                                 echo "<td>".$chuyenBayList[$i]->getGioBay()."</td>";
                                                 echo "<td>".$price."</td>";
-                                                echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."','".$VE->getNgayDi1()."') value='Choose This'></td>";
+                                                echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."','".$VE->getNgayDi1()."',".json_encode($gheBayList).") value='Choose This'></td>";
                                                 echo "</tr>";
                                             }
                                         }
@@ -201,9 +201,10 @@
                                                 echo "<td>".$chuyenBayList[$i]->getId()."</td>";
                                                 echo "<td>".$chuyenBayList[$i]->getGioBay()."</td>";
                                                 echo "<td>".$price."</td>";
-                                                echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."','".$VE->getNgayDi2().",$gheBayList') value='Choose This'></td>";
+                                                echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."','".$VE->getNgayDi2()."',".json_encode($gheBayList).") value='Choose This'></td>";
                                                 echo "</tr>";
                                             }
+                                            echo json_last_error();
                                         }
                                         ?>
                                     </tbody>
@@ -255,7 +256,7 @@ $c = $bkModel->getLoaiMayBayByTen("Boeing 777");
     function showGheBay(idChuyenBay, idMayBay, ngayBay, gheBayList){
         document.getElementById("col-show-list").style.display = "initial";
         removeChild();
-        var thuong="",thuongGia="",tietKiem="",loaiMayBay="", arrGheBay = json_encode(gheBayList[0]->getGhe());
+        var thuong="",thuongGia="",tietKiem="",loaiMayBay="";
         if(idMayBay.search("A320")!=-1){
             loaiMayBay=<?php echo json_encode($a->getTen())?>;
             thuong=<?php echo json_encode($a->getGheThuong())?>;
@@ -274,7 +275,7 @@ $c = $bkModel->getLoaiMayBayByTen("Boeing 777");
             thuongGia=<?php echo json_encode($c->getGheThuongGia())?>;
             tietKiem=<?php echo json_encode($c->getGheTietKiem())?>;
         }
-        document.getElementById("tit").innerHTML="Type: "+loaiMayBay+" - Planes'Name: "+arrGheBay;
+        document.getElementById("tit").innerHTML="Type: "+loaiMayBay+" - Planes'Name: "+gheBayList[0];
         document.getElementById("idChuyenBay").innerHTML="FlightID: "+idChuyenBay;
         document.getElementById("ngayBay").innerHTML="Date: "+ngayBay;
 
