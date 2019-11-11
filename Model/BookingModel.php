@@ -36,6 +36,7 @@ class BookingModel
 
 
 
+
     // Tạo ID ngẫu nhiên
     public function randomId()
     {
@@ -61,6 +62,7 @@ class BookingModel
         }
         return $result;
     }
+
 
 
 
@@ -92,6 +94,7 @@ class BookingModel
         return $this->veDao->getVeById($id);
     }   
     
+
 
 
     // MODEL vé bay
@@ -215,6 +218,12 @@ class BookingModel
         return $c;
     }
 
+    public function loadGheBay($chuyenBay, $ngayBay)
+    {
+        return $this->gheBayDao->getGheBayByIdChuyenBayAndNgayBay($chuyenBay, $ngayBay);
+    }
+
+
 
 
     // MODEL loại vé
@@ -235,11 +244,13 @@ class BookingModel
 
 
 
+
     // MODEL sân bay
     public function getAllSanBay()
     {
         return $this->sanBayDao->getAllSanBay();
     }
+
 
 
 
@@ -256,6 +267,10 @@ class BookingModel
     {
         return $this->chuyenBayDao->getChuyenBayById($Id);
     }
+
+
+
+
     //MODEL loại máy bay
     public function getLoaiMayBayByTen($ten)
     {

@@ -33,7 +33,7 @@ class GheBayDao extends DBConnection
                 $row['idChuyenBay'],
 				$row['idVe'],
 				$row['ghe'],
-				$row['ngaybay']
+				$row['ngayBay']
             );
 			array_push($GheBayList, $GheBay);
 		}

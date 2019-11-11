@@ -100,6 +100,7 @@
                                         {
                                             if ($bkModel->CheckGheBay($chuyenBayList[$i]->getId(), $VE->getNgayDi1(), $VE->getNguoiLon(), $VE->getTreEm(), $VE->getLoaiVe()) == "true")
                                             {
+                                                //$gheBayList = $bkModel->loadGheBay($chuyenBayList[$i]->getId(), $VE->getNgayDi1());
                                                 $lv = $bkModel->getLoaiVeById($VE->getLoaiVe());
                                                 $price = ($VE->getNguoiLon()+($VE->getTreEm()/2))*1000*$lv->getPhanTram()*$chuyenBayList[$i]->getKhoangCach()/100;
                                                 echo "<tr>";
@@ -107,7 +108,7 @@
                                                 echo "<td>".$chuyenBayList[$i]->getId()."</td>";
                                                 echo "<td>".$chuyenBayList[$i]->getGioBay()."</td>";
                                                 echo "<td>".$price."</td>";
-                                                echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."') value='Choose This'></td>";
+                                                echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."','".$VE->getNgayDi1()."') value='Choose This'></td>";
                                                 echo "</tr>";
                                             }
                                         }
@@ -190,8 +191,9 @@
                                         <?php
                                           for ($i=0; $i<sizeof($chuyenBayList); $i++)
                                         {
-                                            if ($bkModel->CheckGheBay($chuyenBayList[$i]->getId(), $VE->getNgayDi1(), $VE->getNguoiLon(), $VE->getTreEm(), $VE->getLoaiVe()) == "true")
+                                            if ($bkModel->CheckGheBay($chuyenBayList[$i]->getId(), $VE->getNgayDi2(), $VE->getNguoiLon(), $VE->getTreEm(), $VE->getLoaiVe()) == "true")
                                             {
+                                                $gheBayList = $bkModel->loadGheBay($chuyenBayList[$i]->getId(), $VE->getNgayDi2());
                                                 $lv = $bkModel->getLoaiVeById($VE->getLoaiVe());
                                                 $price = ($VE->getNguoiLon()+($VE->getTreEm()/2))*1000*$lv->getPhanTram()*$chuyenBayList[$i]->getKhoangCach()/100;
                                                 echo "<tr>";
@@ -199,7 +201,7 @@
                                                 echo "<td>".$chuyenBayList[$i]->getId()."</td>";
                                                 echo "<td>".$chuyenBayList[$i]->getGioBay()."</td>";
                                                 echo "<td>".$price."</td>";
-                                                echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."') value='Choose This'></td>";
+                                                echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."','".$VE->getNgayDi2().",$gheBayList') value='Choose This'></td>";
                                                 echo "</tr>";
                                             }
                                         }
@@ -221,7 +223,8 @@
                 <div class="booking-form">
                     <form id="formShowGhe" >
                         <h4 id="tit"></h4>
-                        <h4 id="idChuyenBay"></h4>
+                        <h4 id="idChuyenBay" name="idChuyenBay"></h4>
+                        <h4 id="ngayBay" name="ngayBay"></h4>
                         <div id ="thuong" style="text-align:center;padding:15px;margin-left:100px;margin-right:100px">
                         </div>
                         <div id ="thuongGia" style="text-align:center;padding:15px;margin-left:100px;margin-right:100px">
@@ -239,8 +242,9 @@
 <?php $cec ='wtf';
 
 $a = $bkModel->getLoaiMayBayByTen("Airbus A320");
-$b= $bkModel->getLoaiMayBayByTen("Airbus A380");
-$c=$bkModel->getLoaiMayBayByTen("Boeing 777");
+$b = $bkModel->getLoaiMayBayByTen("Airbus A380");
+$c = $bkModel->getLoaiMayBayByTen("Boeing 777");
+
 
 ?>
 <script>
@@ -248,10 +252,10 @@ $c=$bkModel->getLoaiMayBayByTen("Boeing 777");
         document.getElementById("focus").style.backgroundColor = "red";
         }
     // hàm gọi vẽ ghế theo chuyen
-    function showGheBay(idChuyenBay,idMayBay){
+    function showGheBay(idChuyenBay, idMayBay, ngayBay, gheBayList){
         document.getElementById("col-show-list").style.display = "initial";
         removeChild();
-        var thuong="",thuongGia="",tietKiem="",loaiMayBay="";
+        var thuong="",thuongGia="",tietKiem="",loaiMayBay="", arrGheBay = json_encode(gheBayList[0]->getGhe());
         if(idMayBay.search("A320")!=-1){
             loaiMayBay=<?php echo json_encode($a->getTen())?>;
             thuong=<?php echo json_encode($a->getGheThuong())?>;
@@ -270,23 +274,30 @@ $c=$bkModel->getLoaiMayBayByTen("Boeing 777");
             thuongGia=<?php echo json_encode($c->getGheThuongGia())?>;
             tietKiem=<?php echo json_encode($c->getGheTietKiem())?>;
         }
-        document.getElementById("tit").innerHTML="Type: "+loaiMayBay+" - Planes'Name: "+idMayBay;
+        document.getElementById("tit").innerHTML="Type: "+loaiMayBay+" - Planes'Name: "+arrGheBay;
         document.getElementById("idChuyenBay").innerHTML="FlightID: "+idChuyenBay;
-        createGhe(thuong,thuongGia,tietKiem);
+        document.getElementById("ngayBay").innerHTML="Date: "+ngayBay;
+
+        createGhe(thuong, thuongGia, tietKiem, idChuyenBay, ngayBay);
+
         document.getElementsByClassName("formChuyenBay").submit();
     }
     
     // hàm vẽ ghế
-    function createGhe(thuong,thuongGia,tietKiem){
+    function createGhe(thuong, thuongGia, tietKiem, idChuyenBay, ngayBay){
         var j=0;
         for(var i = 1 ; i<=thuong;i++){
             j++;
             var button = document.createElement("button");
             button.innerHTML = j;
-            button.style.background='#36c2b6';
+            
+
+            button.style.background = "<?php  echo 'red'; ?>";
+            
+
             button.style.margin = "3px";
             button.style.borderRadius = "10px";
-            button.style.border="2px solid #555555";
+            button.style.border ="2px solid #555555";
             // 2. Append somewhere
             var body = document.getElementById("thuong");
             body.appendChild(button);
