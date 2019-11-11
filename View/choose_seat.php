@@ -226,12 +226,13 @@
                         <h5 id ="clickCount"><h5>               
                         <h4 id="tit"></h4>
                         <h4 id="idChuyenBay"></h4>
-                        <div id ="thuong" style="text-align:center;padding:15px;margin-left:100px;margin-right:100px">
+                        <div id ="thuong" style="text-align:center;padding:10px;margin-left:100px;margin-right:100px">
                         </div>
-                        <div id ="thuongGia" style="text-align:center;padding:15px;margin-left:100px;margin-right:100px">
+                        <div id ="thuongGia" style="text-align:center;padding:10px;margin-left:100px;margin-right:100px">
                         </div>
-                        <div id ="tietKiem"style="text-align:center;padding:15px;margin-left:100px;margin-right:100px">
+                        <div id ="tietKiem"style="text-align:center;padding:10px;margin-left:100px;margin-right:100px">
                         </div>
+                        <div id="submitButton"></div>
                     </div>
                 </div>
             </div>  
@@ -249,6 +250,7 @@ $c = $bkModel->getLoaiMayBayByTen("Boeing 777");
 
 ?>
 <script>
+
     function myFunction() {
         document.getElementById("focus").style.backgroundColor = "red";
         }
@@ -278,10 +280,12 @@ $c = $bkModel->getLoaiMayBayByTen("Boeing 777");
         var nguoiLon=<?php echo json_encode($VE->getNguoiLon());?>;
         var treEm=<?php echo json_encode($VE->getTreEm());?>;
         var sum=Number(nguoiLon)+Number(treEm);
+        var array =new Array();
         document.getElementById("clickCount").innerHTML="Can Choose: "+sum;
+        checkShowSubmit(sum,array);
         document.getElementById("tit").innerHTML="Type: "+loaiMayBay+" - Planes'Name: "+idMayBay+" "+gheBayList.length;
         document.getElementById("idChuyenBay").innerHTML="FlightID: "+idChuyenBay;
-        createGhe(thuong, thuongGia, tietKiem, idChuyenBay,gheBayList,sum);
+        createGhe(thuong, thuongGia, tietKiem, idChuyenBay,gheBayList,sum,array);
 
         document.getElementsByClassName("formChuyenBay").submit();
     }
@@ -295,7 +299,7 @@ $c = $bkModel->getLoaiMayBayByTen("Boeing 777");
         return 1;
     }
     // hàm vẽ ghế
-    function createGhe(thuong, thuongGia, tietKiem, idChuyenBay,gheBayList,sum){
+    function createGhe(thuong, thuongGia, tietKiem, idChuyenBay,gheBayList,sum,array){
         var j=0;
         for(var i = 1 ; i<=thuong;i++){
             j++;
@@ -304,6 +308,7 @@ $c = $bkModel->getLoaiMayBayByTen("Boeing 777");
             // check ghế
             if(check(j,gheBayList)==1){
                 button.style.backgroundColor='#2adecf';
+                
             }
             else{
                 button.style.backgroundColor='#d9d0d0';
@@ -316,15 +321,20 @@ $c = $bkModel->getLoaiMayBayByTen("Boeing 777");
                 {
                     this.style.backgroundColor="rgb(237, 80, 45)";
                     sum-=1;
+                    array.push(this.id);
+                    checkShowSubmit(sum,array);
                     document.getElementById("clickCount").innerHTML="Can Choose: "+sum;
                 }
                 else{
                     this.style.backgroundColor="rgb(42, 222, 207)";
                     sum+=1;
+                    var index = array.indexOf(this.id);
+                    if (index !== -1) array.splice(index, 1);
+                    checkShowSubmit(sum,array);
                     document.getElementById("clickCount").innerHTML="Can Choose: "+sum;
                 }
             }
-            button.style.margin = "3px";
+            button.style.margin = "2px";
             button.style.borderRadius = "10px";
             button.style.border ="2px solid #555555";
             // 2. Append somewhere
@@ -344,7 +354,7 @@ $c = $bkModel->getLoaiMayBayByTen("Boeing 777");
                 button.disabled='true';
             }
             button.innerHTML = j;
-            button.style.margin = "3px";
+            button.style.margin = "2px";
             button.style.width = '70px';
             button.style.height = '30px';
             button.style.borderRadius = "15px";
@@ -357,11 +367,16 @@ $c = $bkModel->getLoaiMayBayByTen("Boeing 777");
                 {
                     this.style.backgroundColor="rgb(237, 80, 45)";
                     sum-=1;
+                    array.push(this.id);
+                    checkShowSubmit(sum,array);
                     document.getElementById("clickCount").innerHTML="Can Choose: "+sum;
                 }
                 else{
                     this.style.backgroundColor="rgb(39, 219, 11)";
                     sum+=1;
+                    var index = array.indexOf(this.id);
+                    if (index !== -1) array.splice(index, 1);
+                    checkShowSubmit(sum,array);
                     document.getElementById("clickCount").innerHTML="Can Choose: "+sum;
                 }
             }
@@ -389,15 +404,20 @@ $c = $bkModel->getLoaiMayBayByTen("Boeing 777");
                 {   
                     this.style.backgroundColor="rgb(237, 80, 45)";
                     sum-=1;
+                    array.push(this.id);
+                    checkShowSubmit(sum,array);
                     document.getElementById("clickCount").innerHTML="Can Choose: "+sum;
                 }
                 else{
                     this.style.backgroundColor="rgb(12, 131, 250)";
                     sum+=1;
+                    var index = array.indexOf(this.id);
+                    if (index !== -1) array.splice(index, 1);
+                    checkShowSubmit(sum,array);
                     document.getElementById("clickCount").innerHTML="Can Choose: "+sum;
                 }
             }
-            button.style.margin = "3px";
+            button.style.margin = "2px";
             button.style.width = '50px';
             button.style.border="2px solid #555555";
             // 2. Append somewhere
@@ -422,6 +442,31 @@ $c = $bkModel->getLoaiMayBayByTen("Boeing 777");
         const parent3 = document.getElementById("tietKiem");
         while (parent3.firstChild) {
             parent3.firstChild.remove();
+        }
+    }
+    //hàm check sum to show button submit
+    function checkShowSubmit(sum,array){
+        if(sum==0){
+            var button = document.createElement("button");
+                button.innerHTML="Submit";
+                button.style.width="500px";
+                button.style.height="45px";
+                button.className="btn btn-primary";
+                button.onclick=function(){
+                    var h="";
+                    for(var c = 0 ; c<array.length;c++){
+                        h=h+" "+array[c];
+                    }
+                    alert(h);
+                }
+            var body = document.getElementById("submitButton");
+                body.appendChild(button);
+        }
+        else{
+            const parent3 = document.getElementById("submitButton");
+            while (parent3.firstChild) {
+            parent3.firstChild.remove();
+            }
         }
     }
 </script>
