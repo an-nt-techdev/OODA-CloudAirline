@@ -221,6 +221,7 @@
                 <div class="booking-form">
                     <form id="formShowGhe" >
                         <h4 id="tit"></h4>
+                        <h4 id="idChuyenBay"></h4>
                         <div id ="thuong" style="text-align:center;padding:15px;margin-left:100px;margin-right:100px">
                         </div>
                         <div id ="thuongGia" style="text-align:center;padding:15px;margin-left:100px;margin-right:100px">
@@ -240,6 +241,7 @@
 $a = $bkModel->getLoaiMayBayByTen("Airbus A320");
 $b= $bkModel->getLoaiMayBayByTen("Airbus A380");
 $c=$bkModel->getLoaiMayBayByTen("Boeing 777");
+
 ?>
 <script>
     function myFunction() {
@@ -268,7 +270,8 @@ $c=$bkModel->getLoaiMayBayByTen("Boeing 777");
             thuongGia=<?php echo json_encode($c->getGheThuongGia())?>;
             tietKiem=<?php echo json_encode($c->getGheTietKiem())?>;
         }
-        document.getElementById("tit").innerHTML="Type: "+loaiMayBay+" - Planes'Name: "+idMayBay+" - FlightID: "+idChuyenBay+" "+thuong+thuongGia+tietKiem;
+        document.getElementById("tit").innerHTML="Type: "+loaiMayBay+" - Planes'Name: "+idMayBay;
+        document.getElementById("idChuyenBay").innerHTML="FlightID: "+idChuyenBay;
         createGhe(thuong,thuongGia,tietKiem);
         document.getElementsByClassName("formChuyenBay").submit();
     }
@@ -280,7 +283,7 @@ $c=$bkModel->getLoaiMayBayByTen("Boeing 777");
             j++;
             var button = document.createElement("button");
             button.innerHTML = j;
-            button.style.background='#f44336';
+            button.style.background='#36c2b6';
             button.style.margin = "3px";
             button.style.borderRadius = "10px";
             button.style.border="2px solid #555555";
@@ -291,7 +294,7 @@ $c=$bkModel->getLoaiMayBayByTen("Boeing 777");
         for(var i =0;i<thuongGia;i++){
             j++;
             var button = document.createElement("button");
-            button.style.background='#008CBA';
+            button.style.background='#27db0b';
             button.innerHTML = j;
             button.style.margin = "3px";
             button.style.width = '70px';
@@ -306,7 +309,7 @@ $c=$bkModel->getLoaiMayBayByTen("Boeing 777");
             var button = document.createElement("button");
             j++;
             button.innerHTML = j;
-            button.style.background='#4CAF50';
+            button.style.background='#0c83fa';
             button.style.margin = "3px";
             button.style.width = '50px';
             button.style.border="2px solid #555555";
