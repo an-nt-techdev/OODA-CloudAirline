@@ -91,6 +91,11 @@ class BookingModel
 
     public function updateVe($Ve)
     {
+        $tmp = $this->sanBayDao->getIdByTenSanBay($Ve->getDiemDi());
+        $Ve->setDiemDi($tmp->getId());
+        $tmp = $this->sanBayDao->getIdByTenSanBay($Ve->getDiemDen());
+        $Ve->setDiemDen($tmp->getId());
+
         $this->veDao->updateVe($Ve);
     }
 
