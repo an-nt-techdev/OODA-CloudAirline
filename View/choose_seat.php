@@ -107,7 +107,7 @@
                                                 echo "<td>".$chuyenBayList[$i]->getIdMayBay()."</td>";
                                                 echo "<td>".$chuyenBayList[$i]->getId()."</td>";
                                                 echo "<td>".$chuyenBayList[$i]->getGioBay()."</td>";
-                                                echo "<td>".$price."</td>";
+                                                echo "<td>".number_format($price)."</td>";
                                                 echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."',".json_encode($gheBayList).") value='Choose This'></td>";
                                                 echo "</tr>";
                                             }
@@ -200,7 +200,7 @@
                                                 echo "<td>".$chuyenBayList[$i]->getIdMayBay()."</td>";
                                                 echo "<td>".$chuyenBayList[$i]->getId()."</td>";
                                                 echo "<td>".$chuyenBayList[$i]->getGioBay()."</td>";
-                                                echo "<td>".$price."</td>";
+                                                echo "<td>".number_format($price)."</td>";
                                                 echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."',".json_encode($gheBayList).") value='Choose This'></td>";
                                                 echo "</tr>";
                                             }
@@ -283,7 +283,7 @@ $c = $bkModel->getLoaiMayBayByTen("Boeing 777");
         var array =new Array();
         document.getElementById("clickCount").innerHTML="Can Choose: "+sum;
         checkShowSubmit(sum,array);
-        document.getElementById("tit").innerHTML="Type: "+loaiMayBay+" - Planes'Name: "+idMayBay+" "+gheBayList.length;
+        document.getElementById("tit").innerHTML="Type: "+loaiMayBay+" - Planes'Name: "+idMayBay;
         document.getElementById("idChuyenBay").innerHTML="FlightID: "+idChuyenBay;
         createGhe(thuong, thuongGia, tietKiem, idChuyenBay,gheBayList,sum,array);
 
@@ -458,6 +458,7 @@ $c = $bkModel->getLoaiMayBayByTen("Boeing 777");
                         h=h+" "+array[c];
                     }
                     alert(h);
+                    window.location.href="./?checkout=on";
                 }
             var body = document.getElementById("submitButton");
                 body.appendChild(button);

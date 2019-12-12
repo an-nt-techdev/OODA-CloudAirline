@@ -12,6 +12,9 @@
         $code = $_POST['ticket-code'];
         require_once SITE_ROOT.'/Controller/checkingController.php';
     } 
+    else if(isset($_GET['checkout'])){
+        require_once SITE_ROOT.'/Controller/checkoutController.php';
+    }
     else require_once SITE_ROOT.'/View/home.php';
     
 ?>
