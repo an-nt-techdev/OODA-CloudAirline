@@ -25,6 +25,8 @@
 <body>
             <?php
                 $VE = $bkModel->getVeById($_SESSION['id']);
+                echo $_SESSION['id'];
+                $as=$_SESSION['id']
             ?> 
 	<div id="booking" class="section">
 		<div class="section-center">
@@ -246,6 +248,7 @@
 $a = $bkModel->getLoaiMayBayByTen("Airbus A320");
 $b = $bkModel->getLoaiMayBayByTen("Airbus A380");
 $c = $bkModel->getLoaiMayBayByTen("Boeing 777");
+$d=$_SESSION['id'];
 ?>
 <script>
 
@@ -458,7 +461,7 @@ $c = $bkModel->getLoaiMayBayByTen("Boeing 777");
                     for(var c = 0 ; c<array.length;c++){
                         h=h+" "+array[c];
                     }
-                    var test2=<?php echo json_encode($_SESSION['id'])?>;
+                    var test2=<?php echo json_encode(json_encode($_SESSION["id"]))?>;
                     var test = document.getElementById("");
                     alert(h+" "+idChuyenBay+" "+test+" "+ngayBay);
                     window.location.href="./?checkout=on";
