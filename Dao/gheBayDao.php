@@ -13,13 +13,20 @@ class GheBayDao extends DBConnection
     public function getGheBayByIdVe($IdVe)
 	{
 		$result = $this->runQuery("SELECT *	FROM gheBay WHERE idVe = '{$IdVe}'");
-		$row = $result->fetch_assoc();
-		return new GheBay(
-			$row['idChuyenBay'],
-			$row['idVe'],
-			$row['ghe'],
-			$row['ngaybay']
-        );
+		$GheBayList = array();
+		while ($row = $result->fetch_assoc())
+		{
+			$GheBay = new GheBay(
+				$row['idChuyenBay'],
+				$row['idVe'],
+				$row['ghe'],
+				$row['ngayBay']
+			);
+			array_push($GheBayList, $GheBay);
+		}
+		$result->free();
+		
+		return $GheBayList;
     }
 
     public function getGheBayByIdChuyenBayAndNgayBay($IdChuyenBay, $NgayBay)

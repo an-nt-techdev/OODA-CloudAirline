@@ -22,58 +22,90 @@
 
 </head>
 
+		<?php 
+			$Ve = $bkModel->getVeById($code); 
+			$tmpSanBay = $bkModel->getSanBayById($Ve->getDiemDi());
+			$DiemDi = $tmpSanBay->getTenThanhPho();
+			$tmpSanBay = $bkModel->getSanBayById($Ve->getDiemDen());
+			$DiemDen = $tmpSanBay->getTenThanhPho();
+			if ($Ve->getLoaiVe() === "hard") $LoaiVe = "Business Ticket";
+			else if ($Ve->getLoaiVe() === "medium") $LoaiVe = "Basic Ticket";
+			else if ($Ve->getLoaiVe() === "normal") $LoaiVe = "Saving Ticket";
+
+			$GheBay = $bkModel->loadGheBayByIdVe($code);
+			if ($Ve->getKieuVe() == 0)
+			{
+				$kq1 = "";
+				for ($i = 0; $i < count($GheBay); $i++) $kq1 = $kq1.$GheBay[$i]->getGhe().", ";
+			}
+			else 
+			{
+				$kq1 = "";
+				for ($i = 0; $i < (count($GheBay)+1)/2 - 1; $i++) $kq1 = $kq1.$GheBay[$i]->getGhe().", ";
+				$kq2 = "";
+				for ($i = (count($GheBay)+1)/2; $i < count($GheBay); $i++) $kq2 = $kq2.$GheBay[$i]->getGhe().", ";
+			}
+		?>
+
 <body>
-<?php echo $code;?>
 	<div id="booking" class="section">
 		<div class="section-center">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-4" style="padding-top: 100px;">
 						<div class="booking-cta">
-							<h1>BOOK YOUR FLIGHT TODAY</h1>
+							<h1>YOUR TICKET</h1>
 							<p>Cloud Airline is pleased to serve you</p>
 						</div>
 					</div>
 					<div class="col-md-7 col-md-offset-1">
 						<div class="booking-form">
 							<form action="?checked=true" method="post">
-								<div class="form-group">
-									<div class="form-checkbox">
-										<label for="one-way">
-											<input type="radio" id="one-way" name="flight-type" checked onclick="TwoWay()">
-											<span></span>One-way
-										</label>
-										<label for="two-way">
-											<input type="radio" id="two-way" name="flight-type" onclick="TwoWay()">
-											<span></span>Two-way
-										</label>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<span class="form-label">Ticket ID</span>
+											<input class="form-control" type="text" placeholder="City or airport" value="<?php echo $Ve->getId(); ?>" disabled required>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<span class="form-label">Ticket status</span>
+											<input class="form-control" type="text" placeholder="City or airport">
+										</div>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Flying from</span>
-											<input class="form-control" type="text" placeholder="City or airport">
+											<input class="form-control" type="text" placeholder="City or airport" value="<?php echo $DiemDi; ?>" disabled required>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Flyning to</span>
-											<input class="form-control" type="text" placeholder="City or airport">
+											<input class="form-control" type="text" placeholder="City or airport" value="<?php echo $DiemDen; ?>" disabled required>
 										</div>
 									</div>
 								</div>
 								<div class="row">
-									<div class="col-md-6">
+									<div class="col-md-4">
 										<div class="form-group">
 											<span class="form-label">Departing</span>
-											<input class="form-control" type="date" required>
+											<input class="form-control" type="date" value="<?php echo $Ve->getNgayDi1(); ?>" disabled required>
 										</div>
 									</div>
-									<div class="col-md-6">
+									<div class="col-md-4">
 										<div class="form-group">
 											<span class="form-label">Returning</span>
-											<input class="form-control" type="date" id="returning" required disabled>
+											<input class="form-control" type="date" value="<?php if ($Ve->getKieuVe() == 1) echo $Ve->getNgayDi2(); ?>" disabled>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<span class="form-label">Ticket way</span>
+											<input class="form-control" type="text" placeholder="one way" value="<?php if ($Ve->getKieuVe() == 0) echo "One-way"; else echo "Two-way" ?>" disabled required>
 										</div>
 									</div>
 								</div>
@@ -81,40 +113,19 @@
 									<div class="col-md-4">
 										<div class="form-group">
 											<span class="form-label">Adults (18+)</span>
-											<select class="form-control">
-												<?php 
-													for ($i=1; $i<=100; $i++)
-													{
-														echo "<option id='".$i."' value='".$i."'>".$i."</option>";
-													}
-												?>
-											</select>
-											<span class="select-arrow"></span>
+											<input class="form-control" type="number" placeholder="Your Identity card" value="<?php echo $Ve->getNguoiLon(); ?>" disabled required>										
 										</div>
 									</div>
 									<div class="col-md-4">
 										<div class="form-group">
 											<span class="form-label">Children (0-17)</span>
-											<select class="form-control">
-												<?php 
-													for ($i=1; $i<=100; $i++)
-													{
-														echo "<option id='".$i."' value='".$i."'>".$i."</option>";
-													}
-												?>
-											</select>
-											<span class="select-arrow"></span>
+											<input class="form-control" type="number" placeholder="Your Identity card" value="<?php echo $Ve->getTreEm(); ?>" disabled required>											
 										</div>
 									</div>
 									<div class="col-md-4">
 										<div class="form-group">
 											<span class="form-label">Ticket type</span>
-											<select class="form-control">
-												<option>Basic ticket</option>
-												<option>Business ticket</option>
-												<option>First class ticket</option>
-											</select>
-											<span class="select-arrow"></span>
+											<input class="form-control" type="text" placeholder="Your Identity card" value="<?php echo $LoaiVe; ?>" disabled required>
 										</div>
 									</div>
 								</div>
@@ -122,13 +133,13 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Your Name</span>
-											<input class="form-control" type="text" placeholder="Your full name">
+											<input class="form-control" type="text" placeholder="Your full name" value="<?php echo $Ve->getTenKhachHang(); ?>" disabled required>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Your Identity card</span>
-											<input class="form-control" type="number" placeholder="Your Identity card">
+											<input class="form-control" type="number" placeholder="Your Identity card" value="<?php echo $Ve->getCmndKhachHang(); ?>" disabled required>
 										</div>
 									</div>
 								</div>
@@ -136,19 +147,49 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Your Phone Number</span>
-											<input class="form-control" type="number" placeholder="Your phone number">
+											<input class="form-control" type="number" placeholder="Your phone number" value="<?php echo $Ve->getSdtKhachHang(); ?>" disabled required>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Your Address</span>
-											<input class="form-control" type="text" placeholder="Your address">
+											<input class="form-control" type="text" placeholder="Your address" value="<?php echo $Ve->getDiaChiKhachHang(); ?>" disabled required>
 										</div>
 									</div>
 								</div>
-								<div class="form-btn">
-									<button class="submit-btn">Show flights</button>
+								<div class="row">
+									<div class="col-md-3">
+										<div class="form-group">
+											<span class="form-label">Flight ID</span>
+											<input class="form-control" type="text" placeholder="Fly ID" value="<?php echo $GheBay[0]->getIdChuyenBay(); ?>" disabled required>
+										</div>
+									</div>
+									<div class="col-md-9">
+										<div class="form-group">
+											<span class="form-label">Your Seats</span>
+											<input class="form-control" type="text" placeholder="seats" value="<?php echo $kq1; ?>" disabled required>
+										</div>
+									</div>
 								</div>
+								<?php if ($Ve->getKieuVe() == 1){ ?>
+								<div class="row">
+									<div class="col-md-3">
+										<div class="form-group">
+											<span class="form-label">Flight ID</span>
+											<input class="form-control" type="text" placeholder="Fly ID" value="<?php echo $GheBay[Count($GheBay)-1]->getIdChuyenBay(); ?>" disabled required>
+										</div>
+									</div>
+									<div class="col-md-9">
+										<div class="form-group">
+											<span class="form-label">Your Seats</span>
+											<input class="form-control" type="text" placeholder="seats" value="<?php echo $kq2; ?>" disabled required>
+										</div>
+									</div>
+								</div>
+								<?php }?>
+								<!-- <div class="form-btn">
+									<button class="submit-btn">Show flights</button>
+								</div> -->
 							</form>
 						</div>
 					</div>

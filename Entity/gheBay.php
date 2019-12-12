@@ -17,12 +17,12 @@ class GheBay
 
     public function getIdChuyenBay()
     {
-        return $this->idMayBay;
+        return $this->idChuyenBay;
     }
 
-    public function setIdChuyenBay($IdMayBay)
+    public function setIdChuyenBay($IdChuyenBay)
     {
-        $this->idMayBay = $IdMayBay;
+        $this->idMayBay = $IdChuyenBay;
     }
 
     public function getIdVe()
