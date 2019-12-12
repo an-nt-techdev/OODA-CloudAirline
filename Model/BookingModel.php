@@ -78,6 +78,12 @@ class BookingModel
             $id = $this->randomId();
             $_SESSION['id'] = $id;
         }
+        else 
+        {
+            unset($_SESSION['id']);
+            $id = $this->randomId();
+            $_SESSION['id'] = $id;
+        }
 
         $this->ve = new Ve($_SESSION['id'], $cmnd, $ten, $sdt, $diachi, $kieuve, $loaiVe->getId(), $sanBay1->getId(), $sanBay2->getId(), $ngayDi1, $ngayDi2, $nguoiLon, $treEm);
         $this->veDao->insertVe($this->ve);

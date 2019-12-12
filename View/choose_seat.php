@@ -64,12 +64,12 @@
                                     </select>
                                     <span class="select-arrow"></span>
                                 </div>
-
+                                    
                                 <div class="form-group">
                                     <span class="form-label"><b><i>Departing</b></i></span>
                                     <input class="form-control" name="start" type="date" value = "<?php echo $VE->getNgayDi1(); ?>" required style="width:130px; padding:6px;">
 								</div>
-
+                                    
                                 <button type="submit" class="btn btn-success">Search</button>
                             </form>
                             <br>
@@ -96,7 +96,7 @@
                                     <tbody>
                                         <?php
                                         
-                                          for ($i=0; $i<sizeof($chuyenBayList); $i++)
+                                        for ($i=0; $i<sizeof($chuyenBayList); $i++)
                                         {
                                             if ($bkModel->CheckGheBay($chuyenBayList[$i]->getId(), $VE->getNgayDi1(), $VE->getNguoiLon(), $VE->getTreEm(), $VE->getLoaiVe()) == "true")
                                             {
@@ -189,7 +189,7 @@
                                         </tr> -->
                                     <tbody>
                                         <?php
-                                          for ($i=0; $i<sizeof($chuyenBayList); $i++)
+                                        for ($i=0; $i<sizeof($chuyenBayList); $i++)
                                         {
                                             if ($bkModel->CheckGheBay($chuyenBayList[$i]->getId(), $VE->getNgayDi2(), $VE->getNguoiLon(), $VE->getTreEm(), $VE->getLoaiVe()) == "true")
                                             {

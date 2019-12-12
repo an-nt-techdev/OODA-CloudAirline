@@ -56,7 +56,7 @@
 												<?php 
 													for ($i=0; $i<15; $i++)
 													{
-													 	echo "<option id='".$sanBayList[$i]->getTenThanhPho()."' value='".$sanBayList[$i]->getTenThanhPho()."'>".$sanBayList[$i]->getTenThanhPho()."</option>";
+														echo "<option id='".$sanBayList[$i]->getTenThanhPho()."' value='".$sanBayList[$i]->getTenThanhPho()."'>".$sanBayList[$i]->getTenThanhPho()."</option>";
 													}
 												?>
 											</select>
@@ -70,7 +70,7 @@
 												<?php 
 													for ($i=0; $i<15; $i++)
 													{
-													 	echo "<option id='".$sanBayList[$i]->getTenThanhPho()."' value='".$sanBayList[$i]->getTenThanhPho()."'>".$sanBayList[$i]->getTenThanhPho()."</option>";
+														echo "<option id='".$sanBayList[$i]->getTenThanhPho()."' value='".$sanBayList[$i]->getTenThanhPho()."'>".$sanBayList[$i]->getTenThanhPho()."</option>";
 													}
 												?>
 											</select>
