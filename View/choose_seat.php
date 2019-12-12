@@ -108,7 +108,7 @@
                                                 echo "<td>".$chuyenBayList[$i]->getId()."</td>";
                                                 echo "<td>".$chuyenBayList[$i]->getGioBay()."</td>";
                                                 echo "<td>".number_format($price)."</td>";
-                                                echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."',".json_encode($gheBayList).") value='Choose This'></td>";
+                                                echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."',".json_encode($gheBayList).",'".$lv->getId()."') value='Choose This'></td>";
                                                 echo "</tr>";
                                             }
                                         }
@@ -255,7 +255,7 @@ $c = $bkModel->getLoaiMayBayByTen("Boeing 777");
         document.getElementById("focus").style.backgroundColor = "red";
         }
     // hàm gọi vẽ ghế theo chuyen
-    function showGheBay(idChuyenBay, idMayBay, gheBayList){
+    function showGheBay(idChuyenBay, idMayBay, gheBayList,loaive){
         document.getElementById("col-show-list").style.display = "initial";
         removeChild();
         var thuong="",thuongGia="",tietKiem="",loaiMayBay="";
@@ -285,7 +285,7 @@ $c = $bkModel->getLoaiMayBayByTen("Boeing 777");
         checkShowSubmit(sum,array);
         document.getElementById("tit").innerHTML="Type: "+loaiMayBay+" - Planes'Name: "+idMayBay;
         document.getElementById("idChuyenBay").innerHTML="FlightID: "+idChuyenBay;
-        createGhe(thuong, thuongGia, tietKiem, idChuyenBay,gheBayList,sum,array);
+        createGhe(thuong, thuongGia, tietKiem, idChuyenBay,gheBayList,sum,array,loaive);
 
         document.getElementsByClassName("formChuyenBay").submit();
     }
@@ -299,7 +299,7 @@ $c = $bkModel->getLoaiMayBayByTen("Boeing 777");
         return 1;
     }
     // hàm vẽ ghế
-    function createGhe(thuong, thuongGia, tietKiem, idChuyenBay,gheBayList,sum,array){
+    function createGhe(thuong, thuongGia, tietKiem, idChuyenBay,gheBayList,sum,array,loaive){
         var j=0;
         for(var i = 1 ; i<=thuong;i++){
             j++;
@@ -316,6 +316,7 @@ $c = $bkModel->getLoaiMayBayByTen("Boeing 777");
             }
             button.id = j;
              //Clicked envent
+            if(loaive!="medium")button.disabled='true';
             button.onclick=function(){
                 if(this.style.backgroundColor=="rgb(42, 222, 207)")
                 {
@@ -361,6 +362,7 @@ $c = $bkModel->getLoaiMayBayByTen("Boeing 777");
             button.style.border="2px solid #555555";
             button.id = j;
             //Clicked envent
+            if(loaive!="hard")button.disabled='true';
             button.onclick=function(){
                 
                 if(this.style.backgroundColor=="rgb(39, 219, 11)")
@@ -399,6 +401,7 @@ $c = $bkModel->getLoaiMayBayByTen("Boeing 777");
             }
             button.id = j;
              //Clicked envent
+             if(loaive!="normal")button.disabled='true';
             button.onclick=function(){
                 if(this.style.backgroundColor=="rgb(12, 131, 250)")
                 {   
