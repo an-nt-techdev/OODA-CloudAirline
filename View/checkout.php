@@ -23,6 +23,7 @@
 </head>
 
 <body>
+Checkout
 	<div id="booking" class="section">
 		<div class="section-center">
 			<div class="container">
