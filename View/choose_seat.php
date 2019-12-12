@@ -203,7 +203,7 @@
                                                 echo "<td>".$chuyenBayList[$i]->getId()."</td>";
                                                 echo "<td>".$chuyenBayList[$i]->getGioBay()."</td>";
                                                 echo "<td>".number_format($price)."</td>";
-                                                echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."',".json_encode($gheBayList).",'".$lv->getId()."') value='Choose This'></td>";
+                                                echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."',".json_encode($gheBayList).",'".$lv->getId()."','".$VE->getNgayDi2()."') value='Choose This'></td>";
                                                 echo "</tr>";
                                             }
                                             echo json_last_error();
@@ -458,13 +458,13 @@ $d=$_SESSION['id'];
                 button.className="btn btn-primary";
                 button.onclick=function(){
                     var h="";
+                    var test2=<?php echo json_encode(json_encode($_SESSION['id']))?>;
                     for(var c = 0 ; c<array.length;c++){
                         h=h+" "+array[c];
+                        //var alo = new GheBay(idChuyenBay,test2,array[c],ngaybay);
                     }
-                    var test2=<?php echo json_encode(json_encode($_SESSION["id"]))?>;
-                    var test = document.getElementById("");
-                    alert(h+" "+idChuyenBay+" "+test+" "+ngayBay);
-                    window.location.href="./?checkout=on";
+                    alert(h+" "+idChuyenBay+" "+test2+" "+ngayBay);
+                   // window.location.href="./?checkout=on";
                 }
             var body = document.getElementById("submitButton");
                 body.appendChild(button);
