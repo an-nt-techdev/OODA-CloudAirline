@@ -234,6 +234,11 @@ class BookingModel
         return $this->gheBayDao->getGheByIdChuyenBayAndNgayBay($chuyenBay, $ngayBay);
     }
 
+    public function loadGheBayByIdVe($IdVe)
+    {
+        return $this->gheBayDao->getGheBayByIdVe($IdVe);
+    }
+
 
 
 
@@ -262,6 +267,10 @@ class BookingModel
         return $this->sanBayDao->getAllSanBay();
     }
 
+    public function getSanBayById($Id)
+    {
+        return $this->sanBayDao->getSanBayById($Id);
+    }
 
 
 

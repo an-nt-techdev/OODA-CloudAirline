@@ -28,7 +28,7 @@
 									<div class="col-md-12">
 										<div class="form-group">
 											<span class="form-label">Ticket Code</span>
-											<input class="form-control" type="text" name="ticket-code" placeholder="Your ticket code">
+											<input class="form-control" type="text" name="ticket-code" placeholder="Your ticket code" required>
 										</div>
 									</div>
 									<div class="col-md-12">
