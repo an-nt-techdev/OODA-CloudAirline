@@ -69,7 +69,7 @@
                 // load trang chọn ghế
                 require_once SITE_ROOT.'/View/choose_seat.php';
             }
-
+            
             else 
             {
                 $v = $bkModel->getVeById($_SESSION['id']);
