@@ -458,13 +458,19 @@ $d=$_SESSION['id'];
                 button.className="btn btn-primary";
                 button.onclick=function(){
                     var h="";
+                    var arrayy=[];
                     var test2=<?php echo json_encode(json_encode($_SESSION['id']))?>;
                     for(var c = 0 ; c<array.length;c++){
-                        h=h+" "+array[c];
-                        //var alo = new GheBay(idChuyenBay,test2,array[c],ngaybay);
+                        var x = {
+                           idchuyenbay:idChuyenBay,
+                           idve: test2,
+                           ghe: array[c],
+                           ngaybay:ngayBay,
+                        }
+                        arrayy.push(x);
                     }
-                    alert(h+" "+idChuyenBay+" "+test2+" "+ngayBay);
-                   // window.location.href="./?checkout=on";
+                    window.location.href="./?checkout=on";
+                    
                 }
             var body = document.getElementById("submitButton");
                 body.appendChild(button);
@@ -476,6 +482,8 @@ $d=$_SESSION['id'];
             }
         }
     }
+</script>
+<script>
 </script>
 <script type="text/javascript" src="View/Resources/js/script.js"></script>
 <!-- This templates was made by Colorlib (https://colorlib.com) -->
