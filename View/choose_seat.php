@@ -222,8 +222,10 @@
 
 
 			</div>
+            
             <div class="w3-col m6" style="display:none" id ="col-show-list">
                 <div class="booking-form">
+                    <form action="?checkout=on" method="post">
                     <div id="formShowGhe" >
                         <h5 id ="clickCount"><h5>               
                         <h4 id="tit"></h4>
@@ -234,10 +236,12 @@
                         </div>
                         <div id ="tietKiem"style="text-align:center;padding:10px;margin-left:100px;margin-right:100px">
                         </div>
+                        <div id ="listChoosed" name="listChoosed" value=""></div>
                         <div id="submitButton"></div>
                     </div>
+                    </form>
                 </div>
-            </div>  
+            </div>
             </div>
             </div>
 		</div>
@@ -316,6 +320,7 @@ $d=$_SESSION['id'];
                 button.disabled='true';
             }
             button.id = j;
+            button.type="button";
              //Clicked envent
             if(loaive!="medium")button.disabled='true';
             button.onclick=function(){
@@ -362,6 +367,7 @@ $d=$_SESSION['id'];
             button.style.borderRadius = "15px";
             button.style.border="2px solid #555555";
             button.id = j;
+            button.type="button";
             //Clicked envent
             if(loaive!="hard")button.disabled='true';
             button.onclick=function(){
@@ -392,6 +398,7 @@ $d=$_SESSION['id'];
             var button = document.createElement("button");
             j++;
             button.innerHTML = j;
+            button.type="button";
             //check ghe
             if(check(j,gheBayList)==1){
                 button.style.background='#0c83fa';
@@ -456,11 +463,17 @@ $d=$_SESSION['id'];
                 button.style.width="500px";
                 button.style.height="45px";
                 button.className="btn btn-primary";
+                button.type="button";
+                //button.type="button";
                 button.onclick=function(){
                     var h="";
                     var arrayy=[];
                     var test2=<?php echo json_encode(json_encode($_SESSION['id']))?>;
+                    h+=idChuyenBay+",";
+                    h+=test2+",";
+                    h+=ngayBay;
                     for(var c = 0 ; c<array.length;c++){
+<<<<<<< HEAD
                         var x = {
                             idchuyenbay:idChuyenBay,
                             idve: test2,
@@ -468,9 +481,12 @@ $d=$_SESSION['id'];
                             ngaybay:ngayBay,
                         }
                         arrayy.push(x);
+=======
+                        h+=","+array[c];
+>>>>>>> develop
                     }
-                    test(arrayy);
-                    //window.location.href="./?checkout=on";
+                    document.getElementById("listChoosed").value=h;
+                    document.getElementById("listChoosed").innerHTML=document.getElementById("listChoosed").value;
                     
                 }
             var body = document.getElementById("submitButton");
@@ -485,6 +501,7 @@ $d=$_SESSION['id'];
     }
 </script>
 <script
+<<<<<<< HEAD
     src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous">
@@ -494,14 +511,26 @@ function test(arrayy){
                     console.log(arrayy);
                     $.ajax({
                         url:SITE_ROOT."Controller/chooseSeatController.php",
+=======
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<!-- <script type="text/javascript">
+function test(arrayy){
+                    console.log(arrayy);
+                    $.ajax({
+                        url:"Controller/homeController.php",
+>>>>>>> develop
                         method:"post",
                         data:{ arrayy: JSON.stringify(arrayy) },
                         success:function(res){
-                            console.log(res);
+                            alert("ok");
                         }
                     });
+                   
+                    window.location.href="./?checkout=on";
 }
-</script>
+</script> -->
 <script type="text/javascript" src="View/Resources/js/script.js"></script>
 <!-- This templates was made by Colorlib (https://colorlib.com) -->
 
