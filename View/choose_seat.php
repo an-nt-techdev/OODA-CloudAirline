@@ -469,7 +469,8 @@ $d=$_SESSION['id'];
                         }
                         arrayy.push(x);
                     }
-                    window.location.href="./?checkout=on";
+                    test(arrayy);
+                    //window.location.href="./?checkout=on";
                     
                 }
             var body = document.getElementById("submitButton");
@@ -483,7 +484,22 @@ $d=$_SESSION['id'];
         }
     }
 </script>
-<script>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script type="text/javascript">
+function test(arrayy){
+                    console.log(arrayy);
+                    $.ajax({
+                        url:"View/readjson.php",
+                        method:"post",
+                        data:{ arrayy: JSON.stringify(arrayy) },
+                        success:function(res){
+                            console.log(res);
+                        }
+                    });
+}
 </script>
 <script type="text/javascript" src="View/Resources/js/script.js"></script>
 <!-- This templates was made by Colorlib (https://colorlib.com) -->
