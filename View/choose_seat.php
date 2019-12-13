@@ -488,17 +488,8 @@ $d=$_SESSION['id'];
         }
     }
 </script>
-<<<<<<< HEAD
-<script
-    src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous">
-</script>
-
-=======
 <script>
 </script>
->>>>>>> deve
 <script type="text/javascript" src="View/Resources/js/script.js"></script>
 <!-- This templates was made by Colorlib (https://colorlib.com) -->
 
