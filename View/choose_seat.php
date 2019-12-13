@@ -236,7 +236,7 @@
                         </div>
                         <div id ="tietKiem"style="text-align:center;padding:10px;margin-left:100px;margin-right:100px">
                         </div>
-                        <div id ="listChoosed" name="listChoosed" value=""></div>
+                        <input type="text" id ="listChoosed" name="listChoosed"></div>
                         <div id="submitButton"></div>
                     </div>
                     </form>
@@ -463,7 +463,7 @@ $d=$_SESSION['id'];
                 button.style.width="500px";
                 button.style.height="45px";
                 button.className="btn btn-primary";
-                button.type="button";
+                button.type="submit";
                 //button.type="button";
                 button.onclick=function(){
                     var h="";
