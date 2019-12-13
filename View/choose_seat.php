@@ -26,7 +26,6 @@
             <?php
                 $VE = $bkModel->getVeById($_SESSION['id']);
                 echo $_SESSION['id'];
-                $as=$_SESSION['id']
             ?> 
 	<div id="booking" class="section">
 		<div class="section-center">
@@ -40,7 +39,7 @@
                     document.getElementById("result").innerHTML = localStorage.getItem("type");
                 </script>
                 <p id="result"><p>
-					<div class="con-md-8" style="margin-left: 80px;">
+					<div class="con-md-8" style="margin-left: 80px;" id="formNgayDi">
                             <form class="form-inline" action="?booking=on&choose_seat=on&change=start" method="post">   
                                 <div class="form-group" style="margin-left: -35px;">
                                     <span class="form-label"><b><i>From</b></i></span>
@@ -110,7 +109,7 @@
                                                 echo "<td>".$chuyenBayList[$i]->getId()."</td>";
                                                 echo "<td>".$chuyenBayList[$i]->getGioBay()."</td>";
                                                 echo "<td>".number_format($price)."</td>";
-                                                echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."',".json_encode($gheBayList).",'".$lv->getId()."','".$VE->getNgayDi1()."') value='Choose This'></td>";
+                                                echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."',".json_encode($gheBayList).",'".$lv->getId()."','".$VE->getNgayDi1()."',".$VE->getKieuVe().") value='Choose This'></td>";
                                                 echo "</tr>";
                                             }
                                         }
@@ -134,7 +133,7 @@
                 ?>
 
                 <div class="row">
-					<div class="con-md-8" style="margin-left: 80px;">
+					<div class="con-md-8" style="margin-left: 80px;" id="formNgayVe">
                             <form class="form-inline" action="?booking=on&choose_seat=on&change=end" method="post">   
                                 <div class="form-group" style="margin-left: -35px;">
                                     <span class="form-label"><b><i>From</b></i></span>
@@ -203,10 +202,9 @@
                                                 echo "<td>".$chuyenBayList[$i]->getId()."</td>";
                                                 echo "<td>".$chuyenBayList[$i]->getGioBay()."</td>";
                                                 echo "<td>".number_format($price)."</td>";
-                                                echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."',".json_encode($gheBayList).",'".$lv->getId()."','".$VE->getNgayDi2()."') value='Choose This'></td>";
+                                                echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."',".json_encode($gheBayList).",'".$lv->getId()."','".$VE->getNgayDi2()."',".$VE->getKieuVe().") value='Choose This'></td>";
                                                 echo "</tr>";
                                             }
-                                            echo json_last_error();
                                         }
                                         ?>
                                     </tbody>
@@ -236,7 +234,7 @@
                         </div>
                         <div id ="tietKiem"style="text-align:center;padding:10px;margin-left:100px;margin-right:100px">
                         </div>
-                        <input type="text" id ="listChoosed" name="listChoosed"></div>
+                        <input type="text" id ="listChoosed" name="listChoosed" hidden></div>
                         <div id="submitButton"></div>
                     </div>
                     </form>
@@ -260,7 +258,7 @@ $d=$_SESSION['id'];
         document.getElementById("focus").style.backgroundColor = "red";
         }
     // hàm gọi vẽ ghế theo chuyen
-    function showGheBay(idChuyenBay, idMayBay, gheBayList,loaive,ngayBay){
+    function showGheBay(idChuyenBay, idMayBay, gheBayList,loaive,ngayBay,kieuVe){
         document.getElementById("col-show-list").style.display = "initial";
         removeChild();
         var thuong="",thuongGia="",tietKiem="",loaiMayBay="";
@@ -290,7 +288,7 @@ $d=$_SESSION['id'];
         checkShowSubmit(sum,array);
         document.getElementById("tit").innerHTML="Type: "+loaiMayBay+" - Planes'Name: "+idMayBay;
         document.getElementById("idChuyenBay").innerHTML="FlightID: "+idChuyenBay;
-        createGhe(thuong, thuongGia, tietKiem, idChuyenBay,gheBayList,sum,array,loaive,ngayBay);
+        createGhe(thuong, thuongGia, tietKiem, idChuyenBay,gheBayList,sum,array,loaive,ngayBay,kieuVe);
 
         document.getElementsByClassName("formChuyenBay").submit();
     }
@@ -304,7 +302,7 @@ $d=$_SESSION['id'];
         return 1;
     }
     // hàm vẽ ghế
-    function createGhe(thuong, thuongGia, tietKiem, idChuyenBay,gheBayList,sum,array,loaive,ngayBay){
+    function createGhe(thuong, thuongGia, tietKiem, idChuyenBay,gheBayList,sum,array,loaive,ngayBay,kieuVe){
         var j=0;
         for(var i = 1 ; i<=thuong;i++){
             j++;
@@ -329,7 +327,7 @@ $d=$_SESSION['id'];
                     this.style.backgroundColor="rgb(237, 80, 45)";
                     sum-=1;
                     array.push(this.id);
-                    checkShowSubmit(sum,array,idChuyenBay,ngayBay);
+                    checkShowSubmit(sum,array,idChuyenBay,ngayBay,kieuVe);
                     document.getElementById("clickCount").innerHTML="Can Choose: "+sum;
                 }
                 else{
@@ -337,7 +335,7 @@ $d=$_SESSION['id'];
                     sum+=1;
                     var index = array.indexOf(this.id);
                     if (index !== -1) array.splice(index, 1);
-                    checkShowSubmit(sum,array,idChuyenBay,ngayBay);
+                    checkShowSubmit(sum,array,idChuyenBay,ngayBay,kieuVe);
                     document.getElementById("clickCount").innerHTML="Can Choose: "+sum;
                 }
             }
@@ -377,7 +375,7 @@ $d=$_SESSION['id'];
                     this.style.backgroundColor="rgb(237, 80, 45)";
                     sum-=1;
                     array.push(this.id);
-                    checkShowSubmit(sum,array,idChuyenBay,ngayBay);
+                    checkShowSubmit(sum,array,idChuyenBay,ngayBay,kieuVe);
                     document.getElementById("clickCount").innerHTML="Can Choose: "+sum;
                 }
                 else{
@@ -385,7 +383,7 @@ $d=$_SESSION['id'];
                     sum+=1;
                     var index = array.indexOf(this.id);
                     if (index !== -1) array.splice(index, 1);
-                    checkShowSubmit(sum,array,idChuyenBay,ngayBay);
+                    checkShowSubmit(sum,array,idChuyenBay,ngayBay,kieuVe);
                     document.getElementById("clickCount").innerHTML="Can Choose: "+sum;
                 }
             }
@@ -416,7 +414,7 @@ $d=$_SESSION['id'];
                     this.style.backgroundColor="rgb(237, 80, 45)";
                     sum-=1;
                     array.push(this.id);
-                    checkShowSubmit(sum,array,idChuyenBay,ngayBay);
+                    checkShowSubmit(sum,array,idChuyenBay,ngayBay,kieuVe);
                     document.getElementById("clickCount").innerHTML="Can Choose: "+sum;
                 }
                 else{
@@ -424,7 +422,7 @@ $d=$_SESSION['id'];
                     sum+=1;
                     var index = array.indexOf(this.id);
                     if (index !== -1) array.splice(index, 1);
-                    checkShowSubmit(sum,array,idChuyenBay,ngayBay);
+                    checkShowSubmit(sum,array,idChuyenBay,ngayBay,kieuVe);
                     document.getElementById("clickCount").innerHTML="Can Choose: "+sum;
                 }
             }
@@ -490,12 +488,17 @@ $d=$_SESSION['id'];
         }
     }
 </script>
+<<<<<<< HEAD
 <script
     src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous">
 </script>
 
+=======
+<script>
+</script>
+>>>>>>> deve
 <script type="text/javascript" src="View/Resources/js/script.js"></script>
 <!-- This templates was made by Colorlib (https://colorlib.com) -->
 

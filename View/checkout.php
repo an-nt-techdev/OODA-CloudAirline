@@ -23,7 +23,18 @@
 </head>
 
 <body>
-<?php echo $STRING;?>
+<?php echo $STRING;
+// echo "<br>";
+// echo $pos1." ".$pos2." ".$pos3;
+echo "<br>";
+echo $idChuyenBay;
+echo "<br>";
+echo $idVe;
+echo "<br>";
+echo $ngayBay;
+echo "<br>";
+echo $pos3."-".$test."-". strlen($STRING);
+?>
 	<div id="booking" class="section">
 		<div class="section-center">
 			<div class="container">
