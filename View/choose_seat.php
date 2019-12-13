@@ -409,7 +409,7 @@ $d=$_SESSION['id'];
             }
             button.id = j;
              //Clicked envent
-             if(loaive!="normal")button.disabled='true';
+            if(loaive!="normal")button.disabled='true';
             button.onclick=function(){
                 if(this.style.backgroundColor=="rgb(12, 131, 250)")
                 {   
@@ -473,7 +473,17 @@ $d=$_SESSION['id'];
                     h+=test2+",";
                     h+=ngayBay;
                     for(var c = 0 ; c<array.length;c++){
+<<<<<<< HEAD
+                        var x = {
+                            idchuyenbay:idChuyenBay,
+                            idve: test2,
+                            ghe: array[c],
+                            ngaybay:ngayBay,
+                        }
+                        arrayy.push(x);
+=======
                         h+=","+array[c];
+>>>>>>> develop
                     }
                     document.getElementById("listChoosed").value=h;
                     document.getElementById("listChoosed").innerHTML=document.getElementById("listChoosed").value;
@@ -491,6 +501,17 @@ $d=$_SESSION['id'];
     }
 </script>
 <script
+<<<<<<< HEAD
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous">
+</script>
+<script type="text/javascript">
+function test(arrayy){
+                    console.log(arrayy);
+                    $.ajax({
+                        url:SITE_ROOT."Controller/chooseSeatController.php",
+=======
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
@@ -499,6 +520,7 @@ function test(arrayy){
                     console.log(arrayy);
                     $.ajax({
                         url:"Controller/homeController.php",
+>>>>>>> develop
                         method:"post",
                         data:{ arrayy: JSON.stringify(arrayy) },
                         success:function(res){
