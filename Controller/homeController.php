@@ -13,7 +13,10 @@
         require_once SITE_ROOT.'/Controller/checkingController.php';
     } 
     else if(isset($_GET['checkout'])){
-        $STRING=$_POST['listChoosed'];
+        $STRING="";
+       if(isset($_POST['listChoosed'])){
+           $STRING=$_POST['listChoosed'];
+       }
         require_once SITE_ROOT.'/Controller/checkoutController.php';
     }
     else require_once SITE_ROOT.'/View/home.php';
