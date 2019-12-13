@@ -23,7 +23,7 @@
 </head>
 
 <body>
-Checkout
+<?php echo $STRING;?>
 	<div id="booking" class="section">
 		<div class="section-center">
 			<div class="container">
