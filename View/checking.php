@@ -59,8 +59,8 @@
 						</div>
 					</div>
 					<div class="col-md-7 col-md-offset-1">
-						<div class="booking-form">
-							<form action="?checked=true" method="post">
+						<div class="booking-form" style="padding-top: 25px;">
+							<form action="" method="get">
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
@@ -187,9 +187,9 @@
 									</div>
 								</div>
 								<?php }?>
-								<!-- <div class="form-btn">
-									<button class="submit-btn">Show flights</button>
-								</div> -->
+								<div class="form-btn">
+									<button class="submit-btn">Back</button>
+								</div>
 							</form>
 						</div>
 					</div>

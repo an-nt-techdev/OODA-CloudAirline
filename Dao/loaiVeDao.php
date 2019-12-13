@@ -33,11 +33,11 @@ class LoaiVeDao extends DBConnection
 	{
         $result = $this->runQuery("SELECT * FROM loaive where ten='{$ten}'");
 		$row= $result->fetch_assoc();
-		 return new LoaiVe(
-			 $row['id'],
-             $row['ten'],
-             $row['phanTram']
-	 	);
+		return new LoaiVe(
+			$row['id'],
+            $row['ten'],
+            $row['phanTram']
+	);
     }
 
     public function getLoaiVeById($Id)
@@ -45,12 +45,12 @@ class LoaiVeDao extends DBConnection
         $result = $this->runQuery("SELECT * FROM loaive where id='{$Id}'");
 		$row= $result->fetch_assoc();
 		return new LoaiVe(
-			 $row['id'],
-             $row['ten'],
-             $row['phanTram']
-	 	);
+			$row['id'],
+            $row['ten'],
+            $row['phanTram']
+	);
     }
-  
+
 }
 
 ?>
