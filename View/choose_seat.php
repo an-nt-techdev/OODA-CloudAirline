@@ -454,16 +454,17 @@ $d=$_SESSION['id'];
         }
     }
     //hàm check sum to show button submit
-    function checkShowSubmit(sum,array,idChuyenBay,ngayBay){
+    function checkShowSubmit(sum,array,idChuyenBay,ngayBay,kieuVe){
         if(sum==0){
             var button = document.createElement("button");
                 button.innerHTML="Submit";
                 button.style.width="500px";
                 button.style.height="45px";
                 button.className="btn btn-primary";
-                button.type="submit";
-                //button.type="button";
-                button.onclick=function(){
+                if(kieuVe!=1){  // xử lý choose ghế ( check hidden) 1 chiều
+                    button.type="submit";
+                    //button.type="button";
+                    button.onclick=function(){
                     var h="";
                     var arrayy=[];
                     var test2=<?php echo json_encode(json_encode($_SESSION['id']))?>;
@@ -476,7 +477,16 @@ $d=$_SESSION['id'];
                     document.getElementById("listChoosed").value=h;
                     document.getElementById("listChoosed").innerHTML=document.getElementById("listChoosed").value;
                     
+                    }
                 }
+                else{ //  xử lý choose ghế ( check hidden) 2 chiều
+                    button.type="button";
+                    button.onclick=function(){
+                    document.getElementById("formNgayDi").style.visibility="hidden";
+                    }
+                      
+                }
+                
             var body = document.getElementById("submitButton");
                 body.appendChild(button);
         }
