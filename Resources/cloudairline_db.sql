@@ -61,6 +61,7 @@ CREATE TABLE ve(
 CREATE TABLE trangthaive(
     idVe VARCHAR(15) NOT NULL,
     trangThai VARCHAR(50) NOT NULL,
+    email VARCHAR(200) NOT NULL,
     PRIMARY KEY (idVe),
     FOREIGN KEY (idVe) REFERENCES ve(id)
 );

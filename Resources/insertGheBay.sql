@@ -18,7 +18,7 @@ INSERT INTO `ghebay` (`idChuyenBay`, `idVe`, `ghe`, `ngayBay`) VALUES
 ('92', 't4', '68', '2019-12-20'), 
 ('20', 't4', '1', '2019-12-22'), 
 ('20', 't4', '2', '2019-12-22'),
- 
+
 
 ('11', 't5', '17', '2019-12-20'), 
 ('11', 't5', '18', '2019-12-20'), 
@@ -55,3 +55,16 @@ INSERT INTO `ghebay` (`idChuyenBay`, `idVe`, `ghe`, `ngayBay`) VALUES
 ('97', 't8', '96', '2019-12-22'), 
 ('97', 't8', '97', '2019-12-22'), 
 ('97', 't8', '98', '2019-12-22');
+
+
+INSERT INTO trangThaiVe (idVe, trangThai, email) VALUES
+("t0", "Delivery", "test0@gmail.com"),
+("t1", "Delivery", "test1@gmail.com"),
+("t2", "Delivery", "test2@gmail.com"),
+("t3", "Paid", "test3@gmail.com"),
+("t4", "Paid", "test4@gmail.com"),
+("t5", "Delivery", "test5@gmail.com"),
+("t6", "Delivery", "test6@gmail.com"),
+("t7", "Paid", "test7@gmail.com"),
+("t8", "Delivery", "test8@gmail.com"),
+("t9", "Paid", "test9@gmail.com");

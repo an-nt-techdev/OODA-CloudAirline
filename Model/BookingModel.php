@@ -279,7 +279,7 @@ class BookingModel
     {
         $sanBay1 = $this->sanBayDao->getIdByTenSanBay($DiemDi)->getId();
         $sanBay2 = $this->sanBayDao->getIdByTenSanBay($DiemDen)->getId();
- 
+
         return $this->chuyenBayDao->getChuyenBayByDiaDiem($sanBay1, $sanBay2);
     }
 

@@ -16,17 +16,19 @@ class TrangThaiVeDao extends DBConnection
 		$row = $result->fetch_assoc();
 		return new TrangThaiVe(
 			$row['idVe'],
-			$row['trangThai']
+			$row['trangThai'],
+			$row['email']
         );
     }
     
     public function insertTrangThaiVe($TrangThaiVe)
 	{
 		return $this->runQuery(
-			"INSERT INTO trangthaive(idVe, trangThai) 
+			"INSERT INTO trangthaive(idVe, trangThai, email) 
 			VALUE (
 				'{$TrangThaiVe->getIdVe()}',
-				'{$TrangThaiVe->getTrangThai()}'
+				'{$TrangThaiVe->getTrangThai()}',
+				'{$TrangThaiVe->getEmail()}'
 			)"
 		);
     }

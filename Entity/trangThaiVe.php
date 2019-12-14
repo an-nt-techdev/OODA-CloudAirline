@@ -4,11 +4,13 @@ class TrangThaiVe
 {
     private $idVe;
     private $trangThai;
+    private $email;
 
-	public function __construct( $IdVe, $TrangThai)
+	public function __construct( $IdVe, $TrangThai, $Email)
     {
         $this->idVe = $IdVe;
         $this->trangThai = $TrangThai;
+        $this->email = $Email;
     }
 
     public function getIdVe()
@@ -29,6 +31,16 @@ class TrangThaiVe
     public function setTrangThai($TrangThai)
     {
         $this->trangThai = $TrangThai;
+    }
+
+    public fucntion getEmail()
+    {
+        return $this->email;
+    }
+
+    public function setEmail($Email)
+    {
+        $this->email = $Email;
     }
     
 }
