@@ -25,7 +25,6 @@
 <body>
             <?php
                 $VE = $bkModel->getVeById($_SESSION['id']);
-                //echo $_SESSION['id'];
             ?> 
 	<div id="booking" class="section">
 		<div class="section-center">
