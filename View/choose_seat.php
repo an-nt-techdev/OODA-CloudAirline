@@ -539,8 +539,6 @@ $d=$_SESSION['id'];
         }
     }
 </script>
-<script>
-</script>
 <script type="text/javascript" src="View/Resources/js/script.js"></script>
 <!-- This templates was made by Colorlib (https://colorlib.com) -->
 
