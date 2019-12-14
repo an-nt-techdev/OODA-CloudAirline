@@ -82,13 +82,13 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Departing</span>
-											<input class="form-control" name="start" type="date" required>
+											<input class="form-control" name="start" type="date" id="start" onchange="checkDateInput()" required>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Returning</span>
-											<input class="form-control" name="end" type="date" id="returning" required disabled>
+											<input class="form-control" name="end" type="date" id="returning" onchange="checkDateInput()" required disabled>
 										</div>
 									</div>
 								</div>
@@ -178,6 +178,11 @@
 	</div>
 </body>
 
+<script>
+	function checkDateInput(){
+		document.getElementById('returning').min=document.getElementById('start').value;
+	}
+</script>
 <script type="text/javascript" src="View/Resources/js/script.js"></script>
 <!-- This templates was made by Colorlib (https://colorlib.com) -->
 

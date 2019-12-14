@@ -3,6 +3,7 @@
     $p='home';
     $bkModel = new BookingModel();
     $idChuyenBay="";
+    // Bay đi
     if($STRING!=""){
         $len=0;
         $pos1=strpos($STRING,',',0);
@@ -10,10 +11,8 @@
         $pos3=strpos($STRING,',',$pos2+1);
         //id chuyen bay
         $idChuyenBay=substr($STRING,0,$pos1);
-        $len+=strlen($idChuyenBay);
         //id ve
         $idVe=substr($STRING,$pos1+2,$pos2-$pos1-3);
-        $len=$len+strlen($idVe);
         //ngay bay
         $ngayBay=substr($STRING,$pos2+1,$pos3-$pos2-1);
         //list ghe
@@ -38,6 +37,39 @@
             }
             
         }
+        // Bay về nếu có
+        $IdChuyenBay="";
+        if($STRING2!=""){
+            $Pos1=strpos($STRING2,',',0);
+            $Pos2=strpos($STRING2,',',$Pos1+1);
+            $Pos3=strpos($STRING2,',',$Pos2+1);
+            //id chuyen bay
+            $IdChuyenBay=substr($STRING2,0,$Pos1);
+            //id ve
+            $IdVe=substr($STRING2,$Pos1+2,$Pos2-$Pos1-3);
+            //ngay bay
+            $NgayBay=substr($STRING2,$Pos2+1,$Pos3-$Pos2-1);
+            //list ghe
+            $Test="";
+            $Pos;
+                for($i=$Pos3+1;$i<strlen($STRING2);$i++){
+                    $Pos=strpos($STRING2,',',$i);
+                    if($Pos==false)
+                    {
+                        $Test=$Test." ".substr($STRING2,$i,strlen($STRING2)-$i);
+                        $bkModel->saveGheBay($IdChuyenBay,$IdVe,substr($STRING2,$i,strlen($STRING2)-$i),$NgayBay);
+                        echo "<br>";
+                        break;
+                    }
+                    else{
+                        $Test=substr($STRING2,$i,$Pos-$i)." ".$Test;
+                        $bkModel->saveGheBay($IdChuyenBay,$IdVe,substr($STRING2,$i,$Pos-$i),$NgayBay);
+                        echo "<br>";
+                        $i=$Pos;
+                    }
+                }
+                
+            }
     require_once SITE_ROOT.'/View/checkout.php';
     
 ?>
