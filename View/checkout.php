@@ -89,27 +89,23 @@ echo $pos3."-".$test."-". strlen($STRING);
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript">
-		var clock;
-		$(document).ready(function() {
-			clock = $('.clock').FlipClock(30*60, {
-				clockFace: 'MinuteCounter',
-				countdown: true,
-				callbacks: {
-					stop: function() {
-						$('.message').html('The clock has stopped!');
-					}
-				}
-			});
-		});	
-	</script>
 </body>
-
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="Resources/FlipClock-master/compiled/flipclock.js"></script>	
-
-
-
+<script type="text/javascript">
+	var clock;
+	$(document).ready(function() {
+		clock = $('.clock').FlipClock(30*60, {
+			clockFace: 'MinuteCounter',
+			countdown: true,
+			callbacks: {
+				stop: function() {
+					$('.message').html('The clock has stopped!');
+				}
+			}
+		});
+	});	
+</script>
 <script type="text/javascript" src="View/Resources/js/script.js"></script>
 <!-- This templates was made by Colorlib (https://colorlib.com) -->
 
