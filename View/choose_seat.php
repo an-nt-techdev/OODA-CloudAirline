@@ -25,7 +25,7 @@
 <body>
             <?php
                 $VE = $bkModel->getVeById($_SESSION['id']);
-                echo $_SESSION['id'];
+                //echo $_SESSION['id'];
             ?> 
 	<div id="booking" class="section">
 		<div class="section-center">
@@ -39,7 +39,7 @@
                     document.getElementById("result").innerHTML = localStorage.getItem("type");
                 </script>
                 <p id="result"><p>
-					<div class="con-md-8" style="margin-left: 80px;" id="formNgayDi" style="visibility:visible">
+					<div class="con-md-8" style="margin-left: 80px;" id="formNgayDi">
                             <form class="form-inline" action="?booking=on&choose_seat=on&change=start" method="post">   
                                 <div class="form-group" style="margin-left: -35px;">
                                     <span class="form-label"><b><i>From</b></i></span>
@@ -133,7 +133,7 @@
                 ?>
 
                 <div class="row">
-					<div class="con-md-8" style="margin-left: 80px;" id="formNgayVe"  style="visibility:visible">
+					<div class="con-md-8" style="margin-left: 80px;" id="formNgayVe">
                             <form class="form-inline" action="?booking=on&choose_seat=on&change=end" method="post">   
                                 <div class="form-group" style="margin-left: -35px;">
                                     <span class="form-label"><b><i>From</b></i></span>
@@ -234,9 +234,9 @@
                         </div>
                         <div id ="tietKiem"style="text-align:center;padding:10px;margin-left:100px;margin-right:100px">
                         </div>
-                        <input type="text" id ="listChoosed1" name="listChoosed1">
-                        <input type="text" id ="listChoosed2" name="listChoosed2">
-                        <div id="submitButton"></div>
+                        <input type="text" id ="listChoosed1" name="listChoosed1" hidden>
+                        <input type="text" id ="listChoosed2" name="listChoosed2" hidden>
+                        <div id="submitButton" style="text-alight:center"></div>
                     </div>
                     </form>
                 </div>
@@ -486,15 +486,27 @@ $d=$_SESSION['id'];
                     button.onclick=function(){
                         //document.getElementById("formNgayDi").style.visibility="hidden";
                         if(document.getElementById("formNgayDi").style.visibility=="hidden"|| document.getElementById("formNgayVe").style.visibility=="hidden"){
-                            //button.style="submit";
+                           // button.type="submit";
+                           button.type="submit";
                         }
                         else{
                             if(chieuBay=="baydi"){
-                                document.getElementById("formNgayDi").style.visibility=="hidden";
+                                document.getElementById("formNgayDi").style.visibility="hidden";
+                                removeChild();
+                                const parent4 = document.getElementById("submitButton");
+                                while (parent4.firstChild) {
+                                parent4.firstChild.remove();
+                                }
                             }
                             else{
-                                document.getElementById("formNgay").style.visibility=="hidden";
+                                document.getElementById("formNgayVe").style.visibility="hidden";
+                                removeChild();
+                                const parent5 = document.getElementById("submitButton");
+                                while (parent5.firstChild) {
+                                parent5.firstChild.remove();
+                                }
                             }
+                            button.type="button";
                         }
                         var h="";
                         var arrayy=[];

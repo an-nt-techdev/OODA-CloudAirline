@@ -14,12 +14,13 @@
     } 
     else if(isset($_GET['checkout'])){
         $STRING="";
+        $STRING2="";
        if(isset($_POST['listChoosed1'])){
            $STRING=$_POST['listChoosed1'];
        }
-    //    if(isset($_POST['listChoosed2'])){
-    //     $STRING2=$_POST['listChoosed2'];
-    //     }
+       if(isset($_POST['listChoosed2'])){
+        $STRING2=$_POST['listChoosed2'];
+        }
         require_once SITE_ROOT.'/Controller/checkoutController.php';
     }
     else require_once SITE_ROOT.'/View/home.php';

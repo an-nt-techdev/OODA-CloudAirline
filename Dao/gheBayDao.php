@@ -66,7 +66,6 @@ class GheBayDao extends DBConnection
     
     public function insertGheBay($GheBay)
 	{
-		echo $GheBay->getIdChuyenBay()." ".$GheBay->getIdVe()." ".$GheBay->getGhe()." ".$GheBay->getNgayBay();
 		$a="INSERT INTO ghebay(idChuyenBay,idVe,ghe,ngayBay) VALUE ('{$GheBay->getIdChuyenBay()}','{$GheBay->getIdVe()}',{$GheBay->getGhe()},'{$GheBay->getNgayBay()}') ";
 		return $this->runQuery($a);
     }
