@@ -39,7 +39,7 @@
                     document.getElementById("result").innerHTML = localStorage.getItem("type");
                 </script>
                 <p id="result"><p>
-					<div class="con-md-8" style="margin-left: 80px;" id="formNgayDi">
+					<div class="con-md-8" style="margin-left: 80px;" id="formNgayDi" style="visibility:visible">
                             <form class="form-inline" action="?booking=on&choose_seat=on&change=start" method="post">   
                                 <div class="form-group" style="margin-left: -35px;">
                                     <span class="form-label"><b><i>From</b></i></span>
@@ -109,7 +109,7 @@
                                                 echo "<td>".$chuyenBayList[$i]->getId()."</td>";
                                                 echo "<td>".$chuyenBayList[$i]->getGioBay()."</td>";
                                                 echo "<td>".number_format($price)."</td>";
-                                                echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."',".json_encode($gheBayList).",'".$lv->getId()."','".$VE->getNgayDi1()."',".$VE->getKieuVe().") value='Choose This'></td>";
+                                                echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."',".json_encode($gheBayList).",'".$lv->getId()."','".$VE->getNgayDi1()."',".$VE->getKieuVe().",'baydi') value='Choose This'  style='background-color:rgb(221, 221, 221)'></td>";
                                                 echo "</tr>";
                                             }
                                         }
@@ -133,7 +133,7 @@
                 ?>
 
                 <div class="row">
-					<div class="con-md-8" style="margin-left: 80px;" id="formNgayVe">
+					<div class="con-md-8" style="margin-left: 80px;" id="formNgayVe"  style="visibility:visible">
                             <form class="form-inline" action="?booking=on&choose_seat=on&change=end" method="post">   
                                 <div class="form-group" style="margin-left: -35px;">
                                     <span class="form-label"><b><i>From</b></i></span>
@@ -202,7 +202,7 @@
                                                 echo "<td>".$chuyenBayList[$i]->getId()."</td>";
                                                 echo "<td>".$chuyenBayList[$i]->getGioBay()."</td>";
                                                 echo "<td>".number_format($price)."</td>";
-                                                echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."',".json_encode($gheBayList).",'".$lv->getId()."','".$VE->getNgayDi2()."',".$VE->getKieuVe().") value='Choose This'></td>";
+                                                echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."',".json_encode($gheBayList).",'".$lv->getId()."','".$VE->getNgayDi2()."',".$VE->getKieuVe().",'bayve') value='Choose This'  style='background-color:rgb(221, 221, 221)'></td>";
                                                 echo "</tr>";
                                             }
                                         }
@@ -234,7 +234,8 @@
                         </div>
                         <div id ="tietKiem"style="text-align:center;padding:10px;margin-left:100px;margin-right:100px">
                         </div>
-                        <input type="text" id ="listChoosed" name="listChoosed" hidden></div>
+                        <input type="text" id ="listChoosed1" name="listChoosed1">
+                        <input type="text" id ="listChoosed2" name="listChoosed2">
                         <div id="submitButton"></div>
                     </div>
                     </form>
@@ -258,7 +259,7 @@ $d=$_SESSION['id'];
         document.getElementById("focus").style.backgroundColor = "red";
         }
     // hàm gọi vẽ ghế theo chuyen
-    function showGheBay(idChuyenBay, idMayBay, gheBayList,loaive,ngayBay,kieuVe){
+    function showGheBay(idChuyenBay, idMayBay, gheBayList,loaive,ngayBay,kieuVe,chieuBay){
         document.getElementById("col-show-list").style.display = "initial";
         removeChild();
         var thuong="",thuongGia="",tietKiem="",loaiMayBay="";
@@ -288,7 +289,7 @@ $d=$_SESSION['id'];
         checkShowSubmit(sum,array);
         document.getElementById("tit").innerHTML="Type: "+loaiMayBay+" - Planes'Name: "+idMayBay;
         document.getElementById("idChuyenBay").innerHTML="FlightID: "+idChuyenBay;
-        createGhe(thuong, thuongGia, tietKiem, idChuyenBay,gheBayList,sum,array,loaive,ngayBay,kieuVe);
+        createGhe(thuong, thuongGia, tietKiem, idChuyenBay,gheBayList,sum,array,loaive,ngayBay,kieuVe,chieuBay);
 
         document.getElementsByClassName("formChuyenBay").submit();
     }
@@ -302,7 +303,7 @@ $d=$_SESSION['id'];
         return 1;
     }
     // hàm vẽ ghế
-    function createGhe(thuong, thuongGia, tietKiem, idChuyenBay,gheBayList,sum,array,loaive,ngayBay,kieuVe){
+    function createGhe(thuong, thuongGia, tietKiem, idChuyenBay,gheBayList,sum,array,loaive,ngayBay,kieuVe,chieuBay){
         var j=0;
         for(var i = 1 ; i<=thuong;i++){
             j++;
@@ -314,6 +315,7 @@ $d=$_SESSION['id'];
                 
             }
             else{
+                button.title="đã có người đặt";
                 button.style.backgroundColor='#d9d0d0';
                 button.disabled='true';
             }
@@ -327,7 +329,7 @@ $d=$_SESSION['id'];
                     this.style.backgroundColor="rgb(237, 80, 45)";
                     sum-=1;
                     array.push(this.id);
-                    checkShowSubmit(sum,array,idChuyenBay,ngayBay,kieuVe);
+                    checkShowSubmit(sum,array,idChuyenBay,ngayBay,kieuVe,chieuBay);
                     document.getElementById("clickCount").innerHTML="Can Choose: "+sum;
                 }
                 else{
@@ -335,7 +337,7 @@ $d=$_SESSION['id'];
                     sum+=1;
                     var index = array.indexOf(this.id);
                     if (index !== -1) array.splice(index, 1);
-                    checkShowSubmit(sum,array,idChuyenBay,ngayBay,kieuVe);
+                    checkShowSubmit(sum,array,idChuyenBay,ngayBay,kieuVe,chieuBay);
                     document.getElementById("clickCount").innerHTML="Can Choose: "+sum;
                 }
             }
@@ -354,7 +356,7 @@ $d=$_SESSION['id'];
                 button.style.background='#27db0b';
             }
             else{ // không trống
-            
+                button.title="đã có người đặt";
                 button.style.backgroundColor='#d9d0d0';
                 button.disabled='true';
             }
@@ -375,7 +377,7 @@ $d=$_SESSION['id'];
                     this.style.backgroundColor="rgb(237, 80, 45)";
                     sum-=1;
                     array.push(this.id);
-                    checkShowSubmit(sum,array,idChuyenBay,ngayBay,kieuVe);
+                    checkShowSubmit(sum,array,idChuyenBay,ngayBay,kieuVe,chieuBay);
                     document.getElementById("clickCount").innerHTML="Can Choose: "+sum;
                 }
                 else{
@@ -383,7 +385,7 @@ $d=$_SESSION['id'];
                     sum+=1;
                     var index = array.indexOf(this.id);
                     if (index !== -1) array.splice(index, 1);
-                    checkShowSubmit(sum,array,idChuyenBay,ngayBay,kieuVe);
+                    checkShowSubmit(sum,array,idChuyenBay,ngayBay,kieuVe,chieuBay);
                     document.getElementById("clickCount").innerHTML="Can Choose: "+sum;
                 }
             }
@@ -402,6 +404,7 @@ $d=$_SESSION['id'];
                 button.style.background='#0c83fa';
             }
             else{
+                button.title="đã có người đặt";
                 button.style.backgroundColor='#d9d0d0';
                 button.disabled='true';
             }
@@ -414,7 +417,7 @@ $d=$_SESSION['id'];
                     this.style.backgroundColor="rgb(237, 80, 45)";
                     sum-=1;
                     array.push(this.id);
-                    checkShowSubmit(sum,array,idChuyenBay,ngayBay,kieuVe);
+                    checkShowSubmit(sum,array,idChuyenBay,ngayBay,kieuVe,chieuBay);
                     document.getElementById("clickCount").innerHTML="Can Choose: "+sum;
                 }
                 else{
@@ -422,7 +425,7 @@ $d=$_SESSION['id'];
                     sum+=1;
                     var index = array.indexOf(this.id);
                     if (index !== -1) array.splice(index, 1);
-                    checkShowSubmit(sum,array,idChuyenBay,ngayBay,kieuVe);
+                    checkShowSubmit(sum,array,idChuyenBay,ngayBay,kieuVe,chieuBay);
                     document.getElementById("clickCount").innerHTML="Can Choose: "+sum;
                 }
             }
@@ -454,7 +457,7 @@ $d=$_SESSION['id'];
         }
     }
     //hàm check sum to show button submit
-    function checkShowSubmit(sum,array,idChuyenBay,ngayBay,kieuVe){
+    function checkShowSubmit(sum,array,idChuyenBay,ngayBay,kieuVe,chieuBay){
         if(sum==0){
             var button = document.createElement("button");
                 button.innerHTML="Submit";
@@ -474,15 +477,42 @@ $d=$_SESSION['id'];
                     for(var c = 0 ; c<array.length;c++){
                         h+=","+array[c];
                     }
-                    document.getElementById("listChoosed").value=h;
-                    document.getElementById("listChoosed").innerHTML=document.getElementById("listChoosed").value;
+                    document.getElementById("listChoosed1").value=h;
+                        document.getElementById("listChoosed1").innerHTML=document.getElementById("listChoosed1").value;
                     
                     }
                 }
                 else{ //  xử lý choose ghế ( check hidden) 2 chiều
-                    button.type="button";
                     button.onclick=function(){
-                    document.getElementById("formNgayDi").style.visibility="hidden";
+                        //document.getElementById("formNgayDi").style.visibility="hidden";
+                        if(document.getElementById("formNgayDi").style.visibility=="hidden"|| document.getElementById("formNgayVe").style.visibility=="hidden"){
+                            //button.style="submit";
+                        }
+                        else{
+                            if(chieuBay=="baydi"){
+                                document.getElementById("formNgayDi").style.visibility=="hidden";
+                            }
+                            else{
+                                document.getElementById("formNgay").style.visibility=="hidden";
+                            }
+                        }
+                        var h="";
+                        var arrayy=[];
+                        var test2=<?php echo json_encode(json_encode($_SESSION['id']))?>;
+                        h+=idChuyenBay+",";
+                        h+=test2+",";
+                        h+=ngayBay;
+                        for(var c = 0 ; c<array.length;c++){
+                            h+=","+array[c];
+                        }
+                        if(chieuBay=="baydi"){
+                            document.getElementById("listChoosed1").value=h;
+                            document.getElementById("listChoosed1").innerHTML=document.getElementById("listChoosed1").value;
+                        }
+                        else if(chieuBay=="bayve"){
+                            document.getElementById("listChoosed2").value=h;
+                            document.getElementById("listChoosed2").innerHTML=document.getElementById("listChoosed2").value;
+                        }
                     }
                       
                 }
