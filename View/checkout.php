@@ -19,11 +19,11 @@
 			-moz-appearance:textfield; /* Firefox */
 		}	
 	</style>
-
+	
 </head>
 
 <body>
-<?php echo $STRING;
+<!-- <?php echo $STRING;
 // echo "<br>";
 // echo $pos1." ".$pos2." ".$pos3;
 echo "<br>";
@@ -34,7 +34,7 @@ echo "<br>";
 echo $ngayBay;
 echo "<br>";
 echo $pos3."-".$test."-". strlen($STRING);
-?>
+?> -->
 	<div id="booking" class="section">
 		<div class="section-center">
 			<div class="container">
@@ -45,9 +45,14 @@ echo $pos3."-".$test."-". strlen($STRING);
 							<p>Cloud Airline is pleased to serve you</p>
 						</div>
 					</div>
+					<div class="clock" style="margin:2em;"></div>
+					<div class="message"></div>
 					<div class="col-md-7 col-md-offset-1">
 						<div class="booking-form">
 							<form action="?checked=true" method="post">
+								<!-- <div class="form-group"> -->
+									
+								<!-- </div> -->
 								<div class="form-group">
 									<div class="form-checkbox">
 										<label for="one-way">
@@ -74,89 +79,6 @@ echo $pos3."-".$test."-". strlen($STRING);
 										</div>
 									</div>
 								</div>
-								<div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<span class="form-label">Departing</span>
-											<input class="form-control" type="date" required>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<span class="form-label">Returning</span>
-											<input class="form-control" type="date" id="returning" required disabled>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-4">
-										<div class="form-group">
-											<span class="form-label">Adults (18+)</span>
-											<select class="form-control">
-												<?php 
-													for ($i=1; $i<=100; $i++)
-													{
-														echo "<option id='".$i."' value='".$i."'>".$i."</option>";
-													}
-												?>
-											</select>
-											<span class="select-arrow"></span>
-										</div>
-									</div>
-									<div class="col-md-4">
-										<div class="form-group">
-											<span class="form-label">Children (0-17)</span>
-											<select class="form-control">
-												<?php 
-													for ($i=0; $i<=100; $i++)
-													{
-														echo "<option id='".$i."' value='".$i."'>".$i."</option>";
-													}
-												?>
-											</select>
-											<span class="select-arrow"></span>
-										</div>
-									</div>
-									<div class="col-md-4">
-										<div class="form-group">
-											<span class="form-label">Ticket type</span>
-											<select class="form-control">
-												<option>Basic ticket</option>
-												<option>Business ticket</option>
-												<option>First class ticket</option>
-											</select>
-											<span class="select-arrow"></span>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<span class="form-label">Your Name</span>
-											<input class="form-control" type="text" placeholder="Your full name" required>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<span class="form-label">Your Identity card</span>
-											<input class="form-control" type="number" placeholder="Your Identity card" required>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<span class="form-label">Your Phone Number</span>
-											<input class="form-control" type="number" placeholder="Your phone number" required>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<span class="form-label">Your Address</span>
-											<input class="form-control" type="text" placeholder="Your address" required>
-										</div>
-									</div>
-								</div>
 								<div class="form-btn">
 									<button class="submit-btn">Show flights</button>
 								</div>
@@ -167,7 +89,26 @@ echo $pos3."-".$test."-". strlen($STRING);
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		var clock;
+		$(document).ready(function() {
+			clock = $('.clock').FlipClock(30*60, {
+				clockFace: 'MinuteCounter',
+				countdown: true,
+				callbacks: {
+					stop: function() {
+						$('.message').html('The clock has stopped!');
+					}
+				}
+			});
+		});	
+	</script>
 </body>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="Resources/FlipClock-master/compiled/flipclock.js"></script>	
+
+
 
 <script type="text/javascript" src="View/Resources/js/script.js"></script>
 <!-- This templates was made by Colorlib (https://colorlib.com) -->
