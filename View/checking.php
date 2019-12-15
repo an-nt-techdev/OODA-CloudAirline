@@ -81,7 +81,20 @@
 <body>
 <?php
 if(isset($_SESSION['id'])){
-	echo "<div class='alert success'><span class='closebtn'>&times;</span><strong>Success!</strong>We have sent your ticket code to".$trangThaiVe->getEmail()."</div>";
+	$sub = "Hello! We Are CloudAirLine Company. Thank You For Using Our Service";
+	//the message
+	$msg = "Here is Your Ticket Code :".$_SESSION['id'];
+	//recipient email here
+	$rec = $trangThaiVe->getEmail();
+	//send email
+	mail($rec,$sub,$msg);
+	$re = mail($rec,$sub,$msg);
+	if($re==true){
+		echo "<div class='alert success'><span class='closebtn'>&times;</span><strong>Success!</strong>We Have Sent Your Ticket Code To ".$rec."</div>";
+	}
+	else{
+		echo "<div class='alert danger'><span class='closebtn'>&times;</span><strong>Fail!</strong>We Can Not Sent Your Ticket Code To ".$rec."</div>";
+	}
 }
 ?>
 	<div id="booking" class="section">

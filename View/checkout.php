@@ -79,23 +79,6 @@
 	else if ($Ve->getLoaiVe() === "medium") $LoaiVe = "Basic Ticket";
 	else if ($Ve->getLoaiVe() === "normal") $LoaiVe = "Saving Ticket";
 ?>
-
-<?php
-	// $sub = "Your subject";
-	// //the message
-	// $msg = "Your message";
-	// //recipient email here
-	// $rec = "ohwhynotme1999@gmail.com";
-	// //send email
-	// mail($rec,$sub,$msg);
-	// $re = mail($rec,$sub,$msg);
-	// if($re==true){
-	// 	echo "s";
-	// }
-	// else{
-	// 	echo "f";
-	// }
-?>
 	<div id="booking" class="section">
 		<div class="section-center">
 			<div class="container">
