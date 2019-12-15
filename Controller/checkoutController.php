@@ -1,7 +1,5 @@
 <?php 
-    require_once SITE_ROOT.'/Model/BookingModel.php';
     $p='home';
-    $bkModel = new BookingModel();
     $idChuyenBay="";
     // Bay đi
     if($STRING!=""){

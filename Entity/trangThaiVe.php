@@ -33,7 +33,7 @@ class TrangThaiVe
         $this->trangThai = $TrangThai;
     }
 
-    public fucntion getEmail()
+    public function getEmail()
     {
         return $this->email;
     }

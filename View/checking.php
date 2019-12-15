@@ -17,13 +17,41 @@
 
 		input[type=number] {
 			-moz-appearance:textfield; /* Firefox */
+		}
+		.alert {
+		padding: 20px;
+		background-color: #f44336;
+		color: white;
+		opacity: 1;
+		transition: opacity 0.6s;
+		margin-bottom: 15px;
+		}
+
+		.alert.success {background-color: #4CAF50;}
+		.alert.info {background-color: #2196F3;}
+		.alert.warning {background-color: #ff9800;}
+
+		.closebtn {
+		margin-left: 15px;
+		color: white;
+		font-weight: bold;
+		float: right;
+		font-size: 22px;
+		line-height: 20px;
+		cursor: pointer;
+		transition: 0.3s;
+		}
+
+		.closebtn:hover {
+		color: black;
 		}	
 	</style>
 
 </head>
 
 		<?php 
-			$Ve = $bkModel->getVeById($code); 
+			$Ve = $bkModel->getVeById($code);
+			$trangThaiVe=$bkModel->getTrangThaiVeById($code); 
 			$tmpSanBay = $bkModel->getSanBayById($Ve->getDiemDi());
 			$DiemDi = $tmpSanBay->getTenThanhPho();
 			$tmpSanBay = $bkModel->getSanBayById($Ve->getDiemDen());
@@ -36,18 +64,26 @@
 			if ($Ve->getKieuVe() == 0)
 			{
 				$kq1 = "";
-				for ($i = 0; $i < count($GheBay); $i++) $kq1 = $kq1.$GheBay[$i]->getGhe().", ";
+				for ($i = 0; $i < count($GheBay)-1; $i++) $kq1 = $kq1.$GheBay[$i]->getGhe().", ";
+				$kq1 = $kq1.$GheBay[$i]->getGhe();
 			}
 			else 
 			{
 				$kq1 = "";
-				for ($i = 0; $i < (count($GheBay)+1)/2 - 1; $i++) $kq1 = $kq1.$GheBay[$i]->getGhe().", ";
+				for ($i = 0; $i < (count($GheBay)+1)/2 - 2; $i++) $kq1 = $kq1.$GheBay[$i]->getGhe().", ";
+				$kq1 = $kq1.$GheBay[$i]->getGhe();
 				$kq2 = "";
-				for ($i = (count($GheBay)+1)/2; $i < count($GheBay); $i++) $kq2 = $kq2.$GheBay[$i]->getGhe().", ";
+				for ($i = (count($GheBay)+1)/2; $i < count($GheBay)-1; $i++) $kq2 = $kq2.$GheBay[$i]->getGhe().", ";
+				$kq2 = $kq2.$GheBay[$i]->getGhe();
 			}
 		?>
 
 <body>
+<?php
+if(isset($_SESSION['id'])){
+	echo "<div class='alert success'><span class='closebtn'>&times;</span><strong>Success!</strong>We have sent your ticket code to".$trangThaiVe->getEmail()."</div>";
+}
+?>
 	<div id="booking" class="section">
 		<div class="section-center">
 			<div class="container">
@@ -71,7 +107,7 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Ticket status</span>
-											<input class="form-control" type="text" placeholder="City or airport">
+											<input class="form-control" type="text" placeholder="City or airport" value="<?php echo $trangThaiVe->getTrangThai()?>" disabled>
 										</div>
 									</div>
 								</div>
@@ -198,7 +234,18 @@
 		</div>
 	</div>
 </body>
+<script>
+var close = document.getElementsByClassName("closebtn");
+var i;
 
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function(){
+    var div = this.parentElement;
+    div.style.opacity = "0";
+    setTimeout(function(){ div.style.display = "none"; }, 600);
+  }
+}
+</script>
 <script type="text/javascript" src="View/Resources/js/script.js"></script>
 <!-- This templates was made by Colorlib (https://colorlib.com) -->
 

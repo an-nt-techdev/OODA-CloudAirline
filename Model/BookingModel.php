@@ -6,10 +6,12 @@ require_once SITE_ROOT."/Dao/veDao.php";
 require_once SITE_ROOT."/Dao/chuyenBayDao.php";
 require_once SITE_ROOT."/Dao/gheBayDao.php";
 require_once SITE_ROOT."/Dao/loaiMayBayDao.php";
+require_once SITE_ROOT."/Dao/trangThaiVeDao.php";
 
 require_once SITE_ROOT."/Entity/ve.php";
 require_once SITE_ROOT."/Entity/gheBay.php";
 require_once SITE_ROOT."/Entity/loaiMayBay.php";
+require_once SITE_ROOT."/Entity/trangThaiVe.php";
 
 
 class BookingModel
@@ -23,6 +25,7 @@ class BookingModel
     private $chuyenBayDao;
     private $gheBayDao;
     private $loaiMayBayDao;
+    private $trangThaiVeDao;
 
     public function __construct() 
 	{
@@ -32,6 +35,7 @@ class BookingModel
         $this->veDao = new VeDao();
         $this->gheBayDao = new GheBayDao();
         $this->loaiMayBayDao = new LoaiMayBayDao();
+        $this->trangThaiVeDao = new TrangThaiVeDao();
     }
 
 
@@ -295,6 +299,13 @@ class BookingModel
     public function getLoaiMayBayByTen($ten)
     {
         return $this->loaiMayBayDao->getLoaiMayBayByTen($ten);
+    }
+    public function insertTrangThaiVe($trangThaiVe)
+    {
+        return $this->trangThaiVeDao->insertTrangThaiVe($trangThaiVe);
+    }
+    public function getTrangThaiVeById($idVe){
+        return $this->trangThaiVeDao->getTrangThaiVeById($idVe);
     }
 }
 

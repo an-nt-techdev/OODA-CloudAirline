@@ -1,8 +1,6 @@
 <?php 
 
-    require_once SITE_ROOT.'/Model/BookingModel.php';
     $p='home';
-    $bkModel = new BookingModel();
     
     // vào trang thanh toán
     if (isset($_GET['checkout'])) require_once SITE_ROOT.'/View/checkout.php';

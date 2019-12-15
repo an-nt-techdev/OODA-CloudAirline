@@ -108,7 +108,7 @@
                                                 echo "<td>".$chuyenBayList[$i]->getId()."</td>";
                                                 echo "<td>".$chuyenBayList[$i]->getGioBay()."</td>";
                                                 echo "<td>".number_format($price)."</td>";
-                                                echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."',".json_encode($gheBayList).",'".$lv->getId()."','".$VE->getNgayDi1()."',".$VE->getKieuVe().",'baydi') value='Choose This'  style='background-color:rgb(221, 221, 221)'></td>";
+                                                echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."',".json_encode($gheBayList).",'".$lv->getId()."','".$VE->getNgayDi1()."',".$VE->getKieuVe().",'baydi',$price) value='Choose This'  style='background-color:rgb(221, 221, 221)'></td>";
                                                 echo "</tr>";
                                             }
                                         }
@@ -201,7 +201,7 @@
                                                 echo "<td>".$chuyenBayList[$i]->getId()."</td>";
                                                 echo "<td>".$chuyenBayList[$i]->getGioBay()."</td>";
                                                 echo "<td>".number_format($price)."</td>";
-                                                echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."',".json_encode($gheBayList).",'".$lv->getId()."','".$VE->getNgayDi2()."',".$VE->getKieuVe().",'bayve') value='Choose This'  style='background-color:rgb(221, 221, 221)'></td>";
+                                                echo "<td><input type='button' onfocus='this.style.backgroundColor=".'"#4CAF50"'."'  onfocusout='this.style.backgroundColor=".'"rgb(221, 221, 221)"'."'onclick=showGheBay('".$chuyenBayList[$i]->getId()."','".$chuyenBayList[$i]->getIdMayBay()."',".json_encode($gheBayList).",'".$lv->getId()."','".$VE->getNgayDi2()."',".$VE->getKieuVe().",'bayve',$price) value='Choose This'  style='background-color:rgb(221, 221, 221)'></td>";
                                                 echo "</tr>";
                                             }
                                         }
@@ -235,6 +235,7 @@
                         </div>
                         <input type="text" id ="listChoosed1" name="listChoosed1" hidden>
                         <input type="text" id ="listChoosed2" name="listChoosed2" hidden>
+                        <input type="text" id ="price" name="price" hidden>
                         <div id="submitButton" style="text-alight:center"></div>
                     </div>
                     </form>
@@ -258,7 +259,7 @@ $d=$_SESSION['id'];
         document.getElementById("focus").style.backgroundColor = "red";
         }
     // hàm gọi vẽ ghế theo chuyen
-    function showGheBay(idChuyenBay, idMayBay, gheBayList,loaive,ngayBay,kieuVe,chieuBay){
+    function showGheBay(idChuyenBay, idMayBay, gheBayList,loaive,ngayBay,kieuVe,chieuBay,price){
         document.getElementById("col-show-list").style.display = "initial";
         removeChild();
         var thuong="",thuongGia="",tietKiem="",loaiMayBay="";
@@ -288,6 +289,7 @@ $d=$_SESSION['id'];
         checkShowSubmit(sum,array);
         document.getElementById("tit").innerHTML="Type: "+loaiMayBay+" - Planes'Name: "+idMayBay;
         document.getElementById("idChuyenBay").innerHTML="FlightID: "+idChuyenBay;
+        document.getElementById("price").value=price;
         createGhe(thuong, thuongGia, tietKiem, idChuyenBay,gheBayList,sum,array,loaive,ngayBay,kieuVe,chieuBay);
 
         document.getElementsByClassName("formChuyenBay").submit();
