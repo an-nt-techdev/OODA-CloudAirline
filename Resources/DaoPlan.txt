@@ -38,5 +38,5 @@ Nạp sẵn:
 
     - loaiVe: có 3 loại
         + Vé phổ thông (Basic) - 130%.
-        + Vé thương gia (Bussiness) - 200%.
+        + Vé thương gia (Business) - 200%.
         + Vé tiết kiệm (Saving) - 100%.
